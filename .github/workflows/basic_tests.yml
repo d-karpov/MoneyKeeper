@@ -1,0 +1,17 @@
+name: 'Basic tests'
+
+on:
+  push:
+    branches: [ denis_branch ]
+
+jobs:
+  build:
+
+    runs-on: macos-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build
+      run: swift build -v
+    - name: Run tests
+      run: swift test -v
