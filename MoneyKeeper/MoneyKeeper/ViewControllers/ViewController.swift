@@ -15,6 +15,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        thirdDev.text = "Den"
         secondDev.text = "Ed"
     }
 }
