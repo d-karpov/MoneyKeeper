@@ -18,9 +18,9 @@ enum CategoriesTypes {
 
 extension Category {
     static func getStartCategory() -> [Category] {
-        let dataManger = DataManager.shared
+        let dataSet = TestDataSet.shared
         var result: [Category] = []
-        dataManger.startCategoriesNames.forEach {
+        dataSet.startCategoriesNames.forEach {
             if $0 == "Salary" {
                 result.append(Category(name: $0, type: .income))
             } else {
