@@ -7,7 +7,7 @@
 
 class DataManager {
     
-    static var shared = DataManager()
+    static let shared = DataManager()
     
     // MARK: Work data
     var user: User
