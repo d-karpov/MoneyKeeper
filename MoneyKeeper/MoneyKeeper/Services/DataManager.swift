@@ -19,10 +19,10 @@ class DataManager {
     let startCategoriesNames = ["Slary", "Food", "Car", "Health"]
     
     // MARK: Work data
-    var users: [User]
+    var user: User
    
     private init() {
-        users = User.getTestUsers()
+        user = User.getTestUsers()[0]
     }
 }
 
