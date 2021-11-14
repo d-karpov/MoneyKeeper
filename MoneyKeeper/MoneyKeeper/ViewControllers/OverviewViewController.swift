@@ -15,22 +15,14 @@ class OverviewViewController: UIViewController {
     @IBOutlet var balanceAmountOutlet: UILabel!
     @IBOutlet var withdrawAmountOutlet: UILabel!
     
-    private let incomeAmount: Float = 155441.90
-    private let withdrawAmount: Float = 900
-    private var balanceAmount: Float {
-        incomeAmount - withdrawAmount
-    }
-    
     private let user = DataManager.shared.user
     //private let user = dataManager.user
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(user.profile.accounts[0].rawMoneyAmount)
-        incomeAmountOutlet.text = incomeAmount.currencyRU
-        balanceAmountOutlet.text = withdrawAmount.currencyRU
-        withdrawAmountOutlet.text = balanceAmount.currencyRU
-        print(user.profile.accounts[0].moneyAmount)
+        incomeAmountOutlet.text = user.profile.getTotalIncome().currencyRU
+        balanceAmountOutlet.text = user.profile.getTotalMoneyAmount().currencyRU
+        withdrawAmountOutlet.text = user.profile.getTotalWithdraw().currencyRU
     }
     
     override func viewWillLayoutSubviews() {
@@ -66,7 +58,7 @@ extension OverviewViewController: UITableViewDataSource {
 
         if indexPath.section == 0 {
             content.image = UIImage(systemName: "hand.thumbsup.fill")
-            content.text = incomeAmount.currencyRU
+            content.text = user.profile.getTotalIncome().currencyRU
         } else if indexPath.section == 1 {
             if indexPath.row < user.profile.accounts.count {
                 content.image = UIImage(systemName: "rectangle")
