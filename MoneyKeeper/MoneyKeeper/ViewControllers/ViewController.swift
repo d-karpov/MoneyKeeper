@@ -28,6 +28,9 @@ class ViewController: UIViewController {
         account.addOperation(Operation(status: .active,
                                        category: Category(name: "Salary", type: .income),
                                        rawMoneyAmount: 2345))
+        account.addOperation(Operation(status: .active,
+                                       category: Category(name: "Salary", type: .income),
+                                       rawMoneyAmount: 1000))
         // Сохраняем изменения в DataManager
         dataManager.setAccount(index: index, updateAccount: account)
         
