@@ -37,7 +37,7 @@ class TestDataSet {
     let testSurname = ""
     let testAccountName = "Tinkoff"
     let testAccountMoney = 20000.0
-    let startCategoriesNames = ["Slary", "Food", "Car", "Health"]
+    let startCategoriesNames = ["Salary", "Food", "Car", "Health"]
     
     private init() {}
 }
