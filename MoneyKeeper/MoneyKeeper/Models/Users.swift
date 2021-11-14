@@ -26,9 +26,9 @@ struct Profile {
 
 extension User {
     static func getTestUsers() -> [User]{
-        let dataManager = DataManager.shared
-        return [User(login: dataManager.testLogin,
-                     password: dataManager.testPassword,
+        let dataSet = TestDataSet.shared
+        return [User(login: dataSet.testLogin,
+                     password: dataSet.testPassword,
                      profile: Profile.getTestProfile())]
     }
 }
@@ -51,9 +51,9 @@ extension Profile {
     }
     
     static func getTestProfile() -> Profile {
-        let dataManager = DataManager.shared
-        return Profile(name: dataManager.testName,
-                       surname: dataManager.testSurname,
+        let dataSet = TestDataSet.shared
+        return Profile(name: dataSet.testName,
+                       surname: dataSet.testSurname,
                        categories: Category.getStartCategory(),
                        accounts: Account.getTestAccounts())
     }

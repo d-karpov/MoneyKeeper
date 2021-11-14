@@ -38,10 +38,10 @@ extension Account {
     }
     
     static func getTestAccounts() -> [Account] {
-        let dataManager = DataManager.shared
+        let dataSet = TestDataSet.shared
         return [ Account(status: .included,
-                         name: dataManager.testAccountName,
+                         name: dataSet.testAccountName,
                          operations: [],
-                         moneyAmount: dataManager.testAccountMoney)]
+                         moneyAmount: dataSet.testAccountMoney)]
     }
 }

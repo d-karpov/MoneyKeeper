@@ -9,6 +9,17 @@ class DataManager {
     
     static let shared = DataManager()
     
+    // MARK: Work data
+    var user: User
+   
+    private init() {
+        user = User.getTestUsers()[0]
+    }
+}
+
+class TestDataSet {
+    static let shared = TestDataSet()
+    
     // MARK: Tets data
     let testLogin = "User"
     let testPassword = "Password"
@@ -18,11 +29,6 @@ class DataManager {
     let testAccountMoney = 20000.0
     let startCategoriesNames = ["Slary", "Food", "Car", "Health"]
     
-    // MARK: Work data
-    var user: User
-   
-    private init() {
-        user = User.getTestUsers()[0]
-    }
+    private init() {}
 }
 
