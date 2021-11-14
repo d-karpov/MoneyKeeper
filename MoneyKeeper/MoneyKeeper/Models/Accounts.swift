@@ -28,6 +28,11 @@ extension Account {
         return operations.reduce(0.0) { $0 + $1.rawMoneyAmount }
     }
     
+    func getMoneyAmount(_ ofName: String ) -> Double {
+        let operations = getActiveOperations().filter { $0.category.name == ofName }
+        return operations.reduce(0.0) { $0 + $1.rawMoneyAmount }
+    }
+    
     mutating func updateMoneyAmount() {
         moneyAmount += getActiveOperations().reduce(0.0) { $0 + $1.moneyAmount }
     }
