@@ -50,11 +50,13 @@ extension Profile {
         accounts.flatMap { $0.getActiveOperations() }
     }
     
+    func getTotalInCategory( _ name: String ) -> Double {
+        accounts.reduce(0.0) { $0 + $1.getMoneyAmount(name)}
+    }
+    
     func getAccountIndex(_ name: String) -> Int {
         accounts.firstIndex(where: { $0.name == name}) ?? 0
     }
-    
-    
     
     static func getTestProfile() -> Profile {
         let dataSet = TestDataSet.shared
