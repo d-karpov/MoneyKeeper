@@ -20,15 +20,17 @@ class OverviewViewController: UIViewController {
     private var balanceAmount: Float {
         incomeAmount - withdrawAmount
     }
-    private let amountOfAccounts = Int.random(in: 3...8)
-    private let amountOfWithdraws = Int.random(in: 5...12)
+    
+    private let user = DataManager.shared.user
+    //private let user = dataManager.user
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        print(user.profile.accounts[0].rawMoneyAmount)
         incomeAmountOutlet.text = incomeAmount.currencyRU
         balanceAmountOutlet.text = withdrawAmount.currencyRU
         withdrawAmountOutlet.text = balanceAmount.currencyRU
+        print(user.profile.accounts[0].moneyAmount)
     }
     
     override func viewWillLayoutSubviews() {
@@ -45,8 +47,8 @@ extension OverviewViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0: return 1
-        case 1: return amountOfAccounts + 1
-        default: return amountOfWithdraws + 1
+        case 1: return user.profile.accounts.count + 1
+        default: return user.profile.categories.count + 1
         }
     }
 
@@ -66,11 +68,23 @@ extension OverviewViewController: UITableViewDataSource {
             content.image = UIImage(systemName: "hand.thumbsup.fill")
             content.text = incomeAmount.currencyRU
         } else if indexPath.section == 1 {
-            content.image = UIImage(systemName: "plus.square.dashed")
-            content.text = String(indexPath.row)
+            if indexPath.row < user.profile.accounts.count {
+                content.image = UIImage(systemName: "rectangle")
+                content.text = user.profile.accounts[indexPath.row].name
+                content.secondaryText = user.profile.accounts[indexPath.row].moneyAmount.currencyRU
+            } else {
+                content.image = UIImage(systemName: "plus.square.dashed")
+                content.text = "Add account"
+            }
         } else {
-            content.image = UIImage(systemName: "hand.thumbsdown.fill")
-            content.text = String(indexPath.row)
+            if indexPath.row < user.profile.categories.count {
+                content.image = UIImage(systemName: "hand.thumbsdown.fill")
+                content.text = user.profile.categories[indexPath.row].name
+                content.secondaryText = 0.currencyRU
+            } else {
+                content.image = UIImage(systemName: "plus.square.dashed")
+                content.text = "Add category"
+            }
         }
 
         cell.contentConfiguration = content
