@@ -10,7 +10,7 @@ import Foundation
 struct User {
     let login: String
     let password: String
-    let profile: Profile
+    var profile: Profile
 }
 
 struct Profile {

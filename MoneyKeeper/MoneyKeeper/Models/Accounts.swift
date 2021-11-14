@@ -11,7 +11,16 @@ struct Account {
     var status: AccountStatus
     var name: String
     var operations: [Operation]
-    var moneyAmount: Double
+    var rawMoneyAmount: Double
+    var moneyAmount: Double {
+        get {
+            updateMoneyAmount()
+        }
+        
+        set {
+            rawMoneyAmount = newValue
+        }
+    }
 }
 
 enum AccountStatus {
@@ -33,15 +42,16 @@ extension Account {
         return operations.reduce(0.0) { $0 + $1.rawMoneyAmount }
     }
     
-    mutating func updateMoneyAmount() {
-        moneyAmount += getActiveOperations().reduce(0.0) { $0 + $1.moneyAmount }
+    private func updateMoneyAmount() -> Double {
+        let result = getActiveOperations().reduce(rawMoneyAmount) { $0 + $1.moneyAmount }
+        return result
     }
     
     static func getTestAccounts() -> [Account] {
         let dataSet = TestDataSet.shared
         return [ Account(status: .included,
                          name: dataSet.testAccountName,
-                         operations: [],
-                         moneyAmount: dataSet.testAccountMoney)]
+                         operations: [Operation(status: .active, category: Category(name: "Health", type: .withdraw), rawMoneyAmount: 1000)],
+                         rawMoneyAmount: dataSet.testAccountMoney)]
     }
 }
