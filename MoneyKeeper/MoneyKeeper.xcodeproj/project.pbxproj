@@ -143,20 +143,6 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		D32FBF9A273FE66A005DC56C /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		D32FBF9B273FE67C005DC56C /* Servicies */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Servicies;
-			sourceTree = "<group>";
-		};
 		F89D27B727412E65006A0447 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
