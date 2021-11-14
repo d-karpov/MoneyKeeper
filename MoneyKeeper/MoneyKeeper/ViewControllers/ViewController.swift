@@ -9,8 +9,6 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    var dataManager = DataManager.shared
-    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
