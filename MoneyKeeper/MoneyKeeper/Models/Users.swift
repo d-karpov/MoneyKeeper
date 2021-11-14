@@ -10,7 +10,7 @@ import Foundation
 struct User {
     let login: String
     let password: String
-    let profile: Profile
+    var profile: Profile
 }
 
 struct Profile {
@@ -25,10 +25,10 @@ struct Profile {
 }
 
 extension User {
-    static func getTestUsers() -> [User]{
-        let dataManager = DataManager.shared
-        return [User(login: dataManager.testLogin,
-                     password: dataManager.testPassword,
+    static func getTestUsers() -> [User] {
+        let dataSet = TestDataSet.shared
+        return [User(login: dataSet.testLogin,
+                     password: dataSet.testPassword,
                      profile: Profile.getTestProfile())]
     }
 }
@@ -50,10 +50,16 @@ extension Profile {
         accounts.flatMap { $0.getActiveOperations() }
     }
     
+    func getAccountIndex(_ name: String) -> Int {
+        accounts.firstIndex(where: { $0.name == name}) ?? 0
+    }
+    
+    
+    
     static func getTestProfile() -> Profile {
-        let dataManager = DataManager.shared
-        return Profile(name: dataManager.testName,
-                       surname: dataManager.testSurname,
+        let dataSet = TestDataSet.shared
+        return Profile(name: dataSet.testName,
+                       surname: dataSet.testSurname,
                        categories: Category.getStartCategory(),
                        accounts: Account.getTestAccounts())
     }
