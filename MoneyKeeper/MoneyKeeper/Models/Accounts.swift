@@ -47,8 +47,7 @@ extension Account {
     }
     
     private func updateMoneyAmount() -> Double {
-        let result = getActiveOperations().reduce(rawMoneyAmount) { $0 + $1.moneyAmount }
-        return result
+        getActiveOperations().reduce(rawMoneyAmount) { $0 + $1.moneyAmount }
     }
     
     static func getTestAccounts() -> [Account] {
@@ -56,6 +55,6 @@ extension Account {
         return [ Account(status: .included,
                          name: dataSet.testAccountName,
                          operations: [],
-                         rawMoneyAmount: dataSet.testAccountMoney)]
+                         rawMoneyAmount: dataSet.testAccountMoney) ]
     }
 }
