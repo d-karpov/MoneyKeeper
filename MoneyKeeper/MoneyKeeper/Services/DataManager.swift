@@ -7,13 +7,23 @@
 
 class DataManager {
     
-    static let shared = DataManager()
+    static var shared = DataManager()
     
     // MARK: Work data
     var user: User
-   
+    
     private init() {
         user = User.getTestUsers()[0]
+    }
+}
+
+extension DataManager {
+    func getAccount(index: Int) -> Account {
+        user.profile.accounts[index]
+    }
+    
+    func setAccount(index: Int, updateAccount: Account) {
+        user.profile.accounts[index] = updateAccount
     }
 }
 

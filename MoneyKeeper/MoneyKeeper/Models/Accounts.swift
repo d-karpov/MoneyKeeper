@@ -42,6 +42,10 @@ extension Account {
         return operations.reduce(0.0) { $0 + $1.rawMoneyAmount }
     }
     
+    mutating func addOperation(_ newOperaion: Operation) {
+        operations.append(newOperaion)
+    }
+    
     private func updateMoneyAmount() -> Double {
         let result = getActiveOperations().reduce(rawMoneyAmount) { $0 + $1.moneyAmount }
         return result
@@ -51,7 +55,7 @@ extension Account {
         let dataSet = TestDataSet.shared
         return [ Account(status: .included,
                          name: dataSet.testAccountName,
-                         operations: [Operation(status: .active, category: Category(name: "Health", type: .withdraw), rawMoneyAmount: 1000)],
+                         operations: [],
                          rawMoneyAmount: dataSet.testAccountMoney)]
     }
 }

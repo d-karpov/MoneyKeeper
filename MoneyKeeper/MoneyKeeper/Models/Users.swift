@@ -25,7 +25,7 @@ struct Profile {
 }
 
 extension User {
-    static func getTestUsers() -> [User]{
+    static func getTestUsers() -> [User] {
         let dataSet = TestDataSet.shared
         return [User(login: dataSet.testLogin,
                      password: dataSet.testPassword,
@@ -49,6 +49,12 @@ extension Profile {
     func getAllActiveOperations() -> [Operation] {
         accounts.flatMap { $0.getActiveOperations() }
     }
+    
+    func getAccountIndex(_ name: String) -> Int {
+        accounts.firstIndex(where: { $0.name == name}) ?? 0
+    }
+    
+    
     
     static func getTestProfile() -> Profile {
         let dataSet = TestDataSet.shared

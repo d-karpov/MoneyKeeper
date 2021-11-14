@@ -9,13 +9,10 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    @IBOutlet var testText: UILabel!
-    
     var dataManager = DataManager.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        testText.text = String(dataManager.user.profile.getTotalMoneyAmount())
     }
 }
 
