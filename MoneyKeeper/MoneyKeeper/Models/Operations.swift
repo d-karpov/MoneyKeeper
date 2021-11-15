@@ -10,7 +10,6 @@ import Foundation
 //MARK: - Operation Struct
 
 struct Operation {
-//    let date: Date
     var status: OperationStatus
     var category: Category
     var rawMoneyAmount: Double
@@ -42,7 +41,7 @@ extension Operation {
         for testCategory in testCategories {
             result.append(Operation(status: .active,
                                     category: testCategory,
-                                    rawMoneyAmount: Double.random(in: 10.0...5000.0)))
+                                    rawMoneyAmount: 1000.0))
         }
         return result
     }

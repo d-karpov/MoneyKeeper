@@ -14,38 +14,29 @@ class ViewController: UIViewController {
     @IBOutlet var income: UILabel!
     @IBOutlet var operations: UILabel!
     
+    //Инизиализация доступа к хранилищу
     var dataManager = DataManager.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Выбираем счет по индексу (нужно для обновления в DataManager)
-        guard let user = User.getUserFromDataManager(dataManager, "User") else { return }
-        let index = user.profile.getAccountIndex("Tinkoff")
-        // Добавляем операции по счету
-//        account.addOperation(Operation(status: .active,
-//                                       category: Category(name: "Car", type: .withdraw),
-//                                       rawMoneyAmount: 3567))
-//        account.addOperation(Operation(status: .active,
-//                                       category: Category(name: "Salary", type: .income),
-//                                       rawMoneyAmount: 2345))
-//        account.addOperation(Operation(status: .active,
-//                                       category: Category(name: "Salary", type: .income),
-//                                       rawMoneyAmount: 1000))
-        // Сохраняем изменения в DataManager
-//        dataManager.setAccount(index: index, updateAccount: account)
-        
-        //Выводим данные
-        accountName.text = user.profile.accounts[index].name //Название счета
-        //Получаем все затраты по пользователю
-        withdraw.text = String(user.profile.getTotalWithdraw())
-        //Получаем все доходы по пользователю
-        income.text = String(user.profile.getTotalIncome())
-        //Получаем баланс по пользовалелб
-        total.text = String(user.profile.getTotalMoneyAmount())
-        //Получаем все операции по пользователю (reduce только для вывода)
-        operations.text = user.profile.getAllActiveOperations().reduce("") {
-            $0 + $1.category.name + ":" + String($1.rawMoneyAmount) + "\n"
+        //Получение конкретного юзера
+        guard var user = User.getUserByLogin(dataManager, "User") else { return }
+        //Получение конкретного счета - НЕ ПРЕДНАЗНАЧЕН для внесения изменений
+        guard let account = user.getAccountByName("Tinkoff") else { return }
+        accountName.text = account.name
+        //Изменения: добавление новой категории, добавление новой операции
+        let newCategory = Category(name: "Party", type: .withdraw)
+        user.addCategory(newCategory)
+        user.addOperation(account.name, Operation(status: .active, category: newCategory, rawMoneyAmount: 4000))
+        //Вывод балансов и операций с цифрой без знака по ним
+        withdraw.text = String(user.getTotalWithdraw())
+        total.text = String(user.getTotalMoneyAmount())
+        income.text = String(user.getTotalIncome())
+        operations.text = user.getAllActiveOperations().reduce("") {
+            $0 + $1.category.name + " : " + String($1.rawMoneyAmount) + "\n"
         }
+        //Сохранение данных в хранилище ОБЯЗАТЕЛЬНО после внесения изменений
+        user.saveUserToDataManager(dataManager, user)
         
     }
 }

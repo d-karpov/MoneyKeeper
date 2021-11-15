@@ -29,7 +29,7 @@ enum AccountStatus {
     case included, excluded
 }
 
-//MARK: - Account public and private methods
+//MARK: - Account public methods
 
 extension Account {
     func getActiveOperations() -> [Operation] {
@@ -46,15 +46,17 @@ extension Account {
         return operations.reduce(0.0) { $0 + $1.rawMoneyAmount }
     }
     
-    mutating func addOperation(_ newOperaion: Operation) {
-        operations.append(newOperaion)
+    mutating func addOperation(_ newOperation: Operation) {
+        operations.append(newOperation)
     }
-    
+}
+
+//MARK: - Account private methods
+
+extension Account {
     private func updateMoneyAmount() -> Double {
         getActiveOperations().reduce(rawMoneyAmount) { $0 + $1.moneyAmount }
     }
-    
-    
 }
 
 //MARK: - Account static methods

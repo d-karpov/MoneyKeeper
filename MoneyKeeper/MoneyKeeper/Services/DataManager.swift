@@ -19,16 +19,6 @@ class DataManager {
     }
 }
 
-//extension DataManager {
-//    func getAccount(index: Int) -> Account {
-//        user.profile.accounts[index]
-//    }
-//
-//    func setAccount(index: Int, updateAccount: Account) {
-//        user.profile.accounts[index] = updateAccount
-//    }
-//}
-
 // MARK: - TetsDataSingletone class
 
 class TestDataSet {

@@ -34,3 +34,11 @@ extension Category {
         return result
     }
 }
+
+//MARK: - Category Equatable Methods
+
+extension Category: Equatable {
+    static func == (lhs: Category, rhs: Category) -> Bool {
+            return lhs.name == rhs.name && lhs.type == rhs.type
+        }
+}
