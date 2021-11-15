@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+
+		D32C9E722741123800B1BB61 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32C9E712741123800B1BB61 /* Users.swift */; };
+		D32C9E74274112E200B1BB61 /* Accounts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32C9E73274112E200B1BB61 /* Accounts.swift */; };
+		D32C9E76274112F700B1BB61 /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32C9E75274112F700B1BB61 /* Categories.swift */; };
+		D32C9E7927411A4600B1BB61 /* Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32C9E7827411A4600B1BB61 /* Operations.swift */; };
+		D32C9E7B27412BBE00B1BB61 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32C9E7A27412BBD00B1BB61 /* DataManager.swift */; };
 		5C20F70227428DEF002A22A0 /* SecondStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C20F70127428DEF002A22A0 /* SecondStoryboard.storyboard */; };
 		5C20F70427428E04002A22A0 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C20F70327428E04002A22A0 /* SecondViewController.swift */; };
 		5C20F70627429F48002A22A0 /* ChangeCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C20F70527429F48002A22A0 /* ChangeCardViewController.swift */; };
@@ -20,6 +26,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+
+		D32C9E712741123800B1BB61 /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
+		D32C9E73274112E200B1BB61 /* Accounts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Accounts.swift; sourceTree = "<group>"; };
+		D32C9E75274112F700B1BB61 /* Categories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
+		D32C9E7827411A4600B1BB61 /* Operations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Operations.swift; sourceTree = "<group>"; };
+		D32C9E7A27412BBD00B1BB61 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		5C20F70127428DEF002A22A0 /* SecondStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SecondStoryboard.storyboard; sourceTree = "<group>"; };
 		5C20F70327428E04002A22A0 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		5C20F70527429F48002A22A0 /* ChangeCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeCardViewController.swift; sourceTree = "<group>"; };
@@ -45,6 +57,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D32C9E77274112FC00B1BB61 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D32C9E712741123800B1BB61 /* Users.swift */,
+				D32C9E73274112E200B1BB61 /* Accounts.swift */,
+				D32C9E7827411A4600B1BB61 /* Operations.swift */,
+				D32C9E75274112F700B1BB61 /* Categories.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		D32C9E7C27412BC200B1BB61 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				D32C9E7A27412BBD00B1BB61 /* DataManager.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		D32FBF76273FE5F9005DC56C = {
 			isa = PBXGroup;
 			children = (
@@ -65,12 +96,12 @@
 		D32FBF81273FE5F9005DC56C /* MoneyKeeper */ = {
 			isa = PBXGroup;
 			children = (
-				D32FBF9B273FE67C005DC56C /* Servicies */,
-				D32FBF9A273FE66A005DC56C /* Models */,
 				D32FBF96273FE62E005DC56C /* Configurations */,
 				D32FBF97273FE63A005DC56C /* ViewControllers */,
 				D32FBF98273FE648005DC56C /* Storyboards */,
 				D32FBF99273FE65B005DC56C /* Resources */,
+				D32C9E77274112FC00B1BB61 /* Models */,
+				D32C9E7C27412BC200B1BB61 /* Services */,
 			);
 			path = MoneyKeeper;
 			sourceTree = "<group>";
@@ -111,20 +142,6 @@
 				D32FBF8B273FE5FA005DC56C /* Assets.xcassets */,
 			);
 			path = Resources;
-			sourceTree = "<group>";
-		};
-		D32FBF9A273FE66A005DC56C /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		D32FBF9B273FE67C005DC56C /* Servicies */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Servicies;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -199,8 +216,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+
+				D32C9E722741123800B1BB61 /* Users.swift in Sources */,
+				D32C9E7B27412BBE00B1BB61 /* DataManager.swift in Sources */,
 				5C20F70427428E04002A22A0 /* SecondViewController.swift in Sources */,
 				D32FBF87273FE5F9005DC56C /* ViewController.swift in Sources */,
+				D32C9E76274112F700B1BB61 /* Categories.swift in Sources */,
+				D32C9E7927411A4600B1BB61 /* Operations.swift in Sources */,
+				D32C9E74274112E200B1BB61 /* Accounts.swift in Sources */,
 				D32FBF83273FE5F9005DC56C /* AppDelegate.swift in Sources */,
 				5C20F7082742A17A002A22A0 /* ChangeTableViewController.swift in Sources */,
 				D32FBF85273FE5F9005DC56C /* SceneDelegate.swift in Sources */,
