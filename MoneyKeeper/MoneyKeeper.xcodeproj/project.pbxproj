@@ -23,6 +23,7 @@
 		F89D27B927412ECB006A0447 /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89D27B827412ECB006A0447 /* Formatter.swift */; };
 		F89D27BB27412EF8006A0447 /* Numeric.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89D27BA27412EF8006A0447 /* Numeric.swift */; };
 		F89D27BD27413169006A0447 /* Locale.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89D27BC27413169006A0447 /* Locale.swift */; };
+		F8C0B6782742DCD400FFD459 /* History.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8C0B6772742DCD400FFD459 /* History.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		F89D27B827412ECB006A0447 /* Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatter.swift; sourceTree = "<group>"; };
 		F89D27BA27412EF8006A0447 /* Numeric.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Numeric.swift; sourceTree = "<group>"; };
 		F89D27BC27413169006A0447 /* Locale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Locale.swift; sourceTree = "<group>"; };
+		F8C0B6772742DCD400FFD459 /* History.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = History.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +133,7 @@
 				D32FBF88273FE5F9005DC56C /* Main.storyboard */,
 				F89D27B327410C74006A0447 /* Overview.storyboard */,
 				D32FBF8D273FE5FA005DC56C /* LaunchScreen.storyboard */,
+				F8C0B6772742DCD400FFD459 /* History.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -214,6 +217,7 @@
 				D32FBF8F273FE5FA005DC56C /* LaunchScreen.storyboard in Resources */,
 				F89D27B427410C74006A0447 /* Overview.storyboard in Resources */,
 				D32FBF8C273FE5FA005DC56C /* Assets.xcassets in Resources */,
+				F8C0B6782742DCD400FFD459 /* History.storyboard in Resources */,
 				D32FBF8A273FE5F9005DC56C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

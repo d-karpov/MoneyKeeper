@@ -38,9 +38,9 @@ extension OverviewViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
-        case 0: return 1
+        case 0: return user.getIncomeCategories().count + 1
         case 1: return user.profile.accounts.count + 1
-        default: return user.profile.categories.count + 1
+        default: return user.getWithdrawCategories().count + 1
         }
     }
 
@@ -57,8 +57,14 @@ extension OverviewViewController: UITableViewDataSource {
         var content = cell.defaultContentConfiguration()
 
         if indexPath.section == 0 {
-            content.image = UIImage(systemName: "hand.thumbsup.fill")
-            content.text = user.profile.getTotalIncome().currencyRU
+            if indexPath.row < user.getIncomeCategories().count {
+                content.image = UIImage(systemName: "hand.thumbsup.fill")
+                content.text = user.getIncomeCategories()[indexPath.row].name
+                content.secondaryText = 0.currencyRU
+            } else {
+                content.image = UIImage(systemName: "plus.square.dashed")
+                content.text = "Add category"
+            }
         } else if indexPath.section == 1 {
             if indexPath.row < user.profile.accounts.count {
                 content.image = UIImage(systemName: "rectangle")
@@ -69,9 +75,9 @@ extension OverviewViewController: UITableViewDataSource {
                 content.text = "Add account"
             }
         } else {
-            if indexPath.row < user.profile.categories.count {
+            if indexPath.row < user.getWithdrawCategories().count {
                 content.image = UIImage(systemName: "hand.thumbsdown.fill")
-                content.text = user.profile.categories[indexPath.row].name
+                content.text = user.getWithdrawCategories()[indexPath.row].name
                 content.secondaryText = 0.currencyRU
             } else {
                 content.image = UIImage(systemName: "plus.square.dashed")
@@ -81,5 +87,15 @@ extension OverviewViewController: UITableViewDataSource {
 
         cell.contentConfiguration = content
         return cell
+    }
+}
+
+extension User {
+    func getIncomeCategories() -> [Category] {
+        self.profile.categories.filter{$0.type == .income}
+    }
+    
+    func getWithdrawCategories() -> [Category] {
+        self.profile.categories.filter{$0.type == .withdraw}
     }
 }
