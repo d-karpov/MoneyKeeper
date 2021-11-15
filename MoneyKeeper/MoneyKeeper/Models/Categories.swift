@@ -7,6 +7,8 @@
 
 import Foundation
 
+//MARK: - Category Struct
+
 struct Category {
     let name: String
     var type: CategoriesTypes
@@ -15,6 +17,8 @@ struct Category {
 enum CategoriesTypes {
     case income, withdraw
 }
+
+//MARK: - Category static methods
 
 extension Category {
     static func getStartCategory() -> [Category] {

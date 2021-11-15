@@ -7,11 +7,31 @@
 
 import Foundation
 
+//MARK: - User struct
+
 struct User {
     let login: String
     let password: String
     var profile: Profile
 }
+
+// MARK: - User static methods
+
+extension User {
+    static func getTestUsers() -> [User] {
+        let dataSet = TestDataSet.shared
+        return [User(login: dataSet.testLogin,
+                     password: dataSet.testPassword,
+                     profile: Profile.getTestProfile())]
+    }
+    
+    static func getUserFromDataManager(_ source: DataManager, _ login: String) -> User? {
+        source.users.first(where: { $0.login == login })
+    }
+    
+}
+
+//MARK: - Profile struct
 
 struct Profile {
     let name: String
@@ -24,14 +44,7 @@ struct Profile {
     }
 }
 
-extension User {
-    static func getTestUsers() -> [User] {
-        let dataSet = TestDataSet.shared
-        return [User(login: dataSet.testLogin,
-                     password: dataSet.testPassword,
-                     profile: Profile.getTestProfile())]
-    }
-}
+//MARK: - Profile public methods
 
 extension Profile {
     func getTotalMoneyAmount() -> Double {
@@ -57,7 +70,11 @@ extension Profile {
     func getAccountIndex(_ name: String) -> Int {
         accounts.firstIndex(where: { $0.name == name}) ?? 0
     }
-    
+}
+
+//MARK: - Profile static methods
+
+extension Profile {
     static func getTestProfile() -> Profile {
         let dataSet = TestDataSet.shared
         return Profile(name: dataSet.testName,

@@ -7,6 +7,8 @@
 
 import Foundation
 
+//MARK: - Account Struct
+
 struct Account {
     var status: AccountStatus
     var name: String
@@ -26,6 +28,8 @@ struct Account {
 enum AccountStatus {
     case included, excluded
 }
+
+//MARK: - Account public and private methods
 
 extension Account {
     func getActiveOperations() -> [Operation] {
@@ -50,11 +54,17 @@ extension Account {
         getActiveOperations().reduce(rawMoneyAmount) { $0 + $1.moneyAmount }
     }
     
+    
+}
+
+//MARK: - Account static methods
+
+extension Account {
     static func getTestAccounts() -> [Account] {
         let dataSet = TestDataSet.shared
         return [ Account(status: .included,
                          name: dataSet.testAccountName,
-                         operations: [],
+                         operations: Operation.getTestOperations(),
                          rawMoneyAmount: dataSet.testAccountMoney) ]
     }
 }
