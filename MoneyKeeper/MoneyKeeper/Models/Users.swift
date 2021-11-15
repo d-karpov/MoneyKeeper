@@ -13,51 +13,49 @@ struct User {
     let login: String
     let password: String
     var profile: Profile
-    var categories: [Category]
-    var accounts: [Account]
 }
 
 //MARK: - User public methods
 
 extension User {
     func getTotalMoneyAmount() -> Double {
-        accounts.reduce(0.0) { $0 + $1.moneyAmount }
+        profile.accounts.reduce(0.0) { $0 + $1.moneyAmount }
     }
     
     func getTotalWithdraw() -> Double {
-        accounts.reduce(0.0) { $0 + $1.getMoneyAmount(.withdraw) }
+        profile.accounts.reduce(0.0) { $0 + $1.getMoneyAmount(.withdraw) }
     }
     
     func getTotalIncome() -> Double {
-        accounts.reduce(0.0) { $0 + $1.getMoneyAmount(.income) }
+        profile.accounts.reduce(0.0) { $0 + $1.getMoneyAmount(.income) }
     }
     
     func getAllActiveOperations() -> [Operation] {
-        accounts.flatMap { $0.getActiveOperations() }
+        profile.accounts.flatMap { $0.getActiveOperations() }
     }
     
     func getTotalInCategory( _ name: String ) -> Double {
-        accounts.reduce(0.0) { $0 + $1.getMoneyAmount(name)}
+        profile.accounts.reduce(0.0) { $0 + $1.getMoneyAmount(name)}
     }
     
     func getAllCategoriesByType(_ type: CategoriesTypes) -> [Category] {
-        categories.filter { $0.type == type }
+        profile.categories.filter { $0.type == type }
     }
     
     func getAccountByName (_ name: String) -> Account? {
-        accounts.first { $0.name == name }
+        profile.accounts.first { $0.name == name }
     }
     //MARK: - Mutating methods
     
     mutating func addCategory(_ newCategory: Category) {
-        if !categories.contains(where: {$0 == newCategory}) {
-            categories.append(newCategory)
+        if !profile.categories.contains(where: {$0 == newCategory}) {
+            profile.categories.append(newCategory)
         }
     }
         
     mutating func addOperation(_ toAccount: String, _ newOperation: Operation) {
         guard let index = getAccountIndex(toAccount) else { return }
-        accounts[index].addOperation(newOperation)
+        profile.accounts[index].addOperation(newOperation)
     }
     
     // MARK: - Save User to DataManager method
@@ -72,7 +70,7 @@ extension User {
 
 extension User {
     private func getAccountIndex(_ name: String) -> Int? {
-        accounts.firstIndex(where: { $0.name == name})
+        profile.accounts.firstIndex(where: { $0.name == name })
     }
     
     private func getUserIndexbyLogin(_ source: DataManager, _ login: String) -> Int? {
@@ -87,9 +85,7 @@ extension User {
         let dataSet = TestDataSet.shared
         return [User(login: dataSet.testLogin,
                      password: dataSet.testPassword,
-                     profile: Profile.getTestProfile(),
-                     categories: Category.getStartCategory(),
-                     accounts: Account.getTestAccounts())]
+                     profile: Profile.getTestProfile())]
     }
     
     static func getUserByLogin(_ source: DataManager, _ login: String) -> User? {
@@ -102,6 +98,8 @@ extension User {
 struct Profile {
     let name: String
     let surname: String
+    var categories: [Category]
+    var accounts: [Account]
     
     var fullname: String {
         "\(name) \(surname)"
@@ -114,6 +112,8 @@ extension Profile {
     static func getTestProfile() -> Profile {
         let dataSet = TestDataSet.shared
         return Profile(name: dataSet.testName,
-                       surname: dataSet.testSurname)
+                       surname: dataSet.testSurname,
+                       categories: Category.getStartCategory(),
+                       accounts: Account.getTestAccounts())
     }
 }

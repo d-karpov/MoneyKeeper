@@ -26,8 +26,8 @@ class TestDataSet {
     
     let testLogin = "User"
     let testPassword = "Password"
-    let testName = "Den"
-    let testSurname = ""
+    let testName = "User"
+    let testSurname = "for test"
     let testAccountName = "Tinkoff"
     let testAccountMoney = 20000.0
     let startCategoriesNames = ["Salary", "Food", "Car", "Health"]
