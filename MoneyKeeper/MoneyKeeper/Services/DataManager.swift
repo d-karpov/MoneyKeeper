@@ -5,32 +5,25 @@
 //  Created by Денис Карпов on 14.11.2021.
 //
 
+//MARK: - DataManager class
+
 class DataManager {
     
-    static var shared = DataManager()
+    static let shared = DataManager()
     
     // MARK: Work data
-    var user: User
+    var users: [User]
     
     private init() {
-        user = User.getTestUsers()[0]
+        users = User.getTestUsers()
     }
 }
 
-extension DataManager {
-    func getAccount(index: Int) -> Account {
-        user.profile.accounts[index]
-    }
-    
-    func setAccount(index: Int, updateAccount: Account) {
-        user.profile.accounts[index] = updateAccount
-    }
-}
+// MARK: - TetsDataSingletone class
 
 class TestDataSet {
     static let shared = TestDataSet()
     
-    // MARK: Tets data
     let testLogin = "User"
     let testPassword = "Password"
     let testName = "Den"

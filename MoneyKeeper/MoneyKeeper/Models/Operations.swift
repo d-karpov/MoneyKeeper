@@ -7,8 +7,9 @@
 
 import Foundation
 
+//MARK: - Operation Struct
+
 struct Operation {
-//    let date: Date
     var status: OperationStatus
     var category: Category
     var rawMoneyAmount: Double
@@ -29,4 +30,19 @@ struct Operation {
 
 enum OperationStatus {
     case active, deleted
+}
+
+//MARK: - Operation static methods
+
+extension Operation {
+    static func getTestOperations() -> [Operation] {
+        var result: [Operation] = []
+        let testCategories = Category.getStartCategory()
+        for testCategory in testCategories {
+            result.append(Operation(status: .active,
+                                    category: testCategory,
+                                    rawMoneyAmount: 1000.0))
+        }
+        return result
+    }
 }
