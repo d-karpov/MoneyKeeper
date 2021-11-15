@@ -11,9 +11,10 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        thirdDev.text = "Den"
-        secondDev.text = "Ed"
-        
     }
+    override func viewWillLayoutSubviews() {
+            super.viewWillLayoutSubviews()
+            performSegue(withIdentifier: "toSecondVC", sender: view)
+        }
 }
 
