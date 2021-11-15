@@ -15,14 +15,20 @@ class OverviewViewController: UIViewController {
     @IBOutlet var balanceAmountOutlet: UILabel!
     @IBOutlet var withdrawAmountOutlet: UILabel!
     
-    private let user = DataManager.shared.user
+    private let user = DataManager.shared.users[0]
     //private let user = dataManager.user
+    private var userIncomeCategories: [Category] {
+        user.getAllCategoriesByType(.income)
+    }
+    private var userWithdrawCategories: [Category] {
+        user.getAllCategoriesByType(.withdraw)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        incomeAmountOutlet.text = user.profile.getTotalIncome().currencyRU
-        balanceAmountOutlet.text = user.profile.getTotalMoneyAmount().currencyRU
-        withdrawAmountOutlet.text = user.profile.getTotalWithdraw().currencyRU
+        incomeAmountOutlet.text = user.getTotalIncome().currencyRU
+        balanceAmountOutlet.text = user.getTotalMoneyAmount().currencyRU
+        withdrawAmountOutlet.text = user.getTotalWithdraw().currencyRU
     }
     
     override func viewWillLayoutSubviews() {
@@ -38,9 +44,9 @@ extension OverviewViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
-        case 0: return user.getIncomeCategories().count + 1
+        case 0: return userIncomeCategories.count + 1
         case 1: return user.profile.accounts.count + 1
-        default: return user.getWithdrawCategories().count + 1
+        default: return userWithdrawCategories.count + 1
         }
     }
 
@@ -55,16 +61,17 @@ extension OverviewViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "overviewRow", for: indexPath)
         var content = cell.defaultContentConfiguration()
-
+        
         if indexPath.section == 0 {
-            if indexPath.row < user.getIncomeCategories().count {
+            if indexPath.row < userIncomeCategories.count {
                 content.image = UIImage(systemName: "hand.thumbsup.fill")
-                content.text = user.getIncomeCategories()[indexPath.row].name
+                content.text = userIncomeCategories[indexPath.row].name
                 content.secondaryText = 0.currencyRU
             } else {
                 content.image = UIImage(systemName: "plus.square.dashed")
                 content.text = "Add category"
             }
+            cell.tintColor = .systemGreen
         } else if indexPath.section == 1 {
             if indexPath.row < user.profile.accounts.count {
                 content.image = UIImage(systemName: "rectangle")
@@ -74,28 +81,21 @@ extension OverviewViewController: UITableViewDataSource {
                 content.image = UIImage(systemName: "plus.square.dashed")
                 content.text = "Add account"
             }
+            cell.tintColor = .systemOrange
         } else {
-            if indexPath.row < user.getWithdrawCategories().count {
+            if indexPath.row < userWithdrawCategories.count {
                 content.image = UIImage(systemName: "hand.thumbsdown.fill")
-                content.text = user.getWithdrawCategories()[indexPath.row].name
+                content.text = userWithdrawCategories[indexPath.row].name
                 content.secondaryText = 0.currencyRU
             } else {
                 content.image = UIImage(systemName: "plus.square.dashed")
                 content.text = "Add category"
             }
+            cell.tintColor = .systemYellow
         }
 
         cell.contentConfiguration = content
+        
         return cell
-    }
-}
-
-extension User {
-    func getIncomeCategories() -> [Category] {
-        self.profile.categories.filter{$0.type == .income}
-    }
-    
-    func getWithdrawCategories() -> [Category] {
-        self.profile.categories.filter{$0.type == .withdraw}
     }
 }
