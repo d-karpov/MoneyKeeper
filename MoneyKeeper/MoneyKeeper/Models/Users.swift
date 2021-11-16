@@ -34,6 +34,10 @@ extension User {
         profile.accounts.flatMap { $0.getActiveOperations() }
     }
     
+    func getAllOperationsByCattegory(_ categoryName: String) -> [Operation] {
+        getAllActiveOperations().filter { $0.category.name == categoryName }
+    }
+    
     func getTotalInCategory( _ name: String ) -> Double {
         profile.accounts.reduce(0.0) { $0 + $1.getMoneyAmount(name)}
     }
