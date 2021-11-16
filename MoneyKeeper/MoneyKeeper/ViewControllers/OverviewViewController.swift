@@ -31,7 +31,6 @@ class OverviewViewController: UIViewController {
         incomeAmountOutlet.text = user.getTotalIncome().currencyRU
         balanceAmountOutlet.text = user.getTotalMoneyAmount().currencyRU
         withdrawAmountOutlet.text = user.getTotalWithdraw().currencyRU
-        print(user.getAllActiveOperations())
     }
     
     override func viewWillLayoutSubviews() {
@@ -115,5 +114,21 @@ extension OverviewViewController: UITableViewDataSource {
         cell.contentConfiguration = content
         
         return cell
+    }
+}
+
+extension OverviewViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let sectionCount: Int
+        
+        switch indexPath.section {
+        case 0: sectionCount = userIncomeCategories.count
+        case 1: sectionCount = user.profile.accounts.count
+        default: sectionCount = userWithdrawCategories.count
+        }
+        
+        if indexPath.row < sectionCount {
+            performSegue(withIdentifier: "historySegue", sender: nil)
+        }
     }
 }

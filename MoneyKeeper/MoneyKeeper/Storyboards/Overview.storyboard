@@ -110,13 +110,11 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="8T5-91-cwi" kind="presentation" id="peW-VJ-2Qg"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="Y6W-OH-hqX" id="jcZ-Qe-vMV"/>
+                                    <outlet property="delegate" destination="Y6W-OH-hqX" id="Ely-NS-rg9"/>
                                 </connections>
                             </tableView>
                         </subviews>
@@ -135,6 +133,7 @@
                         <outlet property="overviewTableView" destination="Gx8-b1-IOe" id="Jyf-sC-Uso"/>
                         <outlet property="topInfoViewOutlet" destination="esB-XF-eVB" id="3NE-94-yae"/>
                         <outlet property="withdrawAmountOutlet" destination="l1W-Ld-wgu" id="P3K-Oc-3bV"/>
+                        <segue destination="8T5-91-cwi" kind="presentation" identifier="historySegue" id="fym-rC-O8G"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
