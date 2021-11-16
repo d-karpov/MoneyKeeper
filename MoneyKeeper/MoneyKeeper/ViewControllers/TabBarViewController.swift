@@ -14,6 +14,10 @@ class TabBarViewController: UITabBarController {
         tabBar.layer.cornerRadius = view.frame.width / 20
         tabBar.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
     }
+    override func viewWillLayoutSubviews() {
+            super.viewWillLayoutSubviews()
+            performSegue(withIdentifier: "toSecondVC", sender: view)
+        }
 }
 
 

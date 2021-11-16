@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5C20F70227428DEF002A22A0 /* SecondStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C20F70127428DEF002A22A0 /* SecondStoryboard.storyboard */; };
+		5C20F70427428E04002A22A0 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C20F70327428E04002A22A0 /* SecondViewController.swift */; };
+		5C20F7082742A17A002A22A0 /* ChangeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C20F7072742A17A002A22A0 /* ChangeTableViewController.swift */; };
 		D32C9E722741123800B1BB61 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32C9E712741123800B1BB61 /* Users.swift */; };
 		D32C9E74274112E200B1BB61 /* Accounts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32C9E73274112E200B1BB61 /* Accounts.swift */; };
 		D32C9E76274112F700B1BB61 /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32C9E75274112F700B1BB61 /* Categories.swift */; };
@@ -28,6 +31,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5C20F70127428DEF002A22A0 /* SecondStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SecondStoryboard.storyboard; sourceTree = "<group>"; };
+		5C20F70327428E04002A22A0 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		5C20F7072742A17A002A22A0 /* ChangeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeTableViewController.swift; sourceTree = "<group>"; };
 		D32C9E712741123800B1BB61 /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
 		D32C9E73274112E200B1BB61 /* Accounts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Accounts.swift; sourceTree = "<group>"; };
 		D32C9E75274112F700B1BB61 /* Categories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
@@ -126,6 +132,8 @@
 				D32FBF86273FE5F9005DC56C /* TabBarViewController.swift */,
 				F89D27B5274114BD006A0447 /* OverviewViewController.swift */,
 				D35A16522743EF5500BDFDE1 /* ProfileViewController.swift */,
+				5C20F70327428E04002A22A0 /* SecondViewController.swift */,
+				5C20F7072742A17A002A22A0 /* ChangeTableViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -135,6 +143,7 @@
 			children = (
 				D32FBF88273FE5F9005DC56C /* TabBar.storyboard */,
 				F89D27B327410C74006A0447 /* Overview.storyboard */,
+				5C20F70127428DEF002A22A0 /* SecondStoryboard.storyboard */,
 				D32FBF8D273FE5FA005DC56C /* LaunchScreen.storyboard */,
 				D35A16502743EE0C00BDFDE1 /* Profile.storyboard */,
 			);
@@ -221,6 +230,7 @@
 				D32FBF8F273FE5FA005DC56C /* LaunchScreen.storyboard in Resources */,
 				F89D27B427410C74006A0447 /* Overview.storyboard in Resources */,
 				D32FBF8C273FE5FA005DC56C /* Assets.xcassets in Resources */,
+				5C20F70227428DEF002A22A0 /* SecondStoryboard.storyboard in Resources */,
 				D32FBF8A273FE5F9005DC56C /* TabBar.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -235,6 +245,7 @@
 				D32C9E722741123800B1BB61 /* Users.swift in Sources */,
 				D32C9E7B27412BBE00B1BB61 /* DataManager.swift in Sources */,
 				D32FBF87273FE5F9005DC56C /* TabBarViewController.swift in Sources */,
+				5C20F70427428E04002A22A0 /* SecondViewController.swift in Sources */,
 				D32C9E76274112F700B1BB61 /* Categories.swift in Sources */,
 				D32C9E7927411A4600B1BB61 /* Operations.swift in Sources */,
 				D32C9E74274112E200B1BB61 /* Accounts.swift in Sources */,
@@ -244,6 +255,7 @@
 				F89D27B927412ECB006A0447 /* Formatter.swift in Sources */,
 				D35A16532743EF5500BDFDE1 /* ProfileViewController.swift in Sources */,
 				D32FBF83273FE5F9005DC56C /* AppDelegate.swift in Sources */,
+				5C20F7082742A17A002A22A0 /* ChangeTableViewController.swift in Sources */,
 				D32FBF85273FE5F9005DC56C /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
