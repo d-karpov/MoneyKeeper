@@ -10,13 +10,15 @@ import UIKit
 class SecondViewController: UIViewController {
 
     @IBOutlet weak var cartOutletBtn: UIButton!
+    
     @IBOutlet weak var cardLabel: UILabel!
     @IBOutlet weak var bottomOutView: UIView!
-    
+    @IBOutlet weak var grauViewOutlet: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         cartOutletBtn.layer.cornerRadius = 20
+        grauViewOutlet.layer.cornerRadius = 20
     }
     @IBAction func undwindSegue(_ sender: UIStoryboardSegue){
         
