@@ -15,6 +15,8 @@ class OverviewViewController: UIViewController {
     @IBOutlet var balanceAmountOutlet: UILabel!
     @IBOutlet var withdrawAmountOutlet: UILabel!
     
+    @IBOutlet var overviewTableView: UITableView!
+    
     private let user = DataManager.shared.users[0]
     //private let user = dataManager.user
     private var userIncomeCategories: [Category] {
@@ -29,11 +31,27 @@ class OverviewViewController: UIViewController {
         incomeAmountOutlet.text = user.getTotalIncome().currencyRU
         balanceAmountOutlet.text = user.getTotalMoneyAmount().currencyRU
         withdrawAmountOutlet.text = user.getTotalWithdraw().currencyRU
+        print(user.getAllActiveOperations())
     }
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         topInfoViewOutlet.layer.cornerRadius = view.frame.width / 20
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let historyVC = segue.destination as? HistoryViewController else { return }
+        guard let indexPath = overviewTableView.indexPathForSelectedRow else { return }
+        
+        switch indexPath.section {
+        case 0: historyVC.itemType = "income"
+            historyVC.itemName = userIncomeCategories[indexPath.row].name
+        case 1: historyVC.itemType = "account"
+            historyVC.itemName = user.profile.accounts[indexPath.row].name
+        default: historyVC.itemType = "withdraw"
+            historyVC.itemName = userWithdrawCategories[indexPath.row].name
+        }
+        historyVC.operations = user.getAllActiveOperations()
     }
 }
 
@@ -54,7 +72,7 @@ extension OverviewViewController: UITableViewDataSource {
         switch section {
         case 0: return "Income"
         case 1: return "Accounts"
-        default: return "Withdraw categories"
+        default: return "Withdraw"
         }
     }
 
@@ -66,7 +84,7 @@ extension OverviewViewController: UITableViewDataSource {
             if indexPath.row < userIncomeCategories.count {
                 content.image = UIImage(systemName: "hand.thumbsup.fill")
                 content.text = userIncomeCategories[indexPath.row].name
-                content.secondaryText = 0.currencyRU
+                content.secondaryText = user.getTotalInCategory(userIncomeCategories[indexPath.row].name).currencyRU
             } else {
                 content.image = UIImage(systemName: "plus.square.dashed")
                 content.text = "Add category"
@@ -86,7 +104,7 @@ extension OverviewViewController: UITableViewDataSource {
             if indexPath.row < userWithdrawCategories.count {
                 content.image = UIImage(systemName: "hand.thumbsdown.fill")
                 content.text = userWithdrawCategories[indexPath.row].name
-                content.secondaryText = 0.currencyRU
+                content.secondaryText = user.getTotalInCategory(userWithdrawCategories[indexPath.row].name).currencyRU
             } else {
                 content.image = UIImage(systemName: "plus.square.dashed")
                 content.text = "Add category"

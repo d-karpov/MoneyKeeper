@@ -110,6 +110,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="8T5-91-cwi" kind="presentation" id="peW-VJ-2Qg"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -129,6 +132,7 @@
                     <connections>
                         <outlet property="balanceAmountOutlet" destination="x7I-V0-8Dv" id="dPt-xR-rTl"/>
                         <outlet property="incomeAmountOutlet" destination="PXL-6f-xdp" id="vjv-gA-a82"/>
+                        <outlet property="overviewTableView" destination="Gx8-b1-IOe" id="Jyf-sC-Uso"/>
                         <outlet property="topInfoViewOutlet" destination="esB-XF-eVB" id="3NE-94-yae"/>
                         <outlet property="withdrawAmountOutlet" destination="l1W-Ld-wgu" id="P3K-Oc-3bV"/>
                     </connections>
@@ -136,6 +140,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="28.985507246376812" y="83.705357142857139"/>
+        </scene>
+        <!--History-->
+        <scene sceneID="s3b-jd-jeA">
+            <objects>
+                <viewControllerPlaceholder storyboardName="History" id="8T5-91-cwi" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vii-yN-Wdi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="824" y="-30"/>
         </scene>
     </scenes>
     <resources>
