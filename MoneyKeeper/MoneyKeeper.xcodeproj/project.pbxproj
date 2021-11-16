@@ -230,8 +230,8 @@
 				D32FBF8F273FE5FA005DC56C /* LaunchScreen.storyboard in Resources */,
 				F89D27B427410C74006A0447 /* Overview.storyboard in Resources */,
 				D32FBF8C273FE5FA005DC56C /* Assets.xcassets in Resources */,
-				D32FBF8A273FE5F9005DC56C /* TabBar.storyboard in Resources */,
 				5C20F70227428DEF002A22A0 /* SecondStoryboard.storyboard in Resources */,
+				D32FBF8A273FE5F9005DC56C /* TabBar.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
