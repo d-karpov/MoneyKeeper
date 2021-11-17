@@ -14,7 +14,6 @@ class ProfileViewController: UITableViewController {
     private let team = TeamDataSet.shared
     
     override func viewDidLoad() {
-        tableView.rowHeight = 150
     }
 
     // MARK: - Table view data source
@@ -54,6 +53,13 @@ class ProfileViewController: UITableViewController {
             content.imageProperties.cornerRadius = tableView.rowHeight/2
             cell.contentConfiguration = content
             return cell
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        switch indexPath.section {
+        case 0: return 80
+        default: return 120
         }
     }
 }
