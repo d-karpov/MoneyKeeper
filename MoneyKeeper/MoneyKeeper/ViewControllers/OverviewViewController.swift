@@ -7,6 +7,11 @@
 
 import UIKit
 
+protocol OverviewUserUpdatingDelegate {
+    func updateUser(_ newUser: User)
+}
+
+
 class OverviewViewController: UIViewController {
     
     @IBOutlet var topInfoViewOutlet: UIView!
@@ -38,9 +43,13 @@ class OverviewViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Добавлено для перехода на добавление категории, делегат описан в OverviewExtension
+        if let addCategoryVC = segue.destination as? AddCategoryViewController {
+            addCategoryVC.delegate = self
+        }
+        
         guard let historyVC = segue.destination as? HistoryViewController else { return }
         guard let indexPath = overviewTableView.indexPathForSelectedRow else { return }
-        
         switch indexPath.section {
         case 0: historyVC.itemType = "income"
             historyVC.itemName = userIncomeCategories[indexPath.row].name
@@ -77,7 +86,6 @@ extension OverviewViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "overviewRow", for: indexPath)
         var content = cell.defaultContentConfiguration()
-        
         if indexPath.section == 0 {
             if indexPath.row < userIncomeCategories.count {
                 content.image = UIImage(systemName: "hand.thumbsup.fill")
@@ -119,11 +127,14 @@ extension OverviewViewController: UITableViewDataSource {
 extension OverviewViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let sectionCount: Int
-        
         switch indexPath.section {
         case 0: sectionCount = userIncomeCategories.count
         case 1: sectionCount = user.profile.accounts.count
         default: sectionCount = userWithdrawCategories.count
+        }
+        //Временное решение для перехода - переделай под свой кодстайл
+        if indexPath.row == sectionCount {
+            performSegue(withIdentifier: "addCategory", sender: nil)
         }
         
         if indexPath.row < sectionCount {
