@@ -18,6 +18,9 @@ class HistoryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //TEST
+        addTestOperations()
+        //
         
         let labelHeaderColor: UIColor
         switch itemType {
@@ -37,18 +40,60 @@ class HistoryViewController: UIViewController {
 }
 
 extension HistoryViewController: UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        getUniqueOperationDates().count
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        getUniqueOperationDates()[section]
+    }
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        1
+        operations.filter {string(ofDate: $0.date) ==  getUniqueOperationDates()[section]}.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "historyRow", for: indexPath)
         var content = cell.defaultContentConfiguration()
-        content.text = "123"
+        content.text = operations.filter {string(ofDate: $0.date) ==  getUniqueOperationDates()[indexPath.section]}[indexPath.row].category.name
+        content.secondaryText = operations.filter {string(ofDate: $0.date) ==  getUniqueOperationDates()[indexPath.section]}[indexPath.row].moneyAmount.currencyRU
         cell.contentConfiguration = content
         
         return cell
     }
     
     
+}
+
+extension HistoryViewController {
+    func addTestOperations() -> Void {
+        switch itemType {
+        case "income": operations.append(Operation(date: Date.now, status: .active, category: Category(name: "Salary", type: .income), rawMoneyAmount: 456.78))
+            operations.append(Operation(date: Date(timeIntervalSinceNow: -86400), status: .active, category: Category(name: "Salary", type: .income), rawMoneyAmount: 1200))
+        case "account": operations.removeAll()
+            operations.append(Operation(date: Date.now, status: .active, category: Category(name: "Salary", type: .income), rawMoneyAmount: 5000))
+            operations.append(Operation(date: Date(timeIntervalSinceNow: -86400), status: .active, category: Category(name: "Food", type: .withdraw), rawMoneyAmount: 800.50))
+            operations.append(Operation(date: Date.now, status: .active, category: Category(name: "Food", type: .withdraw), rawMoneyAmount: 1200))
+        default: operations.append(Operation(date: Date(timeIntervalSinceNow: -172800), status: .active, category: Category(name: "Food", type: .withdraw), rawMoneyAmount: 1200))
+        }
+        
+    }
+    
+    private func string(ofDate: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .none
+        dateFormatter.locale = Locale(identifier: "ru_RU")
+        return dateFormatter.string(from: ofDate)
+    }
+    
+    private func getUniqueOperationDates() -> [String] {
+        var uniqueDates: [String] = []
+        operations.forEach {
+            uniqueDates.append(string(ofDate: $0.date))
+        }
+        
+        return uniqueDates.uniqued().sorted()
+    }
 }

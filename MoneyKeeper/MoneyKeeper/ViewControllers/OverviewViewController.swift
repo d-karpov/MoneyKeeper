@@ -15,6 +15,8 @@ class OverviewViewController: UIViewController {
     @IBOutlet var balanceAmountOutlet: UILabel!
     @IBOutlet var withdrawAmountOutlet: UILabel!
     
+    @IBOutlet var overviewTableView: UITableView!
+    
     var user: User!
     //private let user = dataManager.user
     private var userIncomeCategories: [Category] {
@@ -43,12 +45,15 @@ class OverviewViewController: UIViewController {
         switch indexPath.section {
         case 0: historyVC.itemType = "income"
             historyVC.itemName = userIncomeCategories[indexPath.row].name
+            historyVC.operations = user.getAllOperationsByCattegory(userIncomeCategories[indexPath.row].name)
         case 1: historyVC.itemType = "account"
             historyVC.itemName = user.profile.accounts[indexPath.row].name
+            historyVC.operations = user.profile.accounts[indexPath.row].getActiveOperations()
         default: historyVC.itemType = "withdraw"
             historyVC.itemName = userWithdrawCategories[indexPath.row].name
+            historyVC.operations = user.getAllOperationsByCattegory(userWithdrawCategories[indexPath.row].name)
         }
-        historyVC.operations = user.getAllActiveOperations()
+        
     }
 }
 
