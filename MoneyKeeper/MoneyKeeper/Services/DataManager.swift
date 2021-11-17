@@ -5,6 +5,8 @@
 //  Created by Денис Карпов on 14.11.2021.
 //
 
+import UIKit
+
 //MARK: - DataManager class
 
 class DataManager {
@@ -35,3 +37,13 @@ class TestDataSet {
     private init() {}
 }
 
+//MARK: - Team Info
+class TeamDataSet {
+    
+    static let shared = TeamDataSet()
+    
+    let names = ["Denis", "Nikita", "Ed"]
+    let description = ["Model chief", "Screen lord", "Git guru"]
+    
+    private init() {}
+}

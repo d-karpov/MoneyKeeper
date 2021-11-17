@@ -15,9 +15,7 @@ class OverviewViewController: UIViewController {
     @IBOutlet var balanceAmountOutlet: UILabel!
     @IBOutlet var withdrawAmountOutlet: UILabel!
     
-    @IBOutlet var overviewTableView: UITableView!
-    
-    private let user = DataManager.shared.users[0]
+    var user: User!
     //private let user = dataManager.user
     private var userIncomeCategories: [Category] {
         user.getAllCategoriesByType(.income)

@@ -10,6 +10,7 @@ import Foundation
 //MARK: - Operation Struct
 
 struct Operation {
+    var date: Date
     var status: OperationStatus
     var category: Category
     var rawMoneyAmount: Double
@@ -39,7 +40,8 @@ extension Operation {
         var result: [Operation] = []
         let testCategories = Category.getStartCategory()
         for testCategory in testCategories {
-            result.append(Operation(status: .active,
+            result.append(Operation(date: Date.now,
+                                    status: .active,
                                     category: testCategory,
                                     rawMoneyAmount: 1000.0))
         }
