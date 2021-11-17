@@ -21,9 +21,10 @@
 		D32FBF8A273FE5F9005DC56C /* TabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D32FBF88273FE5F9005DC56C /* TabBar.storyboard */; };
 		D32FBF8C273FE5FA005DC56C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D32FBF8B273FE5FA005DC56C /* Assets.xcassets */; };
 		D32FBF8F273FE5FA005DC56C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D32FBF8D273FE5FA005DC56C /* LaunchScreen.storyboard */; };
-		F860E85127442E8E00D49FAB /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F860E85027442E8E00D49FAB /* HistoryViewController.swift */; };
+		D3533D0127452A2500CCBEC6 /* History.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3533D0027452A2500CCBEC6 /* History.storyboard */; };
 		D35A16512743EE0C00BDFDE1 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D35A16502743EE0C00BDFDE1 /* Profile.storyboard */; };
 		D35A16532743EF5500BDFDE1 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35A16522743EF5500BDFDE1 /* ProfileViewController.swift */; };
+		F860E85127442E8E00D49FAB /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F860E85027442E8E00D49FAB /* HistoryViewController.swift */; };
 		F89D27B427410C74006A0447 /* Overview.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F89D27B327410C74006A0447 /* Overview.storyboard */; };
 		F89D27B6274114BD006A0447 /* OverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89D27B5274114BD006A0447 /* OverviewViewController.swift */; };
 		F89D27B927412ECB006A0447 /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89D27B827412ECB006A0447 /* Formatter.swift */; };
@@ -48,9 +49,10 @@
 		D32FBF8B273FE5FA005DC56C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D32FBF8E273FE5FA005DC56C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D32FBF90273FE5FA005DC56C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F860E85027442E8E00D49FAB /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
+		D3533D0027452A2500CCBEC6 /* History.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = History.storyboard; sourceTree = "<group>"; };
 		D35A16502743EE0C00BDFDE1 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		D35A16522743EF5500BDFDE1 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		F860E85027442E8E00D49FAB /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		F89D27B327410C74006A0447 /* Overview.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Overview.storyboard; sourceTree = "<group>"; };
 		F89D27B5274114BD006A0447 /* OverviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewViewController.swift; sourceTree = "<group>"; };
 		F89D27B827412ECB006A0447 /* Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatter.swift; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 		D32FBF98273FE648005DC56C /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				D3533D0027452A2500CCBEC6 /* History.storyboard */,
 				D32FBF88273FE5F9005DC56C /* TabBar.storyboard */,
 				F89D27B327410C74006A0447 /* Overview.storyboard */,
 				5C20F70127428DEF002A22A0 /* SecondStoryboard.storyboard */,
@@ -231,6 +234,7 @@
 			files = (
 				D35A16512743EE0C00BDFDE1 /* Profile.storyboard in Resources */,
 				D32FBF8F273FE5FA005DC56C /* LaunchScreen.storyboard in Resources */,
+				D3533D0127452A2500CCBEC6 /* History.storyboard in Resources */,
 				F89D27B427410C74006A0447 /* Overview.storyboard in Resources */,
 				D32FBF8C273FE5FA005DC56C /* Assets.xcassets in Resources */,
 				5C20F70227428DEF002A22A0 /* SecondStoryboard.storyboard in Resources */,
