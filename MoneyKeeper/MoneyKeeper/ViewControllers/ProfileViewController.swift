@@ -13,9 +13,6 @@ class ProfileViewController: UITableViewController {
     
     private let team = TeamDataSet.shared
     
-    override func viewDidLoad() {
-    }
-
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
