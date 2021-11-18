@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol OverviewUserUpdatingDelegate {
+    func updateUser(_ newUser: User)
+}
+
 extension OverviewViewController: OverviewUserUpdatingDelegate {
     func updateUser(_ newUser: User) {
         user = newUser

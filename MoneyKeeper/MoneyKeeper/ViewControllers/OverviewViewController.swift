@@ -7,11 +7,6 @@
 
 import UIKit
 
-protocol OverviewUserUpdatingDelegate {
-    func updateUser(_ newUser: User)
-}
-
-
 class OverviewViewController: UIViewController {
     
     @IBOutlet var topInfoViewOutlet: UIView!
