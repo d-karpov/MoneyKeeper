@@ -41,8 +41,10 @@ class OverviewViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Добавлено для перехода на добавление категории, делегат описан в OverviewExtension
+        // это надо разнести в секции и плюс ещё переход на AddAccount 
         if let addCategoryVC = segue.destination as? AddCategoryViewController {
             addCategoryVC.delegate = self
+            addCategoryVC.user = user
         }
         
         guard let historyVC = segue.destination as? HistoryViewController else { return }

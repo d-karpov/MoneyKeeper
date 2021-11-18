@@ -14,7 +14,7 @@ class AddCategoryViewController: UIViewController {
     @IBOutlet var categoryName: UITextField!
     
     //MARK: - Public properties
-    let dataManager = DataManager.shared
+    var user: User!
     var delegate: OverviewUserUpdatingDelegate!
     
     //MARK: - Overrides
@@ -25,14 +25,13 @@ class AddCategoryViewController: UIViewController {
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        guard var user = User.getUserByLogin(dataManager, "User") else { return }
         guard let inputText = categoryName.text else { return }
         if !inputText.isEmpty {
             switch categoryType.selectedSegmentIndex {
             case 0: user.addCategory(Category(name: inputText, type: .withdraw))
             default: user.addCategory(Category(name: inputText, type: .income))
             }
-            user.saveUserToDataManager(dataManager, user)
+            user.saveUserToDataManager(DataManager.shared, user)
             delegate.updateUser(user)
         }
     }
