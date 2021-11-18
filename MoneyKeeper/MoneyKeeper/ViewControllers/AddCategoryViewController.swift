@@ -10,6 +10,7 @@ import UIKit
 class AddCategoryViewController: UIViewController {
     //MARK: - IBOutlets
     @IBOutlet var categoryType: UISegmentedControl!
+    
     @IBOutlet var categoryName: UITextField!
     
     //MARK: - Public properties
@@ -22,8 +23,8 @@ class AddCategoryViewController: UIViewController {
         categoryName.delegate = self
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
         guard var user = User.getUserByLogin(dataManager, "User") else { return }
         guard let inputText = categoryName.text else { return }
         if !inputText.isEmpty {
@@ -40,6 +41,7 @@ class AddCategoryViewController: UIViewController {
         super.touchesBegan(touches, with: event)
         view.endEditing(true)
     }
+    
     //MARK: - IBActions
     @IBAction func changeCategoryType(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {

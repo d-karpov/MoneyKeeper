@@ -10,6 +10,8 @@
 		5C20F70227428DEF002A22A0 /* SecondStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C20F70127428DEF002A22A0 /* SecondStoryboard.storyboard */; };
 		5C20F70427428E04002A22A0 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C20F70327428E04002A22A0 /* SecondViewController.swift */; };
 		5C20F7082742A17A002A22A0 /* ChangeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C20F7072742A17A002A22A0 /* ChangeTableViewController.swift */; };
+		D32AEED22746B0ED004080A7 /* AddAccount.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D32AEED12746B0ED004080A7 /* AddAccount.storyboard */; };
+		D32AEED42746B348004080A7 /* AddAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32AEED32746B348004080A7 /* AddAccountViewController.swift */; };
 		D32C9E722741123800B1BB61 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32C9E712741123800B1BB61 /* Users.swift */; };
 		D32C9E74274112E200B1BB61 /* Accounts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32C9E73274112E200B1BB61 /* Accounts.swift */; };
 		D32C9E76274112F700B1BB61 /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32C9E75274112F700B1BB61 /* Categories.swift */; };
@@ -41,6 +43,8 @@
 		5C20F70127428DEF002A22A0 /* SecondStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SecondStoryboard.storyboard; sourceTree = "<group>"; };
 		5C20F70327428E04002A22A0 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		5C20F7072742A17A002A22A0 /* ChangeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeTableViewController.swift; sourceTree = "<group>"; };
+		D32AEED12746B0ED004080A7 /* AddAccount.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddAccount.storyboard; sourceTree = "<group>"; };
+		D32AEED32746B348004080A7 /* AddAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccountViewController.swift; sourceTree = "<group>"; };
 		D32C9E712741123800B1BB61 /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
 		D32C9E73274112E200B1BB61 /* Accounts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Accounts.swift; sourceTree = "<group>"; };
 		D32C9E75274112F700B1BB61 /* Categories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
@@ -149,6 +153,7 @@
 				D35A16522743EF5500BDFDE1 /* ProfileViewController.swift */,
 				F860E85027442E8E00D49FAB /* HistoryViewController.swift */,
 				D3533D042745370E00CCBEC6 /* AddCategoryViewController.swift */,
+				D32AEED32746B348004080A7 /* AddAccountViewController.swift */,
 				5C20F70327428E04002A22A0 /* SecondViewController.swift */,
 				5C20F7072742A17A002A22A0 /* ChangeTableViewController.swift */,
 			);
@@ -165,6 +170,7 @@
 				D3533D0027452A2500CCBEC6 /* History.storyboard */,
 				D3533D0227452E2A00CCBEC6 /* AddCategory.storyboard */,
 				5C20F70127428DEF002A22A0 /* SecondStoryboard.storyboard */,
+				D32AEED12746B0ED004080A7 /* AddAccount.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -247,6 +253,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D32AEED22746B0ED004080A7 /* AddAccount.storyboard in Resources */,
 				D35A16512743EE0C00BDFDE1 /* Profile.storyboard in Resources */,
 				D32FBF8F273FE5FA005DC56C /* LaunchScreen.storyboard in Resources */,
 				D3533D0127452A2500CCBEC6 /* History.storyboard in Resources */,
@@ -266,6 +273,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D32C9E722741123800B1BB61 /* Users.swift in Sources */,
+				D32AEED42746B348004080A7 /* AddAccountViewController.swift in Sources */,
 				D32C9E7B27412BBE00B1BB61 /* DataManager.swift in Sources */,
 				D32FBF87273FE5F9005DC56C /* TabBarViewController.swift in Sources */,
 				5C20F70427428E04002A22A0 /* SecondViewController.swift in Sources */,

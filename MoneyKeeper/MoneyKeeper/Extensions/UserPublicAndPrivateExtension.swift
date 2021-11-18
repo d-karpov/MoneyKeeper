@@ -9,25 +9,29 @@ import UIKit
 
 //MARK: - User public methods
 extension User {
-
+    
+    func getIncludedAccounts() -> [Account] {
+        profile.accounts.filter { $0.status == .included }
+    }
+    
     func getTotalMoneyAmount() -> Double {
-        profile.accounts.reduce(0.0) { $0 + $1.moneyAmount }
+        getIncludedAccounts().reduce(0.0)  { $0 + $1.moneyAmount }
     }
     
     func getTotalWithdraw() -> Double {
-        profile.accounts.reduce(0.0) { $0 + $1.getMoneyAmount(.withdraw) }
+        getIncludedAccounts().reduce(0.0) { $0 + $1.getMoneyAmount(.withdraw) }
     }
     
     func getTotalIncome() -> Double {
-        profile.accounts.reduce(0.0) { $0 + $1.getMoneyAmount(.income) }
+        getIncludedAccounts().reduce(0.0) { $0 + $1.getMoneyAmount(.income) }
     }
     
     func getTotalInCategory( _ name: String ) -> Double {
-        profile.accounts.reduce(0.0) { $0 + $1.getMoneyAmount(name) }
+        getIncludedAccounts().reduce(0.0) { $0 + $1.getMoneyAmount(name) }
     }
 
     func getAllActiveOperations() -> [Operation] {
-        profile.accounts.flatMap { $0.getActiveOperations() }
+        getIncludedAccounts().flatMap { $0.getActiveOperations() }
     }
     
     func getAllOperationsByCattegory(_ categoryName: String) -> [Operation] {
@@ -63,6 +67,10 @@ extension User {
         profile.accounts.first { $0.name == name }
     }
     
+    func accountIsExist(_ name: String) -> Bool {
+        getAccountByName(name) != nil
+    }
+    
     //MARK: - Mutating methods
     mutating func addCategory(_ newCategory: Category) {
         if !profile.categories.contains(where: { $0 == newCategory }) {
@@ -73,6 +81,10 @@ extension User {
     mutating func addOperation(_ toAccount: String, _ newOperation: Operation) {
         guard let index = getAccountIndex(toAccount) else { return }
         profile.accounts[index].addOperation(newOperation)
+    }
+    
+    mutating func addAccount(_ newAccount: Account) {
+        profile.accounts.append(newAccount)
     }
     
     // MARK: - Save User to DataManager method
