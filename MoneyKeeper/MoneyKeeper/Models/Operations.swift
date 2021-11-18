@@ -10,6 +10,7 @@ import Foundation
 //MARK: - Operation Struct
 
 struct Operation {
+    var date: Date
     var status: OperationStatus
     var category: Category
     var rawMoneyAmount: Double
@@ -32,6 +33,15 @@ enum OperationStatus {
     case active, deleted
 }
 
+//MARK: - Public methods
+extension Operation {
+    func compareDateWithNow() -> Bool {
+        let calendar = Calendar.current
+        guard let interval = calendar.dateComponents([.day], from: date, to: Date.now).day else { return false }
+        return interval <= 30
+    }
+}
+
 //MARK: - Operation static methods
 
 extension Operation {
@@ -39,7 +49,8 @@ extension Operation {
         var result: [Operation] = []
         let testCategories = Category.getStartCategory()
         for testCategory in testCategories {
-            result.append(Operation(status: .active,
+            result.append(Operation(date: Date.now,
+                                    status: .active,
                                     category: testCategory,
                                     rawMoneyAmount: 1000.0))
         }

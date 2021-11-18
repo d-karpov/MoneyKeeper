@@ -8,11 +8,11 @@
 import UIKit
 
 class ProfileViewController: UITableViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-
+    
+    var user: User!
+    
+    private let team = TeamDataSet.shared
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -21,19 +21,15 @@ class ProfileViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
-        case 0:
-            return 1
-        default:
-            return 3
+        case 0: return 1
+        default: return 3
         }
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch section {
-        case 0:
-            return "User Profile"
-        default:
-            return "About Team"
+        case 0: return "User Profile"
+        default: return "About Team"
         }
     }
 
@@ -42,20 +38,25 @@ class ProfileViewController: UITableViewController {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "profile", for: indexPath)
             var content = cell.defaultContentConfiguration()
-            let button = UIButton()
-            button.configuration = .tinted()
-            button.setTitle("Log in", for: .normal)
-            cell.contentView.addSubview(button)
-            content.text = "Full name"
-            
+            content.text = user.profile.fullname
             cell.contentConfiguration = content
             return cell
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: "team", for: indexPath)
             var content = cell.defaultContentConfiguration()
-            content.text = "Team member \(indexPath.row)"
+            content.text = team.names[indexPath.row]
+            content.secondaryText = team.description[indexPath.row]
+            content.image = UIImage(named: "den")
+            content.imageProperties.cornerRadius = tableView.rowHeight/2
             cell.contentConfiguration = content
             return cell
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        switch indexPath.section {
+        case 0: return 80
+        default: return 120
         }
     }
 }
