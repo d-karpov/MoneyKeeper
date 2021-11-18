@@ -12,24 +12,28 @@ class SecondViewController: UIViewController {
     @IBOutlet weak var cartOutletBtn: UIButton!
     
     @IBOutlet weak var cardLabel: UILabel!
-    @IBOutlet weak var bottomOutView: UIView!
-    @IBOutlet weak var grauViewOutlet: UIView!
     
+    @IBOutlet weak var upperView: UIView!
+    @IBOutlet weak var grayViewOutlet: UIView!
+    
+    @IBOutlet var buttonOutlets: [UIButton]!
+    
+    @IBOutlet weak var nameLabel: UILabel!
+        
     override func viewDidLoad() {
         super.viewDidLoad()
-        cartOutletBtn.layer.cornerRadius = 20
-        grauViewOutlet.layer.cornerRadius = 20
-    }
-    @IBAction func undwindSegue(_ sender: UIStoryboardSegue){
+        buttonOutlets.forEach {
+            $0.layer.cornerRadius = 10
+        }
         
     }
     
-
-    
-    // MARK: - Navigation
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let SV = segue.destination as? SecondViewController else { return }
-        SV.cardLabel.textColor = .blue
+    override func viewWillLayoutSubviews() {
+        cartOutletBtn.layer.cornerRadius = view.frame.width / 15
+        grayViewOutlet.layer.cornerRadius = view.frame.width / 15
     }
+    
+    @IBAction func undwindSegue(_ sender: UIStoryboardSegue){
+    }
+    
 }
