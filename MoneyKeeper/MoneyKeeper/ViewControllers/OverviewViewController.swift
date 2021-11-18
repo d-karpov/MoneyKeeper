@@ -21,8 +21,9 @@ class OverviewViewController: UIViewController {
     @IBOutlet var withdrawAmountOutlet: UILabel!
     
     @IBOutlet var overviewTableView: UITableView!
+    
     var user: User!
-    //private let user = dataManager.user
+
     private var userIncomeCategories: [Category] {
         user.getAllCategoriesByType(.income)
     }
@@ -40,6 +41,7 @@ class OverviewViewController: UIViewController {
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         topInfoViewOutlet.layer.cornerRadius = view.frame.width / 20
+        topInfoViewOutlet.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -53,12 +55,15 @@ class OverviewViewController: UIViewController {
         switch indexPath.section {
         case 0: historyVC.itemType = "income"
             historyVC.itemName = userIncomeCategories[indexPath.row].name
+            historyVC.operations = user.getAllOperationsByCattegory(userIncomeCategories[indexPath.row].name)
         case 1: historyVC.itemType = "account"
             historyVC.itemName = user.profile.accounts[indexPath.row].name
+            historyVC.operations = user.profile.accounts[indexPath.row].getActiveOperations()
         default: historyVC.itemType = "withdraw"
             historyVC.itemName = userWithdrawCategories[indexPath.row].name
+            historyVC.operations = user.getAllOperationsByCattegory(userWithdrawCategories[indexPath.row].name)
         }
-        historyVC.operations = user.getAllActiveOperations()
+        
     }
 }
 
@@ -137,8 +142,11 @@ extension OverviewViewController: UITableViewDelegate {
             performSegue(withIdentifier: "addCategory", sender: nil)
         }
         
+        
         if indexPath.row < sectionCount {
             performSegue(withIdentifier: "historySegue", sender: nil)
         }
+        
+        tableView.deselectRow(at: indexPath, animated: false)
     }
 }
