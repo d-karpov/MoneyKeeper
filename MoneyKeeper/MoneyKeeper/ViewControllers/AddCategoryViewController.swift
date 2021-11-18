@@ -13,6 +13,8 @@ class AddCategoryViewController: UIViewController {
     
     @IBOutlet var categoryName: UITextField!
     
+    @IBOutlet var detailedStack: UIStackView!
+    
     //MARK: - Public properties
     var user: User!
     var delegate: OverviewUserUpdatingDelegate!
@@ -21,6 +23,7 @@ class AddCategoryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         categoryName.delegate = self
+        detailedStack.layer.cornerRadius = view.frame.height/50
     }
     
     override func viewDidDisappear(_ animated: Bool) {

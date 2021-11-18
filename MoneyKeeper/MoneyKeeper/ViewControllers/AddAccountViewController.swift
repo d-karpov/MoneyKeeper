@@ -15,6 +15,7 @@ class AddAccountViewController: UIViewController {
     
     @IBOutlet var accountType: UISegmentedControl!
     
+    @IBOutlet var detailedStack: UIStackView!
     
     //MARK: - Public properties
     var user: User!
@@ -23,6 +24,7 @@ class AddAccountViewController: UIViewController {
     //MARK: - Overrides
     override func viewDidLoad() {
         super.viewDidLoad()
+        detailedStack.layer.cornerRadius = view.frame.height/50
         accountText.delegate = self
         balanceText.delegate = self
     }
