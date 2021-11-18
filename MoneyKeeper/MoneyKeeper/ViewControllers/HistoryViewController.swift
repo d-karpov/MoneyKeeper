@@ -57,7 +57,7 @@ extension HistoryViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "historyRow", for: indexPath)
         var content = cell.defaultContentConfiguration()
         content.text = operations.filter {string(ofDate: $0.date) ==  getUniqueOperationDates()[indexPath.section]}[indexPath.row].category.name
-        content.secondaryText = operations.filter {string(ofDate: $0.date) ==  getUniqueOperationDates()[indexPath.section]}[indexPath.row].moneyAmount.currencyRU
+        content.secondaryText = operations.filter {string(ofDate: $0.date) == getUniqueOperationDates()[indexPath.section]}[indexPath.row].moneyAmount.currencyRU
         cell.contentConfiguration = content
         
         return cell
@@ -73,8 +73,12 @@ extension HistoryViewController {
             operations.append(Operation(date: Date(timeIntervalSinceNow: -86400), status: .active, category: Category(name: "Salary", type: .income), rawMoneyAmount: 1200))
         case "account": operations.removeAll()
             operations.append(Operation(date: Date.now, status: .active, category: Category(name: "Salary", type: .income), rawMoneyAmount: 5000))
-            operations.append(Operation(date: Date(timeIntervalSinceNow: -86400), status: .active, category: Category(name: "Food", type: .withdraw), rawMoneyAmount: 800.50))
             operations.append(Operation(date: Date.now, status: .active, category: Category(name: "Food", type: .withdraw), rawMoneyAmount: 1200))
+            operations.append(Operation(date: Date.now, status: .active, category: Category(name: "Car", type: .withdraw), rawMoneyAmount: 3000))
+            operations.append(Operation(date: Date(timeIntervalSinceNow: -1 * 86400), status: .active, category: Category(name: "Food", type: .withdraw), rawMoneyAmount: 800.50))
+            operations.append(Operation(date: Date(timeIntervalSinceNow: -1 * 86400), status: .active, category: Category(name: "Food", type: .withdraw), rawMoneyAmount: 540))
+            operations.append(Operation(date: Date(timeIntervalSinceNow: -2 * 86400), status: .active, category: Category(name: "Health", type: .withdraw), rawMoneyAmount: 930))
+            operations.append(Operation(date: Date(timeIntervalSinceNow: -3 * 86400), status: .active, category: Category(name: "Food", type: .withdraw), rawMoneyAmount: 1834.10))
         default: operations.append(Operation(date: Date(timeIntervalSinceNow: -172800), status: .active, category: Category(name: "Food", type: .withdraw), rawMoneyAmount: 1200))
         }
         
