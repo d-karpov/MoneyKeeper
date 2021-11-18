@@ -18,9 +18,6 @@ class HistoryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //TEST
-        addTestOperations()
-        //
         
         let labelHeaderColor: UIColor
         switch itemType {
@@ -56,34 +53,31 @@ extension HistoryViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "historyRow", for: indexPath)
         var content = cell.defaultContentConfiguration()
-        content.text = operations.filter {string(ofDate: $0.date) ==  getUniqueOperationDates()[indexPath.section]}[indexPath.row].category.name
-        content.secondaryText = operations.filter {string(ofDate: $0.date) == getUniqueOperationDates()[indexPath.section]}[indexPath.row].moneyAmount.currencyRU
-        cell.contentConfiguration = content
+        let operationsInSection = operations.filter {string(ofDate: $0.date) == getUniqueOperationDates()[indexPath.section]}.sorted(by: {$0.date > $1.date})
+        content.text = operationsInSection[indexPath.row].category.name
+        content.secondaryText = operationsInSection[indexPath.row].moneyAmount.currencyRU
         
+        let labelHeaderColor: UIColor
+        switch operationsInSection[indexPath.row].category.type {
+        case .income: content.image = UIImage(systemName: "hand.thumbsup.fill")
+            labelHeaderColor = .systemGreen
+        case .withdraw: content.image = UIImage(systemName: "hand.thumbsdown.fill")
+            labelHeaderColor = .systemYellow
+        }
+        cell.tintColor = labelHeaderColor
+        
+        cell.contentConfiguration = content
         return cell
     }
-    
-    
+}
+
+extension HistoryViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
 }
 
 extension HistoryViewController {
-    func addTestOperations() -> Void {
-        switch itemType {
-        case "income": operations.append(Operation(date: Date.now, status: .active, category: Category(name: "Salary", type: .income), rawMoneyAmount: 456.78))
-            operations.append(Operation(date: Date(timeIntervalSinceNow: -86400), status: .active, category: Category(name: "Salary", type: .income), rawMoneyAmount: 1200))
-        case "account": operations.removeAll()
-            operations.append(Operation(date: Date.now, status: .active, category: Category(name: "Salary", type: .income), rawMoneyAmount: 5000))
-            operations.append(Operation(date: Date.now, status: .active, category: Category(name: "Food", type: .withdraw), rawMoneyAmount: 1200))
-            operations.append(Operation(date: Date.now, status: .active, category: Category(name: "Car", type: .withdraw), rawMoneyAmount: 3000))
-            operations.append(Operation(date: Date(timeIntervalSinceNow: -1 * 86400), status: .active, category: Category(name: "Food", type: .withdraw), rawMoneyAmount: 800.50))
-            operations.append(Operation(date: Date(timeIntervalSinceNow: -1 * 86400), status: .active, category: Category(name: "Food", type: .withdraw), rawMoneyAmount: 540))
-            operations.append(Operation(date: Date(timeIntervalSinceNow: -2 * 86400), status: .active, category: Category(name: "Health", type: .withdraw), rawMoneyAmount: 930))
-            operations.append(Operation(date: Date(timeIntervalSinceNow: -3 * 86400), status: .active, category: Category(name: "Food", type: .withdraw), rawMoneyAmount: 1834.10))
-        default: operations.append(Operation(date: Date(timeIntervalSinceNow: -172800), status: .active, category: Category(name: "Food", type: .withdraw), rawMoneyAmount: 1200))
-        }
-        
-    }
-    
     private func string(ofDate: Date) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .medium
@@ -94,10 +88,10 @@ extension HistoryViewController {
     
     private func getUniqueOperationDates() -> [String] {
         var uniqueDates: [String] = []
-        operations.forEach {
+        operations.sorted(by: {$0.date > $1.date}).forEach {
             uniqueDates.append(string(ofDate: $0.date))
         }
         
-        return uniqueDates.uniqued().sorted()
+        return uniqueDates.uniqued()
     }
 }

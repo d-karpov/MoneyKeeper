@@ -18,7 +18,7 @@ class OverviewViewController: UIViewController {
     @IBOutlet var overviewTableView: UITableView!
     
     var user: User!
-    //private let user = dataManager.user
+
     private var userIncomeCategories: [Category] {
         user.getAllCategoriesByType(.income)
     }
@@ -36,6 +36,7 @@ class OverviewViewController: UIViewController {
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         topInfoViewOutlet.layer.cornerRadius = view.frame.width / 20
+        topInfoViewOutlet.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -130,8 +131,11 @@ extension OverviewViewController: UITableViewDelegate {
         default: sectionCount = userWithdrawCategories.count
         }
         
+        
         if indexPath.row < sectionCount {
             performSegue(withIdentifier: "historySegue", sender: nil)
         }
+        
+        tableView.deselectRow(at: indexPath, animated: false)
     }
 }
