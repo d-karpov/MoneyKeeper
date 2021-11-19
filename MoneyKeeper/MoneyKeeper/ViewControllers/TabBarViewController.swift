@@ -22,12 +22,20 @@ class TabBarViewController: UITabBarController {
     //MARK: - Private methods
     private func setUpViewControllers() {
         let dataManager = DataManager.shared
+        let user = User.getUserByLogin(dataManager, "User")
         if let viewControllers = viewControllers {
             for viewController in viewControllers {
                 if let profileVC = viewController as? ProfileViewController {
-                    profileVC.user = User.getUserByLogin(dataManager, "User")
-                } else if let overviewVC = viewController as? OverviewViewController {
-                    overviewVC.user = User.getUserByLogin(dataManager, "User")
+                    profileVC.user = user
+                }
+                if let overviewVC = viewController as? OverviewViewController {
+                    overviewVC.user = user
+                    if overviewVC.isViewLoaded {
+                        overviewVC.updateUI()
+                    }
+                }
+                if let mainVC = viewController as? SecondViewController {
+                    mainVC.user = user
                 }
             }
         }

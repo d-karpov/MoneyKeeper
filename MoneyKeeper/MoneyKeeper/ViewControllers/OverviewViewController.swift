@@ -22,15 +22,18 @@ class OverviewViewController: UIViewController {
     private var userIncomeCategories: [Category] {
         user.getAllCategoriesByType(.income)
     }
+    
     private var userWithdrawCategories: [Category] {
         user.getAllCategoriesByType(.withdraw)
     }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        incomeAmountOutlet.text = user.getTotalIncome().currencyRU
-        balanceAmountOutlet.text = user.getTotalMoneyAmount().currencyRU
-        withdrawAmountOutlet.text = user.getTotalWithdraw().currencyRU
+    
+    /* Заменил viewDidLoad на viewWillAppear,
+     что бы корректно обновлять интерфейс при изменениях вынес обновление шапки и
+     отрисовку таблицы в метод updateUI - ОН ИИСПОЛЬЗУЕТСЯ ПРИ ПЕРЕКЛЮЧЕНИИ TabBar!
+     */
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        updateUI()
     }
     
     override func viewWillLayoutSubviews() {
@@ -62,8 +65,17 @@ class OverviewViewController: UIViewController {
         }
         
     }
+//MARK: - Public methods
+    
+    func updateUI() {
+        overviewTableView.reloadData()
+        incomeAmountOutlet.text = user.getTotalIncome().currencyRU
+        balanceAmountOutlet.text = user.getTotalMoneyAmount().currencyRU
+        withdrawAmountOutlet.text = user.getTotalWithdraw().currencyRU
+    }
 }
 
+//MARK: - UITableViewDataSource
 extension OverviewViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         3
@@ -125,6 +137,7 @@ extension OverviewViewController: UITableViewDataSource {
         return cell
     }
 }
+//MARK: - UITableViewDelegate
 
 extension OverviewViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

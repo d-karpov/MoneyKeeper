@@ -15,6 +15,9 @@ class SecondViewController: UIViewController {
     @IBOutlet weak var bottomOutView: UIView!
     @IBOutlet weak var grauViewOutlet: UIView!
     
+    //Добавил переменную для приема юзера
+    var user: User!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         cartOutletBtn.layer.cornerRadius = 20
@@ -29,6 +32,10 @@ class SecondViewController: UIViewController {
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //  Добавил переход на экран добавления операции.
+        if let addAcountVC = segue.destination as? AddOperationViewController {
+            addAcountVC.user = user
+        }
         guard let SV = segue.destination as? SecondViewController else { return }
         SV.cardLabel.textColor = .blue
     }
