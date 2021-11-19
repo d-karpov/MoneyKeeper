@@ -46,7 +46,5 @@ class SecondViewController: UIViewController {
         }
         guard let SV = segue.destination as? SecondViewController else { return }
         SV.cardLabel.textColor = .blue
-    @IBAction func undwindSegue(_ sender: UIStoryboardSegue){
     }
-    
 }
