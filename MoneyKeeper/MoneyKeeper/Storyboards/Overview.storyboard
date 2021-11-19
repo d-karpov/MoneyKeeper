@@ -136,6 +136,7 @@
                         <outlet property="topInfoViewOutlet" destination="esB-XF-eVB" id="3NE-94-yae"/>
                         <outlet property="withdrawAmountOutlet" destination="l1W-Ld-wgu" id="P3K-Oc-3bV"/>
                         <segue destination="8T5-91-cwi" kind="presentation" identifier="historySegue" id="fym-rC-O8G"/>
+                        <segue destination="hcf-gk-6sR" kind="presentation" identifier="addCategory" id="Ff8-59-vN3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -145,10 +146,18 @@
         <!--History-->
         <scene sceneID="s3b-jd-jeA">
             <objects>
-                <viewControllerPlaceholder storyboardName="History" id="8T5-91-cwi" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="History" referencedIdentifier="History" id="8T5-91-cwi" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vii-yN-Wdi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="824" y="-30"/>
+        </scene>
+        <!--AddCategory-->
+        <scene sceneID="FEP-1u-Qnr">
+            <objects>
+                <viewControllerPlaceholder storyboardName="AddCategory" referencedIdentifier="AddCategory" id="hcf-gk-6sR" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pZP-Ba-glV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="638" y="-96"/>
         </scene>
     </scenes>
     <resources>

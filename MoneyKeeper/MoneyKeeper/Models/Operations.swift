@@ -33,6 +33,15 @@ enum OperationStatus {
     case active, deleted
 }
 
+//MARK: - Public methods
+extension Operation {
+    func compareDateWithNow() -> Bool {
+        let calendar = Calendar.current
+        guard let interval = calendar.dateComponents([.day], from: date, to: Date.now).day else { return false }
+        return interval <= 30
+    }
+}
+
 //MARK: - Operation static methods
 
 extension Operation {

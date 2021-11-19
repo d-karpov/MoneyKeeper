@@ -22,15 +22,18 @@ class OverviewViewController: UIViewController {
     private var userIncomeCategories: [Category] {
         user.getAllCategoriesByType(.income)
     }
+    
     private var userWithdrawCategories: [Category] {
         user.getAllCategoriesByType(.withdraw)
     }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        incomeAmountOutlet.text = user.getTotalIncome().currencyRU
-        balanceAmountOutlet.text = user.getTotalMoneyAmount().currencyRU
-        withdrawAmountOutlet.text = user.getTotalWithdraw().currencyRU
+    
+    /* Заменил viewDidLoad на viewWillAppear,
+     что бы корректно обновлять интерфейс при изменениях вынес обновление шапки и
+     отрисовку таблицы в метод updateUI - ОН ИИСПОЛЬЗУЕТСЯ ПРИ ПЕРЕКЛЮЧЕНИИ TabBar!
+     */
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        updateUI()
     }
     
     override func viewWillLayoutSubviews() {
@@ -40,9 +43,15 @@ class OverviewViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Добавлено для перехода на добавление категории, делегат описан в OverviewExtension
+        // это надо разнести в секции и плюс ещё переход на AddAccount 
+        if let addCategoryVC = segue.destination as? AddCategoryViewController {
+            addCategoryVC.delegate = self
+            addCategoryVC.user = user
+        }
+        
         guard let historyVC = segue.destination as? HistoryViewController else { return }
         guard let indexPath = overviewTableView.indexPathForSelectedRow else { return }
-        
         switch indexPath.section {
         case 0: historyVC.itemType = "income"
             historyVC.itemName = userIncomeCategories[indexPath.row].name
@@ -56,8 +65,17 @@ class OverviewViewController: UIViewController {
         }
         
     }
+//MARK: - Public methods
+    
+    func updateUI() {
+        overviewTableView.reloadData()
+        incomeAmountOutlet.text = user.getTotalIncome().currencyRU
+        balanceAmountOutlet.text = user.getTotalMoneyAmount().currencyRU
+        withdrawAmountOutlet.text = user.getTotalWithdraw().currencyRU
+    }
 }
 
+//MARK: - UITableViewDataSource
 extension OverviewViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         3
@@ -82,7 +100,6 @@ extension OverviewViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "overviewRow", for: indexPath)
         var content = cell.defaultContentConfiguration()
-        
         if indexPath.section == 0 {
             if indexPath.row < userIncomeCategories.count {
                 content.image = UIImage(systemName: "hand.thumbsup.fill")
@@ -120,15 +137,19 @@ extension OverviewViewController: UITableViewDataSource {
         return cell
     }
 }
+//MARK: - UITableViewDelegate
 
 extension OverviewViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let sectionCount: Int
-        
         switch indexPath.section {
         case 0: sectionCount = userIncomeCategories.count
         case 1: sectionCount = user.profile.accounts.count
         default: sectionCount = userWithdrawCategories.count
+        }
+        //Временное решение для перехода - переделай под свой кодстайл
+        if indexPath.row == sectionCount {
+            performSegue(withIdentifier: "addCategory", sender: nil)
         }
         
         
