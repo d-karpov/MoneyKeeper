@@ -13,6 +13,9 @@ class SecondViewController: UIViewController {
     
     @IBOutlet weak var cardLabel: UILabel!
     
+    //Добавил переменную для приема юзера
+    var user: User!
+    
     @IBOutlet weak var upperView: UIView!
     @IBOutlet weak var grayViewOutlet: UIView!
     
@@ -33,7 +36,15 @@ class SecondViewController: UIViewController {
         grayViewOutlet.layer.cornerRadius = view.frame.width / 15
     }
     
-    @IBAction func undwindSegue(_ sender: UIStoryboardSegue){
+    // MARK: - Navigation
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //  Добавил переход на экран добавления операции.
+        if let addAcountVC = segue.destination as? AddOperationViewController {
+            addAcountVC.user = user
+            addAcountVC.delegate = self
+        }
+        guard let SV = segue.destination as? SecondViewController else { return }
+        SV.cardLabel.textColor = .blue
     }
-    
 }

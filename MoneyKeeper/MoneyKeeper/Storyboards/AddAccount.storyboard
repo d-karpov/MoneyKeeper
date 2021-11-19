@@ -36,10 +36,10 @@
                                 <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="deM-cV-OiL">
-                                <rect key="frame" x="15" y="193.5" width="384" height="218"/>
+                                <rect key="frame" x="15" y="193.5" width="384" height="278"/>
                                 <subviews>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="rEe-dl-NHv">
-                                        <rect key="frame" x="0.0" y="0.0" width="384" height="51"/>
+                                        <rect key="frame" x="30" y="30" width="324" height="51"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="UMH-71-mRW"/>
                                         </constraints>
@@ -53,7 +53,7 @@
                                         </connections>
                                     </segmentedControl>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="vLm-lg-UoU">
-                                        <rect key="frame" x="0.0" y="100" width="384" height="34"/>
+                                        <rect key="frame" x="30" y="130" width="324" height="34"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pPn-lt-tvV">
                                                 <rect key="frame" x="0.0" y="6" width="73.5" height="22.5"/>
@@ -62,14 +62,14 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Account name" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Um7-97-gE6">
-                                                <rect key="frame" x="83.5" y="0.0" width="300.5" height="34"/>
+                                                <rect key="frame" x="83.5" y="0.0" width="240.5" height="34"/>
                                                 <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="20"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="yes" spellCheckingType="yes" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                             </textField>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="zzR-he-V07">
-                                        <rect key="frame" x="0.0" y="184" width="384" height="34"/>
+                                        <rect key="frame" x="30" y="214" width="324" height="34"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Balance:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QAl-LU-TYg">
                                                 <rect key="frame" x="0.0" y="6" width="73.5" height="22.5"/>
@@ -78,20 +78,22 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0.00" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="3ks-OU-ceA">
-                                                <rect key="frame" x="83.5" y="0.0" width="300.5" height="34"/>
+                                                <rect key="frame" x="83.5" y="0.0" width="240.5" height="34"/>
                                                 <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="20"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="decimalPad"/>
                                             </textField>
                                         </subviews>
                                     </stackView>
                                 </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="pPn-lt-tvV" firstAttribute="width" secondItem="QAl-LU-TYg" secondAttribute="width" id="pBT-of-vOD"/>
                                 </constraints>
+                                <edgeInsets key="layoutMargins" top="30" left="30" bottom="30" right="30"/>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Vd9-31-Is5"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.1960767508" green="0.24313795569999999" blue="0.32548889520000002" alpha="0.89827806122448983" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Vd9-31-Is5" firstAttribute="trailing" secondItem="KiW-3N-a6q" secondAttribute="trailing" id="7Xm-5x-ugo"/>
                             <constraint firstItem="KiW-3N-a6q" firstAttribute="leading" secondItem="Vd9-31-Is5" secondAttribute="leading" id="DIm-cD-n2G"/>
@@ -106,6 +108,7 @@
                         <outlet property="accountText" destination="Um7-97-gE6" id="4R1-qf-CMO"/>
                         <outlet property="accountType" destination="rEe-dl-NHv" id="SEY-fR-J19"/>
                         <outlet property="balanceText" destination="3ks-OU-ceA" id="k1a-tp-8tM"/>
+                        <outlet property="detailedStack" destination="deM-cV-OiL" id="5u8-io-8Kg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -115,9 +118,6 @@
     </scenes>
     <resources>
         <image name="creditcard.circle" catalog="system" width="128" height="121"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="systemYellowColor">
             <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

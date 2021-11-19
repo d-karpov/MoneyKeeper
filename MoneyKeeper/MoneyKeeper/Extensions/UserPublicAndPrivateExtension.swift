@@ -15,7 +15,7 @@ extension User {
     }
     
     func getTotalMoneyAmount() -> Double {
-        getIncludedAccounts().reduce(0.0)  { $0 + $1.moneyAmount }
+        getIncludedAccounts().reduce(0.0) { $0 + $1.moneyAmount }
     }
     
     func getTotalWithdraw() -> Double {

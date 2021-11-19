@@ -13,26 +13,28 @@ class AddCategoryViewController: UIViewController {
     
     @IBOutlet var categoryName: UITextField!
     
+    @IBOutlet var detailedStack: UIStackView!
+    
     //MARK: - Public properties
-    let dataManager = DataManager.shared
+    var user: User!
     var delegate: OverviewUserUpdatingDelegate!
     
     //MARK: - Overrides
     override func viewDidLoad() {
         super.viewDidLoad()
         categoryName.delegate = self
+        detailedStack.layer.cornerRadius = view.frame.height/50
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        guard var user = User.getUserByLogin(dataManager, "User") else { return }
         guard let inputText = categoryName.text else { return }
         if !inputText.isEmpty {
             switch categoryType.selectedSegmentIndex {
             case 0: user.addCategory(Category(name: inputText, type: .withdraw))
             default: user.addCategory(Category(name: inputText, type: .income))
             }
-            user.saveUserToDataManager(dataManager, user)
+            user.saveUserToDataManager(DataManager.shared, user)
             delegate.updateUser(user)
         }
     }

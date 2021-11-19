@@ -7,11 +7,6 @@
 
 import UIKit
 
-protocol OverviewUserUpdatingDelegate {
-    func updateUser(_ newUser: User)
-}
-
-
 class OverviewViewController: UIViewController {
     
     @IBOutlet var topInfoViewOutlet: UIView!
@@ -21,31 +16,38 @@ class OverviewViewController: UIViewController {
     @IBOutlet var withdrawAmountOutlet: UILabel!
     
     @IBOutlet var overviewTableView: UITableView!
+    
     var user: User!
-    //private let user = dataManager.user
+
     private var userIncomeCategories: [Category] {
         user.getAllCategoriesByType(.income)
     }
+    
     private var userWithdrawCategories: [Category] {
         user.getAllCategoriesByType(.withdraw)
     }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        incomeAmountOutlet.text = user.getTotalIncome().currencyRU
-        balanceAmountOutlet.text = user.getTotalMoneyAmount().currencyRU
-        withdrawAmountOutlet.text = user.getTotalWithdraw().currencyRU
+    
+    /* Заменил viewDidLoad на viewWillAppear,
+     что бы корректно обновлять интерфейс при изменениях вынес обновление шапки и
+     отрисовку таблицы в метод updateUI - ОН ИИСПОЛЬЗУЕТСЯ ПРИ ПЕРЕКЛЮЧЕНИИ TabBar!
+     */
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        updateUI()
     }
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         topInfoViewOutlet.layer.cornerRadius = view.frame.width / 20
+        topInfoViewOutlet.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Добавлено для перехода на добавление категории, делегат описан в OverviewExtension
+        // это надо разнести в секции и плюс ещё переход на AddAccount 
         if let addCategoryVC = segue.destination as? AddCategoryViewController {
             addCategoryVC.delegate = self
+            addCategoryVC.user = user
         }
         
         guard let historyVC = segue.destination as? HistoryViewController else { return }
@@ -53,15 +55,27 @@ class OverviewViewController: UIViewController {
         switch indexPath.section {
         case 0: historyVC.itemType = "income"
             historyVC.itemName = userIncomeCategories[indexPath.row].name
+            historyVC.operations = user.getAllOperationsByCattegory(userIncomeCategories[indexPath.row].name)
         case 1: historyVC.itemType = "account"
             historyVC.itemName = user.profile.accounts[indexPath.row].name
+            historyVC.operations = user.profile.accounts[indexPath.row].getActiveOperations()
         default: historyVC.itemType = "withdraw"
             historyVC.itemName = userWithdrawCategories[indexPath.row].name
+            historyVC.operations = user.getAllOperationsByCattegory(userWithdrawCategories[indexPath.row].name)
         }
-        historyVC.operations = user.getAllActiveOperations()
+        
+    }
+//MARK: - Public methods
+    
+    func updateUI() {
+        overviewTableView.reloadData()
+        incomeAmountOutlet.text = user.getTotalIncome().currencyRU
+        balanceAmountOutlet.text = user.getTotalMoneyAmount().currencyRU
+        withdrawAmountOutlet.text = user.getTotalWithdraw().currencyRU
     }
 }
 
+//MARK: - UITableViewDataSource
 extension OverviewViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         3
@@ -123,6 +137,7 @@ extension OverviewViewController: UITableViewDataSource {
         return cell
     }
 }
+//MARK: - UITableViewDelegate
 
 extension OverviewViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -137,8 +152,11 @@ extension OverviewViewController: UITableViewDelegate {
             performSegue(withIdentifier: "addCategory", sender: nil)
         }
         
+        
         if indexPath.row < sectionCount {
             performSegue(withIdentifier: "historySegue", sender: nil)
         }
+        
+        tableView.deselectRow(at: indexPath, animated: false)
     }
 }

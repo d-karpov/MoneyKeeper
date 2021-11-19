@@ -132,7 +132,7 @@
                     <connections>
                         <outlet property="balanceAmountOutlet" destination="x7I-V0-8Dv" id="dPt-xR-rTl"/>
                         <outlet property="incomeAmountOutlet" destination="PXL-6f-xdp" id="vjv-gA-a82"/>
-                        <outlet property="overviewTableView" destination="Gx8-b1-IOe" id="Jyf-sC-Uso"/>
+                        <outlet property="overviewTableView" destination="Gx8-b1-IOe" id="m8d-zU-Xn2"/>
                         <outlet property="topInfoViewOutlet" destination="esB-XF-eVB" id="3NE-94-yae"/>
                         <outlet property="withdrawAmountOutlet" destination="l1W-Ld-wgu" id="P3K-Oc-3bV"/>
                         <segue destination="8T5-91-cwi" kind="presentation" identifier="historySegue" id="fym-rC-O8G"/>

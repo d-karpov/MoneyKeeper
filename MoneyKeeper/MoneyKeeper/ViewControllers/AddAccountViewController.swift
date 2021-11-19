@@ -15,21 +15,22 @@ class AddAccountViewController: UIViewController {
     
     @IBOutlet var accountType: UISegmentedControl!
     
+    @IBOutlet var detailedStack: UIStackView!
     
     //MARK: - Public properties
-    let dataManager = DataManager.shared
+    var user: User!
     var delegate: OverviewUserUpdatingDelegate!
     
     //MARK: - Overrides
     override func viewDidLoad() {
         super.viewDidLoad()
+        detailedStack.layer.cornerRadius = view.frame.height/50
         accountText.delegate = self
         balanceText.delegate = self
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        guard var user = User.getUserByLogin(dataManager, "User") else { return }
         guard let accountName = accountText.text else { return }
         guard let balance = Double(balanceText.text ?? "0.0") else { return }
         if !accountName.isEmpty {
@@ -37,7 +38,7 @@ class AddAccountViewController: UIViewController {
             case 0: user.addAccount(Account(status: .excluded, name: accountName, operations: [], rawMoneyAmount: balance))
             default: user.addAccount(Account(status: .included, name: accountName, operations: [], rawMoneyAmount: balance))
             }
-            user.saveUserToDataManager(dataManager, user)
+            user.saveUserToDataManager(DataManager.shared, user)
             delegate.updateUser(user)
         }
     }
@@ -70,7 +71,6 @@ class AddAccountViewController: UIViewController {
 
 extension AddAccountViewController: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
-        guard let user = User.getUserByLogin(dataManager, "User") else { return }
         guard let accountName = accountText.text else { return }
         if user.accountIsExist(accountName) {
             textField.text = ""
