@@ -21,8 +21,7 @@ class TabBarViewController: UITabBarController {
     
     //MARK: - Private methods
     private func setUpViewControllers() {
-        let dataManager = DataManager.shared
-        let user = User.getUserByLogin(dataManager, "User")
+        let user = User.getUserByLogin(DataManager.shared, "User")
         if let viewControllers = viewControllers {
             for viewController in viewControllers {
                 if let profileVC = viewController as? ProfileViewController {

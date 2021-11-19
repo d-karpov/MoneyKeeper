@@ -35,6 +35,7 @@ class SecondViewController: UIViewController {
         //  Добавил переход на экран добавления операции.
         if let addAcountVC = segue.destination as? AddOperationViewController {
             addAcountVC.user = user
+            addAcountVC.delegate = self
         }
         guard let SV = segue.destination as? SecondViewController else { return }
         SV.cardLabel.textColor = .blue

@@ -21,6 +21,7 @@ class AddOperationViewController: UIViewController {
     
     //MARK: - Public properties
     var user: User!
+    var delegate: MainViewUserUpdatingDelegate!
     var account: Account!
     
     //MARK: - Private properrties
@@ -71,6 +72,7 @@ class AddOperationViewController: UIViewController {
                                                    category: operationCategory,
                                                    rawMoneyAmount: money))
             user.saveUserToDataManager(DataManager.shared, user)
+            delegate.updateUser(user)
         }
     }
     

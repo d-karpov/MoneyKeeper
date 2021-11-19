@@ -14,6 +14,7 @@
 		D32AEED42746B348004080A7 /* AddAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32AEED32746B348004080A7 /* AddAccountViewController.swift */; };
 		D32AEED62746D4B3004080A7 /* AddOperation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D32AEED52746D4B3004080A7 /* AddOperation.storyboard */; };
 		D32AEED82746E29C004080A7 /* AddOperationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32AEED72746E29C004080A7 /* AddOperationViewController.swift */; };
+		D32AEEDA2747C365004080A7 /* MainViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32AEED92747C365004080A7 /* MainViewExtension.swift */; };
 		D32C9E722741123800B1BB61 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32C9E712741123800B1BB61 /* Users.swift */; };
 		D32C9E74274112E200B1BB61 /* Accounts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32C9E73274112E200B1BB61 /* Accounts.swift */; };
 		D32C9E76274112F700B1BB61 /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32C9E75274112F700B1BB61 /* Categories.swift */; };
@@ -50,6 +51,7 @@
 		D32AEED32746B348004080A7 /* AddAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccountViewController.swift; sourceTree = "<group>"; };
 		D32AEED52746D4B3004080A7 /* AddOperation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddOperation.storyboard; sourceTree = "<group>"; };
 		D32AEED72746E29C004080A7 /* AddOperationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddOperationViewController.swift; sourceTree = "<group>"; };
+		D32AEED92747C365004080A7 /* MainViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewExtension.swift; sourceTree = "<group>"; };
 		D32C9E712741123800B1BB61 /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
 		D32C9E73274112E200B1BB61 /* Accounts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Accounts.swift; sourceTree = "<group>"; };
 		D32C9E75274112F700B1BB61 /* Categories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 				F89D27BA27412EF8006A0447 /* Numeric.swift */,
 				D3533D0627455FEE00CCBEC6 /* OverviewExtension.swift */,
 				D3533D0827456A1100CCBEC6 /* UserPublicAndPrivateExtension.swift */,
+				D32AEED92747C365004080A7 /* MainViewExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -289,6 +292,7 @@
 				5C20F70427428E04002A22A0 /* SecondViewController.swift in Sources */,
 				D32C9E76274112F700B1BB61 /* Categories.swift in Sources */,
 				D32AEED82746E29C004080A7 /* AddOperationViewController.swift in Sources */,
+				D32AEEDA2747C365004080A7 /* MainViewExtension.swift in Sources */,
 				D3533D0927456A1100CCBEC6 /* UserPublicAndPrivateExtension.swift in Sources */,
 				F860E85127442E8E00D49FAB /* HistoryViewController.swift in Sources */,
 				F89568C12745817E00131746 /* Sequence.swift in Sources */,
