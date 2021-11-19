@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -29,6 +29,8 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sUV-lh-71k">
                                         <rect key="frame" x="0.0" y="0.0" width="70.5" height="28.5"/>
+                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" systemColor="secondarySystemBackgroundColor"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="tinted" title="History">
                                             <fontDescription key="titleFontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="12"/>
@@ -37,6 +39,8 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XzD-ZP-Oly">
                                         <rect key="frame" x="90.5" y="0.0" width="70.5" height="28.5"/>
+                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" systemColor="secondarySystemBackgroundColor"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="tinted" title="Button">
                                             <fontDescription key="titleFontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="12"/>
@@ -48,6 +52,8 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d5q-as-6wQ">
                                         <rect key="frame" x="181" y="0.0" width="70.5" height="28.5"/>
+                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" systemColor="secondarySystemBackgroundColor"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="tinted" title="Button">
                                             <fontDescription key="titleFontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="12"/>
@@ -56,6 +62,8 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e3H-f6-20D">
                                         <rect key="frame" x="271.5" y="0.0" width="70.5" height="28.5"/>
+                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" systemColor="secondarySystemBackgroundColor"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="tinted" title="Button">
                                             <fontDescription key="titleFontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="12"/>
@@ -70,7 +78,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="149" id="6V2-ki-hg6"/>
                                 </constraints>
-                                <color key="tintColor" systemColor="tertiarySystemBackgroundColor"/>
+                                <color key="tintColor" systemColor="systemOrangeColor"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="numberOfCard"/>
                                 <connections>
@@ -78,36 +86,44 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YZE-63-1PC">
-                                <rect key="frame" x="196.5" y="139" width="157.5" height="24"/>
+                                <rect key="frame" x="166" y="134.5" width="188" height="28.5"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add new card" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tct-XI-RtO">
-                                        <rect key="frame" x="0.0" y="0.0" width="116" height="24"/>
-                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="20"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add new bank account" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tct-XI-RtO">
+                                        <rect key="frame" x="0.0" y="0.0" width="144.5" height="28.5"/>
+                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="15"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X5X-eG-w6H">
-                                        <rect key="frame" x="116" y="0.0" width="41.5" height="24"/>
+                                        <rect key="frame" x="144.5" y="0.0" width="43.5" height="28.5"/>
                                         <color key="tintColor" systemColor="systemGreenColor"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" image="plus" catalog="system"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="plus.square.dashed" catalog="system"/>
                                     </button>
                                 </subviews>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5v9-Q8-h2i">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="118"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="113.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User User" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dGT-sl-bif">
-                                        <rect key="frame" x="75" y="66" width="264" height="27"/>
-                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="25"/>
-                                        <nil key="textColor"/>
+                                        <rect key="frame" x="75" y="66" width="264" height="22.5"/>
+                                        <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="20"/>
+                                        <color key="textColor" systemColor="systemYellowColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ysP-JF-AO9">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="66"/>
+                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemGray2Color"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstItem="ysP-JF-AO9" firstAttribute="top" secondItem="5v9-Q8-h2i" secondAttribute="top" id="7kr-HB-fde"/>
                                     <constraint firstItem="dGT-sl-bif" firstAttribute="leading" secondItem="5v9-Q8-h2i" secondAttribute="leading" constant="75" id="SgZ-G7-iMH"/>
+                                    <constraint firstItem="dGT-sl-bif" firstAttribute="top" secondItem="ysP-JF-AO9" secondAttribute="bottom" id="UqN-aG-NJO"/>
                                     <constraint firstAttribute="trailing" secondItem="dGT-sl-bif" secondAttribute="trailing" constant="75" id="ckM-Ax-RPR"/>
+                                    <constraint firstAttribute="trailing" secondItem="ysP-JF-AO9" secondAttribute="trailing" id="h5q-45-Q83"/>
+                                    <constraint firstItem="ysP-JF-AO9" firstAttribute="leading" secondItem="5v9-Q8-h2i" secondAttribute="leading" id="iMw-v1-CUT"/>
                                     <constraint firstItem="dGT-sl-bif" firstAttribute="top" secondItem="5v9-Q8-h2i" secondAttribute="top" constant="66" id="mdJ-uU-VAd"/>
                                     <constraint firstAttribute="bottom" secondItem="dGT-sl-bif" secondAttribute="bottom" constant="25" id="o1h-pu-2VR"/>
                                 </constraints>
@@ -134,17 +150,22 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="cartOutletBtn" destination="olG-Xn-UXU" id="T2c-RE-FKN"/>
-                        <outlet property="grauViewOutlet" destination="5v9-Q8-h2i" id="Pf6-hk-CSG"/>
+                        <outlet property="grayViewOutlet" destination="5v9-Q8-h2i" id="Pf6-hk-CSG"/>
+                        <outlet property="nameLabel" destination="dGT-sl-bif" id="vVa-kx-rUA"/>
+                        <outletCollection property="buttonOutlets" destination="sUV-lh-71k" collectionClass="NSMutableArray" id="UQI-PQ-1aX"/>
+                        <outletCollection property="buttonOutlets" destination="XzD-ZP-Oly" collectionClass="NSMutableArray" id="qoo-a9-9OC"/>
+                        <outletCollection property="buttonOutlets" destination="d5q-as-6wQ" collectionClass="NSMutableArray" id="to2-fa-ltS"/>
+                        <outletCollection property="buttonOutlets" destination="e3H-f6-20D" collectionClass="NSMutableArray" id="OA9-96-CXc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="50.724637681159422" y="-194.19642857142856"/>
         </scene>
-        <!--Change Table View Controller-->
+        <!--Change Bank Account View Controller-->
         <scene sceneID="MQI-Q2-ru5">
             <objects>
-                <tableViewController storyboardIdentifier="TableVC" id="NJQ-Cm-bRH" customClass="ChangeTableViewController" customModule="MoneyKeeper" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="TableVC" id="NJQ-Cm-bRH" customClass="ChangeBankAccountViewController" customModule="MoneyKeeper" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" alpha="0.90000000000000002" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="OLc-c9-cxc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -181,7 +202,10 @@
     </scenes>
     <resources>
         <image name="creditcard" catalog="system" width="128" height="88"/>
-        <image name="plus" catalog="system" width="128" height="113"/>
+        <image name="plus.square.dashed" catalog="system" width="128" height="114"/>
+        <systemColor name="secondarySystemBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
@@ -194,8 +218,11 @@
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
-        <systemColor name="tertiarySystemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
