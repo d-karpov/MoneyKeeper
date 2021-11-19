@@ -36,12 +36,50 @@
                                 <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="usQ-fS-W1A">
-                                <rect key="frame" x="15" y="193.5" width="384" height="378"/>
+                                <rect key="frame" x="15" y="193.5" width="384" height="506"/>
                                 <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="GHW-2S-y4q">
+                                        <rect key="frame" x="30" y="30" width="324" height="34"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Account:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vkW-dU-MSq">
+                                                <rect key="frame" x="0.0" y="7" width="80" height="20"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="80" id="n7N-k5-K8f"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="18"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Account name" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="U9x-jm-fjI">
+                                                <rect key="frame" x="90" y="0.0" width="234" height="34"/>
+                                                <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="20"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="yes" spellCheckingType="yes" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="TR4-aj-hEG">
+                                        <rect key="frame" x="30" y="114" width="324" height="34"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3mL-fV-PJx">
+                                                <rect key="frame" x="0.0" y="7" width="80" height="20"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="80" id="qXo-AR-sGp"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="18"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Operation date" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="5Aw-Bo-qUB">
+                                                <rect key="frame" x="90" y="0.0" width="234" height="34"/>
+                                                <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="20"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="yes" spellCheckingType="yes" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="w7m-Fm-tAl">
-                                        <rect key="frame" x="30" y="30" width="324" height="51"/>
+                                        <rect key="frame" x="30" y="198" width="324" height="31"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="6RO-1R-zrc"/>
+                                            <constraint firstAttribute="height" constant="30" id="6RO-1R-zrc"/>
                                         </constraints>
                                         <segments>
                                             <segment title="Exist"/>
@@ -53,25 +91,28 @@
                                         </connections>
                                     </segmentedControl>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="P1z-yY-1Rk">
-                                        <rect key="frame" x="30" y="130" width="324" height="34"/>
+                                        <rect key="frame" x="30" y="278" width="324" height="34"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AtD-Pr-5FF">
-                                                <rect key="frame" x="0.0" y="6" width="86.5" height="22.5"/>
-                                                <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="20"/>
+                                                <rect key="frame" x="0.0" y="7" width="80" height="20"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="80" id="y4B-qX-2eR"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="18"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Category name" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="9bG-YD-zaM">
-                                                <rect key="frame" x="96.5" y="0.0" width="227.5" height="34"/>
+                                                <rect key="frame" x="90" y="0.0" width="234" height="34"/>
                                                 <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="20"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="yes" spellCheckingType="yes" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                             </textField>
                                         </subviews>
                                     </stackView>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="fs5-tW-YC4">
-                                        <rect key="frame" x="30" y="214" width="324" height="51"/>
+                                        <rect key="frame" x="30" y="362" width="324" height="31"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="GFz-JP-ry1"/>
+                                            <constraint firstAttribute="height" constant="30" id="GFz-JP-ry1"/>
                                         </constraints>
                                         <segments>
                                             <segment title="Withdraw"/>
@@ -83,16 +124,19 @@
                                         </connections>
                                     </segmentedControl>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ybM-e5-5vc">
-                                        <rect key="frame" x="30" y="314" width="324" height="34"/>
+                                        <rect key="frame" x="30" y="442" width="324" height="34"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amount:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="26D-ox-eSH">
-                                                <rect key="frame" x="0.0" y="6" width="86.5" height="22.5"/>
-                                                <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="20"/>
+                                                <rect key="frame" x="0.0" y="7" width="80" height="20"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="80" id="l7p-7x-MqT"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="18"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0.00" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="n3r-Cb-csq">
-                                                <rect key="frame" x="96.5" y="0.0" width="227.5" height="34"/>
+                                                <rect key="frame" x="90" y="0.0" width="234" height="34"/>
                                                 <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="20"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="decimalPad"/>
                                             </textField>
@@ -100,9 +144,6 @@
                                     </stackView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstItem="AtD-Pr-5FF" firstAttribute="width" secondItem="26D-ox-eSH" secondAttribute="width" id="4e0-zv-gl6"/>
-                                </constraints>
                                 <edgeInsets key="layoutMargins" top="30" left="30" bottom="30" right="30"/>
                             </stackView>
                         </subviews>
@@ -119,9 +160,11 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="accountText" destination="U9x-jm-fjI" id="a1z-OI-6ub"/>
                         <outlet property="amountText" destination="n3r-Cb-csq" id="jiH-J3-2jc"/>
                         <outlet property="categoryText" destination="9bG-YD-zaM" id="hv0-Q8-uxU"/>
                         <outlet property="categoryType" destination="fs5-tW-YC4" id="CEl-Yq-T8o"/>
+                        <outlet property="dateText" destination="5Aw-Bo-qUB" id="k6p-8D-l4R"/>
                         <outlet property="detailedStack" destination="usQ-fS-W1A" id="zjO-Xk-CsK"/>
                         <outlet property="newOrExist" destination="w7m-Fm-tAl" id="qcR-ER-wfR"/>
                     </connections>

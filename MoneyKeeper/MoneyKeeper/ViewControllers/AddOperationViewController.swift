@@ -13,12 +13,15 @@ class AddOperationViewController: UIViewController {
     
     @IBOutlet var categoryText: UITextField!
     @IBOutlet var amountText: UITextField!
+    @IBOutlet var dateText: UITextField!
+    @IBOutlet var accountText: UITextField!
     
     @IBOutlet var categoryType: UISegmentedControl!
     @IBOutlet var newOrExist: UISegmentedControl!
     
     //MARK: - Public properties
     var user: User!
+    var account: Account!
     
     //MARK: - Private properrties
     private var operationCategory: Category!
@@ -28,14 +31,28 @@ class AddOperationViewController: UIViewController {
         default: return .income
         }
     }
-    private var picker: UIPickerView!
+    private var accountPicker: UIPickerView!
+    private var categoryPicker: UIPickerView!
+    private var datePicker: UIDatePicker!
     
     //MARK: - Overrides
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        picker = UIPickerView()
-        picker.delegate = self
+        categoryPicker = UIPickerView()
+        categoryPicker.delegate = self
         categoryText.delegate = self
+        
+        accountPicker = UIPickerView()
+        accountPicker.delegate = self
+        accountText.delegate = self
+        accountText.inputView = accountPicker
+        
+        datePicker = UIDatePicker()
+        dateText.delegate = self
+        datePicker.preferredDatePickerStyle = .inline
+        dateText.inputView = datePicker
+        dateText.text = Date.now.formatted(date: .long, time: .omitted)
+        
         changeInputType()
         categoryType.isHidden = true
         detailedStack.layer.cornerRadius = view.frame.height/50
@@ -43,12 +60,13 @@ class AddOperationViewController: UIViewController {
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        guard let money = Double(amountText.text ?? "0.0") else { return }
-        if operationCategory != nil {
+        if operationCategory != nil && accountText.hasText {
+            guard let accountName = accountText.text else { return }
+            guard let money = Double(amountText.text ?? "0.0") else { return }
             if !user.profile.categories.contains(operationCategory) {
                 user.addCategory(operationCategory)
             }
-            user.addOperation("Tinkoff", Operation(date: Date.now,
+            user.addOperation(accountName, Operation(date: datePicker.date,
                                                    status: .active,
                                                    category: operationCategory,
                                                    rawMoneyAmount: money))
@@ -94,7 +112,7 @@ class AddOperationViewController: UIViewController {
         view.endEditing(true)
         categoryType.isHidden = true
         switch newOrExist.selectedSegmentIndex {
-        case 0: categoryText.inputView = picker
+        case 0: categoryText.inputView = categoryPicker
         default: categoryText.inputView = nil
         }
     }
@@ -107,18 +125,29 @@ extension AddOperationViewController: UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        user.profile.categories.count
+        switch pickerView {
+        case categoryPicker: return user.profile.categories.count
+        default: return user.profile.accounts.count
+        }
     }
 }
 
 //MARK: - UIPickerViewDelegate
 extension AddOperationViewController: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        user.profile.categories[row].name
+        switch pickerView {
+        case categoryPicker: return user.profile.categories[row].name
+        default: return user.profile.accounts[row].name
+        }
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        categoryText.text = user.profile.categories[row].name
+        switch pickerView {
+        case categoryPicker:
+            categoryText.text = user.profile.categories[row].name
+        default:
+            accountText.text = user.profile.accounts[row].name
+        }
     }
 }
 
@@ -130,6 +159,9 @@ extension AddOperationViewController: UITextFieldDelegate {
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
+        if textField == dateText {
+            textField.text = datePicker.date.formatted(date: .long, time: .omitted)
+        }
         updateCategory()
     }
 }
