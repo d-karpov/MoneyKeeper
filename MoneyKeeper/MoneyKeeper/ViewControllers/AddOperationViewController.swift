@@ -8,7 +8,7 @@
 import UIKit
 
 class AddOperationViewController: UIViewController {
-    //MARK: - IBOutlets
+//MARK: - IBOutlets
     @IBOutlet var detailedStack: UIStackView!
     
     @IBOutlet var categoryText: UITextField!
@@ -19,12 +19,12 @@ class AddOperationViewController: UIViewController {
     @IBOutlet var categoryType: UISegmentedControl!
     @IBOutlet var newOrExist: UISegmentedControl!
     
-    //MARK: - Public properties
+//MARK: - Public properties
     var user: User!
     var delegate: MainViewUserUpdatingDelegate!
     var account: Account!
     
-    //MARK: - Private properrties
+//MARK: - Private properrties
     private var operationCategory: Category!
     private var operationType: CategoriesTypes {
             switch categoryType.selectedSegmentIndex {
@@ -36,7 +36,7 @@ class AddOperationViewController: UIViewController {
     private var categoryPicker: UIPickerView!
     private var datePicker: UIDatePicker!
     
-    //MARK: - Overrides
+//MARK: - Overrides
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         categoryPicker = UIPickerView()
@@ -89,7 +89,7 @@ class AddOperationViewController: UIViewController {
         view.endEditing(true)
     }
     
-    //MARK: - IBActions
+//MARK: - IBActions
     @IBAction func changeSelectors(_ sender: UISegmentedControl) {
         view.endEditing(true)
         setSegmentColor(sender)
@@ -97,7 +97,7 @@ class AddOperationViewController: UIViewController {
         updateCategory()
     }
     
-    //MARK: - Private methods
+//MARK: - Private methods
     private func updateCategory() {
         guard let categoryName = categoryText.text else { return }
         if !categoryName.isEmpty {

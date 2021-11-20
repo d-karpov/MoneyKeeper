@@ -9,6 +9,7 @@ import UIKit
 
 class OverviewViewController: UIViewController {
     
+//MARK: - IBOutlets
     @IBOutlet var topInfoViewOutlet: UIView!
 
     @IBOutlet var incomeAmountOutlet: UILabel!
@@ -17,8 +18,10 @@ class OverviewViewController: UIViewController {
     
     @IBOutlet var overviewTableView: UITableView!
     
+//MARK: - Public properties
     var user: User!
 
+//MARK: - Private properties
     private var userIncomeCategories: [Category] {
         user.getAllCategoriesByType(.income)
     }
@@ -26,7 +29,8 @@ class OverviewViewController: UIViewController {
     private var userWithdrawCategories: [Category] {
         user.getAllCategoriesByType(.withdraw)
     }
-    
+
+//MARK: - Overrides
     /* Заменил viewDidLoad на viewWillAppear,
      что бы корректно обновлять интерфейс при изменениях вынес обновление шапки и
      отрисовку таблицы в метод updateUI - ОН ИИСПОЛЬЗУЕТСЯ ПРИ ПЕРЕКЛЮЧЕНИИ TabBar!
