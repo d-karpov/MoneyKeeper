@@ -146,7 +146,7 @@ extension OverviewViewController: UITableViewDelegate {
         case 1: sectionCount = user.profile.accounts.count
         default: sectionCount = userWithdrawCategories.count
         }
-        //Временное решение для перехода - переделай под свой кодстайл
+        
         if indexPath.row == sectionCount {
             if indexPath.section == 1 {
                 performSegue(withIdentifier: "addAccountSegue", sender: nil)

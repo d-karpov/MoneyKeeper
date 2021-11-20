@@ -11,18 +11,17 @@ class SecondViewController: UIViewController {
 
     @IBOutlet weak var cartOutletBtn: UIButton!
     
+    @IBOutlet var buttonOutlets: [UIButton]!
+    
     @IBOutlet weak var cardLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
     
     @IBOutlet var historyTableView: UITableView!
-    //Добавил переменную для приема юзера
-    var user: User!
     
     @IBOutlet weak var upperView: UIView!
     @IBOutlet weak var grayViewOutlet: UIView!
-    
-    @IBOutlet var buttonOutlets: [UIButton]!
-    
-    @IBOutlet weak var nameLabel: UILabel!
+
+    var user: User!
     
     private var lastOperations: [Operation] {
         user.getAllActiveOperations().sorted(by: {$0.date > $1.date})
@@ -43,14 +42,19 @@ class SecondViewController: UIViewController {
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        //  Добавил переход на экран добавления операции.
         if let addAccountVC = segue.destination as? AddOperationViewController {
             addAccountVC.user = user
             addAccountVC.delegate = self
         } else if let historyVC = segue.destination as? HistoryViewController {
-            historyVC.itemType = "account"
-            historyVC.itemName = "name"
-            historyVC.operations = []
+            if let _ = sender as? UIButton {
+                historyVC.itemType = "account"
+                historyVC.itemName = "name"
+                historyVC.operations = []
+            } else {
+                historyVC.itemType = "user"
+                historyVC.itemName = user.profile.name
+                historyVC.operations = user.getMonthlyAllOperations()
+            }
         }
     }
 }
@@ -86,5 +90,13 @@ extension SecondViewController: UITableViewDataSource {
         
         cell.contentConfiguration = content
         return cell
+    }
+}
+
+extension SecondViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "historySegue", sender: nil)
+        
+        tableView.deselectRow(at: indexPath, animated: false)
     }
 }

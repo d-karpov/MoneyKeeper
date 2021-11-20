@@ -25,6 +25,8 @@ class HistoryViewController: UIViewController {
             labelHeaderColor = .systemGreen
         case "account": iconImageView.image = UIImage(systemName: "rectangle")
             labelHeaderColor = .systemOrange
+        case "user": iconImageView.image = UIImage(systemName: "person")
+            labelHeaderColor = .systemRed
         default: iconImageView.image = UIImage(systemName: "hand.thumbsdown.fill")
             labelHeaderColor = .systemYellow
         }

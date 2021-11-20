@@ -45,7 +45,7 @@
                                             <color key="baseBackgroundColor" systemColor="systemGray2Color"/>
                                         </buttonConfiguration>
                                         <connections>
-                                            <segue destination="OH6-TC-cKr" kind="presentation" id="Z4h-h3-KEj"/>
+                                            <segue destination="OH6-TC-cKr" kind="presentation" identifier="historySegue" id="Z4h-h3-KEj"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XzD-ZP-Oly">
@@ -176,6 +176,7 @@
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="Y6W-OH-hqX" id="hJm-dP-f9h"/>
+                                    <outlet property="delegate" destination="Y6W-OH-hqX" id="6Xh-Jp-zRi"/>
                                 </connections>
                             </tableView>
                         </subviews>
