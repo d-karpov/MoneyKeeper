@@ -22,15 +22,15 @@ class AddOperationViewController: UIViewController {
     //MARK: - Public properties
     var user: User!
     var delegate: MainViewUserUpdatingDelegate!
-    var account = "Tinkoff"
+    var account: Account!
     
     //MARK: - Private properrties
     private var operationCategory: Category!
     private var operationType: CategoriesTypes {
-        switch categoryType.selectedSegmentIndex {
-        case 0: return .withdraw
-        default: return .income
-        }
+            switch categoryType.selectedSegmentIndex {
+            case 0: return .withdraw
+            default: return .income
+            }
     }
     private var accountPicker: UIPickerView!
     private var categoryPicker: UIPickerView!
@@ -47,13 +47,20 @@ class AddOperationViewController: UIViewController {
         accountPicker.delegate = self
         accountText.delegate = self
         accountText.inputView = accountPicker
-        accountText.text = account
+        if account == nil {
+            accountText.text = "Tinkoff"
+        } else {
+            accountText.text = account.name
+        }
+       
         
         datePicker = UIDatePicker()
         dateText.delegate = self
         datePicker.preferredDatePickerStyle = .inline
         dateText.inputView = datePicker
         dateText.text = Date.now.formatted(date: .long, time: .omitted)
+        
+        amountText.delegate = self
         
         changeInputType()
         categoryType.isHidden = true
@@ -84,11 +91,10 @@ class AddOperationViewController: UIViewController {
     
     //MARK: - IBActions
     @IBAction func changeSelectors(_ sender: UISegmentedControl) {
-        switch sender.selectedSegmentIndex {
-        case 0: sender.selectedSegmentTintColor = .systemYellow
-        default: sender.selectedSegmentTintColor = .systemGreen
-        }
+        view.endEditing(true)
+        setSegmentColor(sender)
         changeInputType()
+        updateCategory()
     }
     
     //MARK: - Private methods
@@ -96,7 +102,9 @@ class AddOperationViewController: UIViewController {
         guard let categoryName = categoryText.text else { return }
         if !categoryName.isEmpty {
             if !user.profile.categories.contains(where: { $0.name == categoryName && $0.type == operationType }) {
-                categoryType.isHidden = false
+                newOrExist.selectedSegmentIndex = 1
+                setSegmentColor(newOrExist)
+                changeInputType()
                 operationCategory = Category(name: categoryName, type: operationType)
             } else if user.profile.categories.filter({ $0.name == categoryName }).count > 1 {
                 categoryType.isHidden = false
@@ -107,8 +115,7 @@ class AddOperationViewController: UIViewController {
         }
     }
     
-    private func changeInputType(){
-        view.endEditing(true)
+    private func changeInputType() {
         switch newOrExist.selectedSegmentIndex {
         case 0:
             categoryType.isHidden = true
@@ -117,7 +124,13 @@ class AddOperationViewController: UIViewController {
             categoryType.isHidden = false
             categoryText.inputView = nil
         }
-        updateCategory()
+    }
+    
+    private func setSegmentColor(_ segement: UISegmentedControl) {
+        switch segement.selectedSegmentIndex {
+        case 0: segement.selectedSegmentTintColor = .systemYellow
+        default: segement.selectedSegmentTintColor = .systemGreen
+        }
     }
 }
 
@@ -148,6 +161,12 @@ extension AddOperationViewController: UIPickerViewDelegate {
         switch pickerView {
         case categoryPicker:
             categoryText.text = user.profile.categories[row].name
+            switch user.profile.categories[row].type {
+            case .income: categoryType.selectedSegmentIndex = 1
+            default: categoryType.selectedSegmentIndex = 0
+            }
+            setSegmentColor(categoryType)
+            updateCategory()
         default:
             accountText.text = user.profile.accounts[row].name
         }
