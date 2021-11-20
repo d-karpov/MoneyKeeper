@@ -38,22 +38,22 @@ class HistoryViewController: UIViewController {
 
 extension HistoryViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        getUniqueOperationDates().count
+        getUniqueDates(ofOperationArray: operations).count
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        getUniqueOperationDates()[section]
+        getUniqueDates(ofOperationArray: operations)[section]
     }
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        operations.filter {string(ofDate: $0.date) ==  getUniqueOperationDates()[section]}.count
+        operations.filter {string(ofDate: $0.date) == getUniqueDates(ofOperationArray: operations)[section]}.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "historyRow", for: indexPath)
         var content = cell.defaultContentConfiguration()
-        let operationsInSection = operations.filter {string(ofDate: $0.date) == getUniqueOperationDates()[indexPath.section]}.sorted(by: {$0.date > $1.date})
+        let operationsInSection = operations.filter {string(ofDate: $0.date) == getUniqueDates(ofOperationArray: operations)[indexPath.section]}.sorted(by: {$0.date > $1.date})
         content.text = operationsInSection[indexPath.row].category.name
         content.secondaryText = operationsInSection[indexPath.row].moneyAmount.currencyRU
         
@@ -74,24 +74,5 @@ extension HistoryViewController: UITableViewDataSource {
 extension HistoryViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-    }
-}
-
-extension HistoryViewController {
-    private func string(ofDate: Date) -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .medium
-        dateFormatter.timeStyle = .none
-        dateFormatter.locale = Locale(identifier: "ru_RU")
-        return dateFormatter.string(from: ofDate)
-    }
-    
-    private func getUniqueOperationDates() -> [String] {
-        var uniqueDates: [String] = []
-        operations.sorted(by: {$0.date > $1.date}).forEach {
-            uniqueDates.append(string(ofDate: $0.date))
-        }
-        
-        return uniqueDates.uniqued()
     }
 }

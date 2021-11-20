@@ -18,7 +18,7 @@ class TabBarViewController: UITabBarController {
         tabBar.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         setUpViewControllers()
     }
-    
+     
     //MARK: - Private methods
     private func setUpViewControllers() {
         let user = User.getUserByLogin(DataManager.shared, "User")

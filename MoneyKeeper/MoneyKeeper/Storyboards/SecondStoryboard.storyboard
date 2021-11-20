@@ -16,6 +16,14 @@
             </objects>
             <point key="canvasLocation" x="282" y="224"/>
         </scene>
+        <!--History-->
+        <scene sceneID="SAw-77-mtg">
+            <objects>
+                <viewControllerPlaceholder storyboardName="History" id="OH6-TC-cKr" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MgL-nM-uRw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-180" y="224"/>
+        </scene>
         <!--Main-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
@@ -36,6 +44,9 @@
                                             <fontDescription key="titleFontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="12"/>
                                             <color key="baseBackgroundColor" systemColor="systemGray2Color"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <segue destination="OH6-TC-cKr" kind="presentation" id="Z4h-h3-KEj"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XzD-ZP-Oly">
                                         <rect key="frame" x="90.5" y="0.0" width="70.5" height="28.5"/>
@@ -128,6 +139,45 @@
                                     <constraint firstAttribute="bottom" secondItem="dGT-sl-bif" secondAttribute="bottom" constant="25" id="o1h-pu-2VR"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last operations" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZSg-BT-qLA">
+                                <rect key="frame" x="20" y="388.5" width="116" height="19"/>
+                                <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="8J9-xo-o6k">
+                                <rect key="frame" x="20" y="409.5" width="374" height="435.5"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="lastOperationsRow" textLabel="dJo-91-Yn2" detailTextLabel="ljs-dj-5aM" style="IBUITableViewCellStyleValue1" id="xE4-PA-Qnf">
+                                        <rect key="frame" x="0.0" y="44.5" width="374" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xE4-PA-Qnf" id="KAH-l1-TBu">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dJo-91-Yn2">
+                                                    <rect key="frame" x="20" y="15" width="25" height="14.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ljs-dj-5aM">
+                                                    <rect key="frame" x="321" y="15" width="33" height="14.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="Y6W-OH-hqX" id="hJm-dP-f9h"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemGray5Color"/>
@@ -135,12 +185,18 @@
                             <constraint firstItem="olG-Xn-UXU" firstAttribute="top" secondItem="YZE-63-1PC" secondAttribute="bottom" constant="10" id="Bl4-Z9-9hb"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="fj8-jW-mAm" secondAttribute="trailing" constant="36" id="D3H-PB-Wth"/>
                             <constraint firstItem="olG-Xn-UXU" firstAttribute="centerX" secondItem="fj8-jW-mAm" secondAttribute="centerX" id="Dko-96-Vlb"/>
+                            <constraint firstItem="ZSg-BT-qLA" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="SkV-VM-REZ"/>
+                            <constraint firstItem="8J9-xo-o6k" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" constant="32" id="TUa-vZ-sHH"/>
                             <constraint firstItem="olG-Xn-UXU" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="173" id="Twt-Zt-7Ge"/>
+                            <constraint firstItem="8J9-xo-o6k" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="f91-BU-Ws1"/>
                             <constraint firstItem="YZE-63-1PC" firstAttribute="top" secondItem="5v9-Q8-h2i" secondAttribute="bottom" constant="21" id="gDv-tr-2Mz"/>
+                            <constraint firstItem="ZSg-BT-qLA" firstAttribute="top" secondItem="fj8-jW-mAm" secondAttribute="bottom" constant="20" id="hLC-9q-ZIV"/>
                             <constraint firstAttribute="trailing" secondItem="5v9-Q8-h2i" secondAttribute="trailing" id="mum-Xe-HJX"/>
                             <constraint firstItem="5v9-Q8-h2i" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="oNl-OU-NaP"/>
                             <constraint firstItem="fj8-jW-mAm" firstAttribute="top" secondItem="olG-Xn-UXU" secondAttribute="bottom" constant="18" id="rdM-YS-RGC"/>
                             <constraint firstItem="fj8-jW-mAm" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="36" id="re3-4i-qL5"/>
+                            <constraint firstItem="8J9-xo-o6k" firstAttribute="top" secondItem="ZSg-BT-qLA" secondAttribute="bottom" constant="2" id="tvg-JN-lZ4"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="8J9-xo-o6k" secondAttribute="trailing" constant="20" id="vfl-nv-sGI"/>
                             <constraint firstItem="5v9-Q8-h2i" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="w6l-Jh-r0X"/>
                             <constraint firstItem="olG-Xn-UXU" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="70" id="wcc-4i-KE1"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="YZE-63-1PC" secondAttribute="trailing" constant="60" id="ywo-QN-bEg"/>
@@ -151,6 +207,7 @@
                     <connections>
                         <outlet property="cartOutletBtn" destination="olG-Xn-UXU" id="T2c-RE-FKN"/>
                         <outlet property="grayViewOutlet" destination="5v9-Q8-h2i" id="Pf6-hk-CSG"/>
+                        <outlet property="historyTableView" destination="8J9-xo-o6k" id="sw5-u0-JCt"/>
                         <outlet property="nameLabel" destination="dGT-sl-bif" id="vVa-kx-rUA"/>
                         <outletCollection property="buttonOutlets" destination="sUV-lh-71k" collectionClass="NSMutableArray" id="UQI-PQ-1aX"/>
                         <outletCollection property="buttonOutlets" destination="XzD-ZP-Oly" collectionClass="NSMutableArray" id="qoo-a9-9OC"/>
