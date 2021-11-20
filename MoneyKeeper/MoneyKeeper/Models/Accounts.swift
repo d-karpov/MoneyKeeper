@@ -8,7 +8,6 @@
 import Foundation
 
 //MARK: - Account Struct
-
 struct Account {
     var status: AccountStatus
     var name: String
@@ -30,7 +29,6 @@ enum AccountStatus {
 }
 
 //MARK: - Account public methods
-
 extension Account {
     func getActiveOperations() -> [Operation] {
         operations.filter { $0.status == .active }
@@ -52,7 +50,6 @@ extension Account {
 }
 
 //MARK: - Account private methods
-
 extension Account {
     private func updateMoneyAmount() -> Double {
         getActiveOperations().reduce(rawMoneyAmount) { $0 + $1.moneyAmount }
@@ -60,7 +57,6 @@ extension Account {
 }
 
 //MARK: - Account static methods
-
 extension Account {
     static func getTestAccounts() -> [Account] {
         let dataSet = TestDataSet.shared

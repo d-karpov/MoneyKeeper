@@ -9,6 +9,7 @@ import UIKit
 
 class OverviewViewController: UIViewController {
     
+//MARK: - IBOutlets
     @IBOutlet var topInfoViewOutlet: UIView!
 
     @IBOutlet var incomeAmountOutlet: UILabel!
@@ -17,8 +18,10 @@ class OverviewViewController: UIViewController {
     
     @IBOutlet var overviewTableView: UITableView!
     
+//MARK: - Public properties
     var user: User!
 
+//MARK: - Private properties
     private var userIncomeCategories: [Category] {
         user.getAllCategoriesByType(.income)
     }
