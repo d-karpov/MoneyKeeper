@@ -16,7 +16,6 @@ class AddAccountViewController: UIViewController {
     @IBOutlet var accountType: UISegmentedControl!
     
     @IBOutlet var detailedStack: UIStackView!
-    
     //MARK: - Public properties
     var user: User!
     var delegate: OverviewUserUpdatingDelegate!
@@ -47,7 +46,7 @@ class AddAccountViewController: UIViewController {
         super.touchesBegan(touches, with: event)
         view.endEditing(true)
     }
-    
+  
     //MARK: - Private methods
     
     private func callAlert(title: String, message: String) {
@@ -67,7 +66,6 @@ class AddAccountViewController: UIViewController {
         }
     }
 }
-
 
 extension AddAccountViewController: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {

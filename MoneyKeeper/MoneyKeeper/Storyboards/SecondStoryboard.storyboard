@@ -170,7 +170,7 @@
                     <tabBarItem key="tabBarItem" title="Main" image="creditcard" catalog="system" id="ADh-LM-9Uj"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="cartOutletBtn" destination="olG-Xn-UXU" id="T2c-RE-FKN"/>
+                        <outlet property="cardButton" destination="olG-Xn-UXU" id="T2c-RE-FKN"/>
                         <outlet property="grayViewOutlet" destination="5v9-Q8-h2i" id="Pf6-hk-CSG"/>
                         <outlet property="nameLabel" destination="dGT-sl-bif" id="vVa-kx-rUA"/>
                         <outletCollection property="buttonOutlets" destination="sUV-lh-71k" collectionClass="NSMutableArray" id="UQI-PQ-1aX"/>

@@ -9,12 +9,12 @@ import UIKit
 
 class SecondViewController: UIViewController {
 
-    @IBOutlet weak var cartOutletBtn: UIButton!
+    @IBOutlet weak var cardButton: UIButton!
     
     @IBOutlet weak var cardLabel: UILabel!
     
-    //Добавил переменную для приема юзера
     var user: User!
+    var delegate: OverviewUserUpdatingDelegate!
     
     @IBOutlet weak var upperView: UIView!
     @IBOutlet weak var grayViewOutlet: UIView!
@@ -25,29 +25,33 @@ class SecondViewController: UIViewController {
         
     override func viewDidLoad() {
         super.viewDidLoad()
-    
-        
+        cardButton.setTitle(
+        """
+        Bank: \(user.profile.accounts.map{$0.name}.joined(separator: ", "))
+        Balance: \(user.profile.accounts.map{"\($0.moneyAmount)"}.joined(separator: ", "))
+        """, for: .normal)
     }
     
     override func viewWillLayoutSubviews() {
-        cartOutletBtn.layer.cornerRadius = view.frame.width / 15
+        cardButton.layer.cornerRadius = view.frame.width / 15
         grayViewOutlet.layer.cornerRadius = view.frame.width / 15
         buttonOutlets.forEach {
             $0.layer.cornerRadius = view.frame.width / 30
-            $0.layer.borderColor = UIColor.systemOrange.cgColor
-        }
+        }        
     }
     
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        //  Добавил переход на экран добавления операции.
         if let addAcountVC = segue.destination as? AddOperationViewController {
             addAcountVC.user = user
             addAcountVC.delegate = self
+        } else if let changeVC = segue.destination as? ChangeBankAccountViewController {
+            changeVC.user = user
         }
     }
     
     @IBAction func undwindSegue(_ sender: UIStoryboardSegue){
     }
 }
+
