@@ -26,8 +26,8 @@ extension User {
         getIncludedAccounts().reduce(0.0) { $0 + $1.getMoneyAmount(.income) }
     }
     
-    func getTotalInCategory( _ name: String ) -> Double {
-        getIncludedAccounts().reduce(0.0) { $0 + $1.getMoneyAmount(name) }
+    func getTotalInCategory( _ category: Category ) -> Double {
+        getIncludedAccounts().reduce(0.0) { $0 + $1.getMoneyAmount(category) }
     }
 
     func getAllActiveOperations() -> [Operation] {

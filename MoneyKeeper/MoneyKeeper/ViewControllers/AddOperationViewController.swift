@@ -22,7 +22,7 @@ class AddOperationViewController: UIViewController {
     //MARK: - Public properties
     var user: User!
     var delegate: MainViewUserUpdatingDelegate!
-    var account: Account!
+    var account = "Tinkoff"
     
     //MARK: - Private properrties
     private var operationCategory: Category!
@@ -47,6 +47,7 @@ class AddOperationViewController: UIViewController {
         accountPicker.delegate = self
         accountText.delegate = self
         accountText.inputView = accountPicker
+        accountText.text = account
         
         datePicker = UIDatePicker()
         dateText.delegate = self
@@ -87,24 +88,20 @@ class AddOperationViewController: UIViewController {
         case 0: sender.selectedSegmentTintColor = .systemYellow
         default: sender.selectedSegmentTintColor = .systemGreen
         }
-        switch sender {
-        case newOrExist: changeInputType()
-        default: updateCategory()
-        }
+        changeInputType()
     }
     
     //MARK: - Private methods
     private func updateCategory() {
         guard let categoryName = categoryText.text else { return }
         if !categoryName.isEmpty {
-            if !user.profile.categories.contains(where: { $0.name == categoryName }) {
+            if !user.profile.categories.contains(where: { $0.name == categoryName && $0.type == operationType }) {
                 categoryType.isHidden = false
                 operationCategory = Category(name: categoryName, type: operationType)
             } else if user.profile.categories.filter({ $0.name == categoryName }).count > 1 {
                 categoryType.isHidden = false
                 operationCategory = user.getAllCategoriesByType(operationType).first { $0.name == categoryName }
             } else {
-                categoryType.isHidden = true
                 operationCategory = user.profile.categories.first { $0.name == categoryName }
             }
         }
@@ -112,11 +109,15 @@ class AddOperationViewController: UIViewController {
     
     private func changeInputType(){
         view.endEditing(true)
-        categoryType.isHidden = true
         switch newOrExist.selectedSegmentIndex {
-        case 0: categoryText.inputView = categoryPicker
-        default: categoryText.inputView = nil
+        case 0:
+            categoryType.isHidden = true
+            categoryText.inputView = categoryPicker
+        default:
+            categoryType.isHidden = false
+            categoryText.inputView = nil
         }
+        updateCategory()
     }
 }
 

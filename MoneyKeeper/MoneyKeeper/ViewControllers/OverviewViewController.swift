@@ -104,7 +104,7 @@ extension OverviewViewController: UITableViewDataSource {
             if indexPath.row < userIncomeCategories.count {
                 content.image = UIImage(systemName: "hand.thumbsup.fill")
                 content.text = userIncomeCategories[indexPath.row].name
-                content.secondaryText = user.getTotalInCategory(userIncomeCategories[indexPath.row].name).currencyRU
+                content.secondaryText = user.getTotalInCategory(userIncomeCategories[indexPath.row]).currencyRU
             } else {
                 content.image = UIImage(systemName: "plus.square.dashed")
                 content.text = "Add category"
@@ -124,7 +124,7 @@ extension OverviewViewController: UITableViewDataSource {
             if indexPath.row < userWithdrawCategories.count {
                 content.image = UIImage(systemName: "hand.thumbsdown.fill")
                 content.text = userWithdrawCategories[indexPath.row].name
-                content.secondaryText = user.getTotalInCategory(userWithdrawCategories[indexPath.row].name).currencyRU
+                content.secondaryText = user.getTotalInCategory(userWithdrawCategories[indexPath.row]).currencyRU
             } else {
                 content.image = UIImage(systemName: "plus.square.dashed")
                 content.text = "Add category"
