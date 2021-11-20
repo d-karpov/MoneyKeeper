@@ -137,6 +137,7 @@
                         <outlet property="withdrawAmountOutlet" destination="l1W-Ld-wgu" id="P3K-Oc-3bV"/>
                         <segue destination="8T5-91-cwi" kind="presentation" identifier="historySegue" id="fym-rC-O8G"/>
                         <segue destination="hcf-gk-6sR" kind="presentation" identifier="addCategory" id="Ff8-59-vN3"/>
+                        <segue destination="yfB-Jn-bAK" kind="presentation" identifier="addAccountSegue" id="OZM-qO-K2E"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -150,6 +151,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vii-yN-Wdi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="824" y="-30"/>
+        </scene>
+        <!--AddAccount-->
+        <scene sceneID="jjg-mK-NdY">
+            <objects>
+                <viewControllerPlaceholder storyboardName="AddAccount" id="yfB-Jn-bAK" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="O8w-zV-4fP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="723" y="180"/>
         </scene>
         <!--AddCategory-->
         <scene sceneID="FEP-1u-Qnr">
