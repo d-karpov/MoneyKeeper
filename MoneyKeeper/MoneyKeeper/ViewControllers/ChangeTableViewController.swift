@@ -26,7 +26,8 @@ class ChangeBankAccountViewController: UITableViewController {
                                      .map{$0.name}.joined(separator: ", ")
         
         var content = cell.defaultContentConfiguration()
-        content.text = "Account name:\(accountName)"
+        content.text = accountName
+        content.image = UIImage(systemName: "creditcard.fill")
         cell.contentConfiguration = content
         
         return cell

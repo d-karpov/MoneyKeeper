@@ -25,15 +25,17 @@ class SecondViewController: UIViewController {
         
     override func viewDidLoad() {
         super.viewDidLoad()
-        buttonOutlets.forEach {
-            $0.layer.cornerRadius = 10
-        }
+    
         
     }
     
     override func viewWillLayoutSubviews() {
         cartOutletBtn.layer.cornerRadius = view.frame.width / 15
         grayViewOutlet.layer.cornerRadius = view.frame.width / 15
+        buttonOutlets.forEach {
+            $0.layer.cornerRadius = view.frame.width / 30
+            $0.layer.borderColor = UIColor.systemOrange.cgColor
+        }
     }
     
     // MARK: - Navigation
@@ -44,7 +46,8 @@ class SecondViewController: UIViewController {
             addAcountVC.user = user
             addAcountVC.delegate = self
         }
-        guard let SV = segue.destination as? SecondViewController else { return }
-        SV.cardLabel.textColor = .blue
+    }
+    
+    @IBAction func undwindSegue(_ sender: UIStoryboardSegue){
     }
 }
