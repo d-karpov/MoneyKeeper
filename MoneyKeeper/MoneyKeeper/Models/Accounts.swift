@@ -41,8 +41,8 @@ extension Account {
         return operations.reduce(0.0) { $0 + $1.rawMoneyAmount }
     }
     
-    func getMoneyAmount(_ ofName: String ) -> Double {
-        let operations = getActiveOperations().filter { $0.category.name == ofName }
+    func getMoneyAmount(_ ofCategory: Category ) -> Double {
+        let operations = getActiveOperations().filter { $0.category == ofCategory }
         return operations.reduce(0.0) { $0 + $1.rawMoneyAmount }
     }
     
