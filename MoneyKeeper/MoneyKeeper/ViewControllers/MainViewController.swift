@@ -4,7 +4,6 @@
 //
 //  Created by EDUARD Latynsky on 15.11.2021.
 //
-
 import UIKit
 
 class MainViewController: UIViewController {
@@ -38,7 +37,7 @@ class MainViewController: UIViewController {
         super.viewWillAppear(animated)
         updateUI()
     }
-        
+    
     override func viewWillLayoutSubviews() {
         cardButton.layer.cornerRadius = view.frame.width / 15
         grayViewOutlet.layer.cornerRadius = view.frame.width / 15
@@ -46,8 +45,11 @@ class MainViewController: UIViewController {
             $0.layer.cornerRadius = view.frame.width / 30
         }        
     }
-       
+    
     // MARK: - Navigation
+    
+    @IBAction func undwindSegue(_ sender: UIStoryboardSegue){
+    }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let changeVC = segue.destination as? ChangeBankAccountViewController {
@@ -73,15 +75,8 @@ class MainViewController: UIViewController {
     
     func updateUI() {
         historyTableView.reloadData()
-        cardButton.setTitle(
-        """
-        Bank: \(user.profile.accounts.map{$0.name}.joined(separator: ", "))
-        Balance: \(user.profile.accounts.map{String(format: "%.2f", $0.moneyAmount)}.joined(separator: ", "))
-        """, for: .normal)
+        cardButton.setTitle("Balance: \(String(format: "%.2f",user.getTotalMoneyAmount()))", for: .normal)
     }
-    
-//    @IBAction func undwindSegue(_ sender: UIStoryboardSegue){
-//    }
 }
 
 extension MainViewController: UITableViewDataSource {
