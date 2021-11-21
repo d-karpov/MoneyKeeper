@@ -8,7 +8,6 @@
 import UIKit
 
 class TabBarViewController: UITabBarController {
-    
 //MARK: - Overrides
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +34,9 @@ class TabBarViewController: UITabBarController {
                 }
                 if let mainVC = viewController as? MainViewController {
                     mainVC.user = user
+                    if mainVC.isViewLoaded {
+                        mainVC.updateUI()
+                    }
                 }
             }
         }

@@ -8,7 +8,6 @@
 import UIKit
 
 class ChangeBankAccountViewController: UITableViewController {
-    
 //MARK: - Publick Properties
     var user: User!
     var delegate: UserUpdatingDelegate!

@@ -8,7 +8,6 @@
 import UIKit
 
 class OverviewViewController: UIViewController {
-    
 //MARK: - IBOutlets
     @IBOutlet var topInfoViewOutlet: UIView!
 

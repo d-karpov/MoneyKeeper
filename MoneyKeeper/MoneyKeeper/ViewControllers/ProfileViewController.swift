@@ -8,7 +8,6 @@
 import UIKit
 
 class ProfileViewController: UITableViewController {
-    
 //MARK: - Public properties
     var user: User!
     
