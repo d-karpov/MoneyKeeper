@@ -11,9 +11,9 @@ protocol MainViewUserUpdatingDelegate {
     func updateUser(_ newUser: User)
 }
 
-extension SecondViewController: MainViewUserUpdatingDelegate {
+extension MainViewController: MainViewUserUpdatingDelegate {
     func updateUser(_ newUser: User) {
         user = newUser
-        historyTableView.reloadData()
+        updateUI()
     }
 }

@@ -14,7 +14,15 @@
                 <viewControllerPlaceholder storyboardName="AddOperation" referencedIdentifier="AddOperation" id="R81-9r-ntd" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xAy-0E-gfQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-638" y="161"/>
+            <point key="canvasLocation" x="-559" y="169"/>
+        </scene>
+        <!--AddAccount-->
+        <scene sceneID="0KJ-Mu-PMY">
+            <objects>
+                <viewControllerPlaceholder storyboardName="AddAccount" id="XSI-rJ-Emt" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EfX-4O-1wg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-918" y="169"/>
         </scene>
         <!--History-->
         <scene sceneID="SAw-77-mtg">
@@ -22,12 +30,12 @@
                 <viewControllerPlaceholder storyboardName="History" id="OH6-TC-cKr" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MgL-nM-uRw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-180" y="224"/>
+            <point key="canvasLocation" x="-722" y="169"/>
         </scene>
         <!--Main-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController storyboardIdentifier="SecondVC" id="Y6W-OH-hqX" customClass="SecondViewController" customModule="MoneyKeeper" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SecondVC" id="Y6W-OH-hqX" customClass="MainViewController" customModule="MoneyKeeper" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -111,7 +119,7 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="plus.square.dashed" catalog="system"/>
                                         <connections>
-                                            <segue destination="bva-vz-NPi" kind="presentation" id="fkA-zH-m9H"/>
+                                            <segue destination="XSI-rJ-Emt" kind="presentation" id="FMO-vf-1HK"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -186,9 +194,7 @@
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemGray5Color"/>
                         <constraints>
-                            <constraint firstItem="gam-qe-Qwd" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="70" id="0rM-Vb-pz9"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="olG-Xn-UXU" secondAttribute="trailing" constant="70" id="2gZ-Os-sx3"/>
-                            <constraint firstItem="1nF-Pc-NFC" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="70" id="7Lc-Np-0Ni"/>
                             <constraint firstItem="olG-Xn-UXU" firstAttribute="top" secondItem="YZE-63-1PC" secondAttribute="bottom" constant="10" id="Bl4-Z9-9hb"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="fj8-jW-mAm" secondAttribute="trailing" constant="36" id="D3H-PB-Wth"/>
                             <constraint firstItem="olG-Xn-UXU" firstAttribute="centerX" secondItem="fj8-jW-mAm" secondAttribute="centerX" id="Dko-96-Vlb"/>
@@ -268,19 +274,17 @@
                 </imageView>
                 <exit id="SV8-2F-j7l" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="332" y="-239"/>
+            <point key="canvasLocation" x="326" y="-252"/>
         </scene>
     </scenes>
     <resources>
         <image name="creditcard" catalog="system" width="128" height="88"/>
-        <image name="info.circle.fill" catalog="system" width="128" height="121"/>
-        <image name="plus.square" catalog="system" width="128" height="114"/>
         <image name="plus.square.dashed" catalog="system" width="128" height="114"/>
+        <systemColor name="secondarySystemBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemBlueColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGray2Color">
             <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

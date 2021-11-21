@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SecondViewController: UIViewController {
+class MainViewController: UIViewController {
 
     @IBOutlet weak var cardButton: UIButton!
     
@@ -32,18 +32,13 @@ class SecondViewController: UIViewController {
         buttonOutlets.forEach {
             $0.layer.cornerRadius = 10
         }
-    @IBOutlet var buttonOutlets: [UIButton]!
-    
-    var user: User!
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        cardButton.setTitle(
-        """
-        Bank: \(user.profile.accounts.map{$0.name}.joined(separator: ", "))
-        Balance: \(user.profile.accounts.map{String(format: "%.2f", $0.moneyAmount)}.joined(separator: ", "))
-        """, for: .normal)
+        updateUI()
     }
+        
     override func viewWillLayoutSubviews() {
         cardButton.layer.cornerRadius = view.frame.width / 15
         grayViewOutlet.layer.cornerRadius = view.frame.width / 15
@@ -55,14 +50,14 @@ class SecondViewController: UIViewController {
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let addAcountVC = segue.destination as? AddOperationViewController {
-            addAcountVC.user = user
-            addAcountVC.delegate = self
-        } else if let changeVC = segue.destination as? ChangeBankAccountViewController {
+        if let changeVC = segue.destination as? ChangeBankAccountViewController {
             changeVC.user = user
-        if let addAccountVC = segue.destination as? AddOperationViewController {
+        } else if let addOperationVC = segue.destination as? AddOperationViewController {
+            addOperationVC.user = user
+            addOperationVC.delegate = self
+        } else if let addAccountVC = segue.destination as? AddAccountViewController {
             addAccountVC.user = user
-            addAccountVC.delegate = self
+            //addAccountVC.delegate = self
         } else if let historyVC = segue.destination as? HistoryViewController {
             if let _ = sender as? UIButton {
                 historyVC.itemType = "account"
@@ -76,11 +71,20 @@ class SecondViewController: UIViewController {
         }
     }
     
-    @IBAction func undwindSegue(_ sender: UIStoryboardSegue){
+    func updateUI() {
+        historyTableView.reloadData()
+        cardButton.setTitle(
+        """
+        Bank: \(user.profile.accounts.map{$0.name}.joined(separator: ", "))
+        Balance: \(user.profile.accounts.map{String(format: "%.2f", $0.moneyAmount)}.joined(separator: ", "))
+        """, for: .normal)
     }
+    
+//    @IBAction func undwindSegue(_ sender: UIStoryboardSegue){
+//    }
 }
 
-extension SecondViewController: UITableViewDataSource {
+extension MainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         lastOperations.filter {string(ofDate: $0.date) == getUniqueDates(ofOperationArray: lastOperations)[section]}.count
     }
@@ -114,7 +118,7 @@ extension SecondViewController: UITableViewDataSource {
     }
 }
 
-extension SecondViewController: UITableViewDelegate {
+extension MainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "historySegue", sender: nil)
         

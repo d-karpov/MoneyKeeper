@@ -33,7 +33,7 @@ class TabBarViewController: UITabBarController {
                         overviewVC.updateUI()
                     }
                 }
-                if let mainVC = viewController as? SecondViewController {
+                if let mainVC = viewController as? MainViewController {
                     mainVC.user = user
                 }
             }

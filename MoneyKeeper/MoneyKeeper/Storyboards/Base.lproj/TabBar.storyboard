@@ -29,7 +29,7 @@
         <!--SecondVC-->
         <scene sceneID="Nzc-nf-OhV">
             <objects>
-                <viewControllerPlaceholder storyboardName="SecondStoryboard" referencedIdentifier="SecondVC" id="Xix-5i-eJp" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="MainStoryboard" referencedIdentifier="SecondVC" id="Xix-5i-eJp" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="52l-aX-fLt"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GhE-iX-xaN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
