@@ -14,6 +14,7 @@ protocol UserUpdatingDelegate {
 extension MainViewController: UserUpdatingDelegate {
     func updateUser(_ newUser: User) {
         user = newUser
+        updateUI()
     }
 }
 
