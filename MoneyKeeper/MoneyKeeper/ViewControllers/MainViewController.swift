@@ -7,7 +7,7 @@
 import UIKit
 
 class MainViewController: UIViewController {
-
+    // MARK: - IB Outlets
     @IBOutlet weak var cardButton: UIButton!
     
     @IBOutlet var buttonOutlets: [UIButton]!
@@ -19,20 +19,15 @@ class MainViewController: UIViewController {
     
     @IBOutlet weak var upperView: UIView!
     @IBOutlet weak var grayViewOutlet: UIView!
-
+    
+    // MARK: - Properties
     var user: User!
     
     private var lastOperations: [Operation] {
         user.getAllActiveOperations().sorted(by: {$0.date > $1.date})
     }
-        
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        buttonOutlets.forEach {
-            $0.layer.cornerRadius = 10
-        }
-    }
     
+    // MARK: - Life Cycles Methods
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         updateUI()
@@ -47,7 +42,6 @@ class MainViewController: UIViewController {
     }
     
     // MARK: - Navigation
-    
     @IBAction func undwindSegue(_ sender: UIStoryboardSegue){
     }
 
@@ -72,13 +66,14 @@ class MainViewController: UIViewController {
             }
         }
     }
-    
-    func updateUI() {
+    //MARK: - Private Methods
+   private func updateUI() {
         historyTableView.reloadData()
         cardButton.setTitle("Balance: \(String(format: "%.2f",user.getTotalMoneyAmount()))", for: .normal)
     }
 }
 
+   //MARK: - Extensions
 extension MainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         lastOperations.filter {string(ofDate: $0.date) == getUniqueDates(ofOperationArray: lastOperations)[section]}.count
