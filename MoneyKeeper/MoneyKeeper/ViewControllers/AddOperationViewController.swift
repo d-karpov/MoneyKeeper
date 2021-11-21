@@ -21,7 +21,7 @@ class AddOperationViewController: UIViewController {
     
 //MARK: - Public properties
     var user: User!
-    var delegate: MainViewUserUpdatingDelegate!
+    var delegate: UserUpdatingDelegate!
     var account: Account!
     
 //MARK: - Private properrties

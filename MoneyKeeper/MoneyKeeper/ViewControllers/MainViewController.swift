@@ -57,7 +57,7 @@ class MainViewController: UIViewController {
             addOperationVC.delegate = self
         } else if let addAccountVC = segue.destination as? AddAccountViewController {
             addAccountVC.user = user
-            //addAccountVC.delegate = self
+            addAccountVC.delegate = self
         } else if let historyVC = segue.destination as? HistoryViewController {
             if let _ = sender as? UIButton {
                 historyVC.itemType = "account"
