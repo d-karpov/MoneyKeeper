@@ -9,13 +9,13 @@ import UIKit
 
 class ProfileViewController: UITableViewController {
     
-    //MARK: - Public properties
+//MARK: - Public properties
     var user: User!
     
-    //MARK: - Private properties
+//MARK: - Private properties
     private let team = TeamDataSet.shared
     
-    //MARK: - Overrides
+//MARK: - Overrides
     override func numberOfSections(in tableView: UITableView) -> Int {
         2
     }

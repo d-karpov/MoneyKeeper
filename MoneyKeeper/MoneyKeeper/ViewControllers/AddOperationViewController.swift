@@ -53,7 +53,6 @@ class AddOperationViewController: UIViewController {
             accountText.text = account.name
         }
        
-        
         datePicker = UIDatePicker()
         dateText.delegate = self
         datePicker.preferredDatePickerStyle = .inline

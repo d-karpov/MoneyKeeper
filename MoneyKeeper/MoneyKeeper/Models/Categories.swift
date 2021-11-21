@@ -8,7 +8,6 @@
 import Foundation
 
 //MARK: - Category Struct
-
 struct Category {
     let name: String
     var type: CategoriesTypes
@@ -19,7 +18,6 @@ enum CategoriesTypes {
 }
 
 //MARK: - Category static methods
-
 extension Category {
     static func getStartCategory() -> [Category] {
         let dataSet = TestDataSet.shared
@@ -36,7 +34,6 @@ extension Category {
 }
 
 //MARK: - Category Equatable Methods
-
 extension Category: Equatable {
     static func == (lhs: Category, rhs: Category) -> Bool {
             return lhs.name == rhs.name && lhs.type == rhs.type

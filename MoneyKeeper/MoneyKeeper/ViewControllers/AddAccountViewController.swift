@@ -38,7 +38,6 @@ class AddAccountViewController: UIViewController {
             case 0: user.addAccount(Account(status: .excluded, name: accountName, operations: [], rawMoneyAmount: balance))
             default: user.addAccount(Account(status: .included, name: accountName, operations: [], rawMoneyAmount: balance))
             }
-            user.profile.indexOfActiveAccount = user.profile.accounts.endIndex - 1
             user.saveUserToDataManager(DataManager.shared, user)
             delegate.updateUser(user)
         }
@@ -49,8 +48,7 @@ class AddAccountViewController: UIViewController {
         view.endEditing(true)
     }
   
-    //MARK: - Private methods
-    
+//MARK: - Private methods
     private func callAlert(title: String, message: String) {
         let alert = UIAlertController(title: title, message: message,
                                       preferredStyle: .alert)

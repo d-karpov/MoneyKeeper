@@ -9,7 +9,7 @@ import UIKit
 
 class TabBarViewController: UITabBarController {
     
-   //MARK: - Overrides
+//MARK: - Overrides
     override func viewDidLoad() {
         super.viewDidLoad()
         delegate = self
@@ -19,7 +19,7 @@ class TabBarViewController: UITabBarController {
         setUpViewControllers()
     }
      
-    //MARK: - Private methods
+//MARK: - Private methods
     private func setUpViewControllers() {
         let user = User.getUserByLogin(DataManager.shared, "User")
         if let viewControllers = viewControllers {

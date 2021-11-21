@@ -7,7 +7,7 @@
 import UIKit
 
 class MainViewController: UIViewController {
-
+//MARK: - IB Outlets
     @IBOutlet weak var cardButton: UIButton!
     
     @IBOutlet var buttonOutlets: [UIButton]!
@@ -19,18 +19,19 @@ class MainViewController: UIViewController {
     
     @IBOutlet weak var upperView: UIView!
     @IBOutlet weak var grayViewOutlet: UIView!
-
+    
+//MARK: - Properties
     var user: User!
+    var selectedAccountIndex: Int!
     
     private var lastOperations: [Operation] {
         user.getAllActiveOperations().sorted(by: {$0.date > $1.date})
     }
-        
+    
+//MARK: - Life Cycles Methods
     override func viewDidLoad() {
-        super.viewDidLoad()
-        buttonOutlets.forEach {
-            $0.layer.cornerRadius = 10
-        }
+        nameLabel.text = user.profile.fullname
+        selectedAccountIndex = nil
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -53,14 +54,14 @@ class MainViewController: UIViewController {
         } else if let addOperationVC = segue.destination as? AddOperationViewController {
             addOperationVC.user = user
             addOperationVC.delegate = self
-            guard let indexOfActiveAccount = user.profile.indexOfActiveAccount else { return }
-            addOperationVC.account = user.profile.accounts[indexOfActiveAccount]
+            guard let currentAccountIndex = selectedAccountIndex else { return }
+            addOperationVC.account = user.profile.accounts[currentAccountIndex]
         } else if let addAccountVC = segue.destination as? AddAccountViewController {
             addAccountVC.user = user
             addAccountVC.delegate = self
         } else if let historyVC = segue.destination as? HistoryViewController {
-            if let _ = sender as? UIButton, let indexOfActiveAccount = user.profile.indexOfActiveAccount {
-                let activeAccount = user.profile.accounts[indexOfActiveAccount]
+            if let _ = sender as? UIButton, let currentAccountIndex = selectedAccountIndex {
+                let activeAccount = user.profile.accounts[currentAccountIndex]
                 historyVC.itemType = "account"
                 historyVC.itemName = activeAccount.name
                 historyVC.operations = activeAccount.getActiveOperations()
@@ -72,13 +73,15 @@ class MainViewController: UIViewController {
         }
     }
     
+//MARK: - IBAction
     @IBAction func undwindSegue(_ sender: UIStoryboardSegue){
     }
     
+//MARK: - Publick Methods
     func updateUI() {
         historyTableView.reloadData()
-        if let indexOfActiveAccount = user.profile.indexOfActiveAccount{
-            let activeAccount = user.profile.accounts[indexOfActiveAccount] 
+        if let currentAccountIndex = selectedAccountIndex {
+            let activeAccount = user.profile.accounts[currentAccountIndex]
             cardButton.setTitle("Bank: \(activeAccount.name)\nBalance: \(activeAccount.moneyAmount.currencyRU)", for: .normal)
         } else {
             cardButton.setTitle("Balance: \(user.getTotalMoneyAmount().currencyRU)", for: .normal)
@@ -86,6 +89,7 @@ class MainViewController: UIViewController {
     }
 }
 
+//MARK: - Extensions
 extension MainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         lastOperations.filter {string(ofDate: $0.date) == getUniqueDates(ofOperationArray: lastOperations)[section]}.count
