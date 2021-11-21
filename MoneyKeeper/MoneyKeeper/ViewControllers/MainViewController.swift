@@ -7,7 +7,7 @@
 import UIKit
 
 class MainViewController: UIViewController {
-    // MARK: - IB Outlets
+//MARK: - IB Outlets
     @IBOutlet weak var cardButton: UIButton!
     
     @IBOutlet var buttonOutlets: [UIButton]!
@@ -20,14 +20,14 @@ class MainViewController: UIViewController {
     @IBOutlet weak var upperView: UIView!
     @IBOutlet weak var grayViewOutlet: UIView!
     
-    // MARK: - Properties
+//MARK: - Properties
     var user: User!
     
     private var lastOperations: [Operation] {
         user.getAllActiveOperations().sorted(by: {$0.date > $1.date})
     }
     
-    // MARK: - Life Cycles Methods
+//MARK: - Life Cycles Methods
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         updateUI()
@@ -41,10 +41,6 @@ class MainViewController: UIViewController {
         }        
     }
     
-    // MARK: - Navigation
-    @IBAction func undwindSegue(_ sender: UIStoryboardSegue){
-    }
-
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let changeVC = segue.destination as? ChangeBankAccountViewController {
             changeVC.user = user
@@ -66,14 +62,19 @@ class MainViewController: UIViewController {
             }
         }
     }
-    //MARK: -  Methods
+    
+//MARK: - IBAction
+    @IBAction func undwindSegue(_ sender: UIStoryboardSegue){
+    }
+    
+//MARK: - Publick Methods
         func updateUI() {
         historyTableView.reloadData()
         cardButton.setTitle("Balance: \(String(format: "%.2f",user.getTotalMoneyAmount()))", for: .normal)
     }
 }
 
-   //MARK: - Extensions
+//MARK: - Extensions
 extension MainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         lastOperations.filter {string(ofDate: $0.date) == getUniqueDates(ofOperationArray: lastOperations)[section]}.count

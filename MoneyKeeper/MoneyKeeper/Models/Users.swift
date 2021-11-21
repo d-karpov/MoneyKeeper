@@ -14,7 +14,7 @@ struct User {
     var profile: Profile
 }
 
-// MARK: - User static methods
+//MARK: - User static methods
 extension User {
     static func getTestUsers() -> [User] {
         let dataSet = TestDataSet.shared

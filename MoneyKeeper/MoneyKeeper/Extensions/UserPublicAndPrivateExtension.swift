@@ -87,7 +87,7 @@ extension User {
         profile.accounts.append(newAccount)
     }
     
-// MARK: - Save User to DataManager method
+//MARK: - Save User to DataManager method
     func saveUserToDataManager(_ source: DataManager, _ updatedUser: User) {
         guard let index = getUserIndexbyLogin(source, updatedUser.login) else { return }
         source.users[index] = updatedUser

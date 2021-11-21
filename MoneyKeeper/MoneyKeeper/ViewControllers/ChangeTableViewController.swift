@@ -8,10 +8,10 @@
 import UIKit
 
 class ChangeBankAccountViewController: UITableViewController {
-    //MARK: - Properties
+//MARK: - Properties
     var user: User!
  
-    // MARK: - Table view data source
+//MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         user.profile.accounts.count
     }
