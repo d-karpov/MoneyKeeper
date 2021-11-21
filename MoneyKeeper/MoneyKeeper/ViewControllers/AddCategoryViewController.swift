@@ -8,18 +8,18 @@
 import UIKit
 
 class AddCategoryViewController: UIViewController {
-    //MARK: - IBOutlets
+//MARK: - IBOutlets
     @IBOutlet var categoryType: UISegmentedControl!
     
     @IBOutlet var categoryName: UITextField!
     
     @IBOutlet var detailedStack: UIStackView!
     
-    //MARK: - Public properties
+//MARK: - Public properties
     var user: User!
-    var delegate: OverviewUserUpdatingDelegate!
+    var delegate: UserUpdatingDelegate!
     
-    //MARK: - Overrides
+//MARK: - Overrides
     override func viewDidLoad() {
         super.viewDidLoad()
         categoryName.delegate = self
@@ -44,7 +44,7 @@ class AddCategoryViewController: UIViewController {
         view.endEditing(true)
     }
     
-    //MARK: - IBActions
+//MARK: - IBActions
     @IBAction func changeCategoryType(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
         case 0: sender.selectedSegmentTintColor = .systemYellow

@@ -31,7 +31,7 @@ class ChangeBankAccountViewController: UITableViewController {
     }
   
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let secondVC = segue.destination as? SecondViewController else { return }
+        guard let secondVC = segue.destination as? MainViewController else { return }
         guard let indexPath = tableView.indexPathForSelectedRow else { return }
 
         let account = user.profile.accounts[indexPath.row]

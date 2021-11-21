@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -13,26 +13,26 @@
             <objects>
                 <viewController storyboardIdentifier="Overview" id="Y6W-OH-hqX" customClass="OverviewViewController" customModule="MoneyKeeper" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="esB-XF-eVB">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="134.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="121.66666666666667"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="71" translatesAutoresizingMaskIntoConstraints="NO" id="q6K-qR-wLZ">
-                                        <rect key="frame" x="40" y="81" width="334.5" height="38"/>
+                                        <rect key="frame" x="20.333333333333343" y="69" width="334.66666666666663" height="37.333333333333343"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="6eX-4d-SmO">
-                                                <rect key="frame" x="0.0" y="0.0" width="59.5" height="38"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="59.666666666666664" height="37.333333333333336"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Income" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zO6-bf-43z">
-                                                        <rect key="frame" x="2.5" y="0.0" width="54.5" height="18"/>
+                                                        <rect key="frame" x="2.6666666666666679" y="0.0" width="54.333333333333329" height="17.666666666666668"/>
                                                         <fontDescription key="fontDescription" name="Palatino-Bold" family="Palatino" pointSize="16"/>
                                                         <color key="textColor" systemColor="systemGreenColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PXL-6f-xdp">
-                                                        <rect key="frame" x="0.0" y="20" width="59.5" height="18"/>
+                                                        <rect key="frame" x="0.0" y="19.666666666666671" width="59.666666666666664" height="17.666666666666671"/>
                                                         <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="16"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -40,16 +40,16 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="34v-P9-ILd">
-                                                <rect key="frame" x="130.5" y="0.0" width="59.5" height="38"/>
+                                                <rect key="frame" x="130.66666666666666" y="0.0" width="59.666666666666657" height="37.333333333333336"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Balance" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Og-uj-9gO">
-                                                        <rect key="frame" x="1" y="0.0" width="57" height="18"/>
+                                                        <rect key="frame" x="1.3333333333333428" y="0.0" width="57" height="17.666666666666668"/>
                                                         <fontDescription key="fontDescription" name="Palatino-Bold" family="Palatino" pointSize="16"/>
                                                         <color key="textColor" systemColor="systemOrangeColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x7I-V0-8Dv">
-                                                        <rect key="frame" x="0.0" y="20" width="59.5" height="18"/>
+                                                        <rect key="frame" x="0.0" y="19.666666666666671" width="59.666666666666664" height="17.666666666666671"/>
                                                         <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="16"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -57,16 +57,16 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="JHw-zV-rL4">
-                                                <rect key="frame" x="261" y="0.0" width="73.5" height="38"/>
+                                                <rect key="frame" x="261.33333333333337" y="0.0" width="73.333333333333314" height="37.333333333333336"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Withdraw" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mH4-Xs-lq4">
-                                                        <rect key="frame" x="0.0" y="0.0" width="73.5" height="18"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="73.333333333333329" height="17.666666666666668"/>
                                                         <fontDescription key="fontDescription" name="Palatino-Bold" family="Palatino" pointSize="16"/>
                                                         <color key="textColor" systemColor="systemYellowColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l1W-Ld-wgu">
-                                                        <rect key="frame" x="7" y="20" width="59.5" height="18"/>
+                                                        <rect key="frame" x="6.6666666666666252" y="19.666666666666671" width="59.666666666666657" height="17.666666666666671"/>
                                                         <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="16"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -88,21 +88,21 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="overviewRow" textLabel="enf-Ej-aDq" detailTextLabel="8Ox-WT-N3i" style="IBUITableViewCellStyleSubtitle" id="iXu-ed-x5z">
-                                        <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="44.666666030883789" width="414" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="iXu-ed-x5z" id="IXA-rI-WGn">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="enf-Ej-aDq">
-                                                    <rect key="frame" x="20" y="6" width="25" height="14.5"/>
+                                                    <rect key="frame" x="16" y="7.0000000000000009" width="25" height="14.333333333333334"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8Ox-WT-N3i">
-                                                    <rect key="frame" x="20" y="22.5" width="40.5" height="13.5"/>
+                                                    <rect key="frame" x="15.999999999999996" y="23.333333333333336" width="40.666666666666664" height="13.333333333333334"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                     <nil key="textColor"/>
@@ -137,6 +137,7 @@
                         <outlet property="withdrawAmountOutlet" destination="l1W-Ld-wgu" id="P3K-Oc-3bV"/>
                         <segue destination="8T5-91-cwi" kind="presentation" identifier="historySegue" id="fym-rC-O8G"/>
                         <segue destination="hcf-gk-6sR" kind="presentation" identifier="addCategory" id="Ff8-59-vN3"/>
+                        <segue destination="yfB-Jn-bAK" kind="presentation" identifier="addAccountSegue" id="OZM-qO-K2E"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -149,7 +150,15 @@
                 <viewControllerPlaceholder storyboardName="History" referencedIdentifier="History" id="8T5-91-cwi" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vii-yN-Wdi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="824" y="-30"/>
+            <point key="canvasLocation" x="831" y="83"/>
+        </scene>
+        <!--AddAccount-->
+        <scene sceneID="jjg-mK-NdY">
+            <objects>
+                <viewControllerPlaceholder storyboardName="AddAccount" id="yfB-Jn-bAK" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="O8w-zV-4fP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="855" y="229"/>
         </scene>
         <!--AddCategory-->
         <scene sceneID="FEP-1u-Qnr">
@@ -157,7 +166,7 @@
                 <viewControllerPlaceholder storyboardName="AddCategory" referencedIdentifier="AddCategory" id="hcf-gk-6sR" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pZP-Ba-glV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="638" y="-96"/>
+            <point key="canvasLocation" x="859" y="-64"/>
         </scene>
     </scenes>
     <resources>

@@ -13,7 +13,6 @@ class DataManager {
     
     static let shared = DataManager()
     
-    // MARK: Work data
     var users: [User]
     
     private init() {
@@ -21,7 +20,7 @@ class DataManager {
     }
 }
 
-// MARK: - TetsDataSingletone class
+// MARK: - TetsData class
 
 class TestDataSet {
     static let shared = TestDataSet()
@@ -37,11 +36,12 @@ class TestDataSet {
     private init() {}
 }
 
-//MARK: - Team Info
+//MARK: - Team Info class
 class TeamDataSet {
     
     static let shared = TeamDataSet()
     
+    let avatars = ["den", "nik", "den"]
     let names = ["Denis", "Nikita", "Ed"]
     let description = ["Model chief", "Screen lord", "Git guru"]
     

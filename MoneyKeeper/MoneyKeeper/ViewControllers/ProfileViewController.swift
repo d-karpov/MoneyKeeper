@@ -9,12 +9,13 @@ import UIKit
 
 class ProfileViewController: UITableViewController {
     
+    //MARK: - Public properties
     var user: User!
     
+    //MARK: - Private properties
     private let team = TeamDataSet.shared
     
-    // MARK: - Table view data source
-
+    //MARK: - Overrides
     override func numberOfSections(in tableView: UITableView) -> Int {
         2
     }
@@ -46,7 +47,7 @@ class ProfileViewController: UITableViewController {
             var content = cell.defaultContentConfiguration()
             content.text = team.names[indexPath.row]
             content.secondaryText = team.description[indexPath.row]
-            content.image = UIImage(named: "den")
+            content.image = UIImage(named: team.avatars[indexPath.row])
             content.imageProperties.cornerRadius = tableView.rowHeight/2
             cell.contentConfiguration = content
             return cell

@@ -9,6 +9,7 @@ import UIKit
 
 class OverviewViewController: UIViewController {
     
+//MARK: - IBOutlets
     @IBOutlet var topInfoViewOutlet: UIView!
 
     @IBOutlet var incomeAmountOutlet: UILabel!
@@ -17,8 +18,10 @@ class OverviewViewController: UIViewController {
     
     @IBOutlet var overviewTableView: UITableView!
     
+//MARK: - Public properties
     var user: User!
 
+//MARK: - Private properties
     private var userIncomeCategories: [Category] {
         user.getAllCategoriesByType(.income)
     }
@@ -26,11 +29,7 @@ class OverviewViewController: UIViewController {
     private var userWithdrawCategories: [Category] {
         user.getAllCategoriesByType(.withdraw)
     }
-    
-    /* Заменил viewDidLoad на viewWillAppear,
-     что бы корректно обновлять интерфейс при изменениях вынес обновление шапки и
-     отрисовку таблицы в метод updateUI - ОН ИИСПОЛЬЗУЕТСЯ ПРИ ПЕРЕКЛЮЧЕНИИ TabBar!
-     */
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         updateUI()
@@ -43,25 +42,25 @@ class OverviewViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Добавлено для перехода на добавление категории, делегат описан в OverviewExtension
-        // это надо разнести в секции и плюс ещё переход на AddAccount 
         if let addCategoryVC = segue.destination as? AddCategoryViewController {
             addCategoryVC.delegate = self
             addCategoryVC.user = user
-        }
-        
-        guard let historyVC = segue.destination as? HistoryViewController else { return }
-        guard let indexPath = overviewTableView.indexPathForSelectedRow else { return }
-        switch indexPath.section {
-        case 0: historyVC.itemType = "income"
-            historyVC.itemName = userIncomeCategories[indexPath.row].name
-            historyVC.operations = user.getAllOperationsByCattegory(userIncomeCategories[indexPath.row].name)
-        case 1: historyVC.itemType = "account"
-            historyVC.itemName = user.profile.accounts[indexPath.row].name
-            historyVC.operations = user.profile.accounts[indexPath.row].getActiveOperations()
-        default: historyVC.itemType = "withdraw"
-            historyVC.itemName = userWithdrawCategories[indexPath.row].name
-            historyVC.operations = user.getAllOperationsByCattegory(userWithdrawCategories[indexPath.row].name)
+        } else if let addAccountVC = segue.destination as? AddAccountViewController {
+            addAccountVC.delegate = self
+            addAccountVC.user = user
+        } else if let historyVC = segue.destination as? HistoryViewController {
+            guard let indexPath = overviewTableView.indexPathForSelectedRow else { return }
+            switch indexPath.section {
+            case 0: historyVC.itemType = "income"
+                historyVC.itemName = userIncomeCategories[indexPath.row].name
+                historyVC.operations = user.getAllOperationsByCattegory(userIncomeCategories[indexPath.row].name)
+            case 1: historyVC.itemType = "account"
+                historyVC.itemName = user.profile.accounts[indexPath.row].name
+                historyVC.operations = user.profile.accounts[indexPath.row].getActiveOperations()
+            default: historyVC.itemType = "withdraw"
+                historyVC.itemName = userWithdrawCategories[indexPath.row].name
+                historyVC.operations = user.getAllOperationsByCattegory(userWithdrawCategories[indexPath.row].name)
+            }
         }
         
     }
@@ -104,7 +103,7 @@ extension OverviewViewController: UITableViewDataSource {
             if indexPath.row < userIncomeCategories.count {
                 content.image = UIImage(systemName: "hand.thumbsup.fill")
                 content.text = userIncomeCategories[indexPath.row].name
-                content.secondaryText = user.getTotalInCategory(userIncomeCategories[indexPath.row].name).currencyRU
+                content.secondaryText = user.getTotalInCategory(userIncomeCategories[indexPath.row]).currencyRU
             } else {
                 content.image = UIImage(systemName: "plus.square.dashed")
                 content.text = "Add category"
@@ -124,7 +123,7 @@ extension OverviewViewController: UITableViewDataSource {
             if indexPath.row < userWithdrawCategories.count {
                 content.image = UIImage(systemName: "hand.thumbsdown.fill")
                 content.text = userWithdrawCategories[indexPath.row].name
-                content.secondaryText = user.getTotalInCategory(userWithdrawCategories[indexPath.row].name).currencyRU
+                content.secondaryText = user.getTotalInCategory(userWithdrawCategories[indexPath.row]).currencyRU
             } else {
                 content.image = UIImage(systemName: "plus.square.dashed")
                 content.text = "Add category"
@@ -147,13 +146,14 @@ extension OverviewViewController: UITableViewDelegate {
         case 1: sectionCount = user.profile.accounts.count
         default: sectionCount = userWithdrawCategories.count
         }
-        //Временное решение для перехода - переделай под свой кодстайл
+        
         if indexPath.row == sectionCount {
-            performSegue(withIdentifier: "addCategory", sender: nil)
-        }
-        
-        
-        if indexPath.row < sectionCount {
+            if indexPath.section == 1 {
+                performSegue(withIdentifier: "addAccountSegue", sender: nil)
+            } else {
+                performSegue(withIdentifier: "addCategory", sender: nil)
+            }
+        } else {
             performSegue(withIdentifier: "historySegue", sender: nil)
         }
         

@@ -9,18 +9,19 @@ import UIKit
 
 class AddAccountViewController: UIViewController {
     
-    //MARK: - IBOutlets
+//MARK: - IBOutlets
     @IBOutlet var accountText: UITextField!
     @IBOutlet var balanceText: UITextField!
     
     @IBOutlet var accountType: UISegmentedControl!
     
     @IBOutlet var detailedStack: UIStackView!
-    //MARK: - Public properties
-    var user: User!
-    var delegate: OverviewUserUpdatingDelegate!
     
-    //MARK: - Overrides
+//MARK: - Public properties
+    var user: User!
+    var delegate: UserUpdatingDelegate!
+    
+//MARK: - Overrides
     override func viewDidLoad() {
         super.viewDidLoad()
         detailedStack.layer.cornerRadius = view.frame.height/50
@@ -58,7 +59,7 @@ class AddAccountViewController: UIViewController {
         present(alert, animated: true, completion: nil)
     }
     
-    //MARK: - IBActions
+//MARK: - IBActions
     @IBAction func changeAccountType(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
         case 0: sender.selectedSegmentTintColor = .systemYellow
@@ -67,6 +68,7 @@ class AddAccountViewController: UIViewController {
     }
 }
 
+//MARK: - UITextFiedlDelegate
 extension AddAccountViewController: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         guard let accountName = accountText.text else { return }
