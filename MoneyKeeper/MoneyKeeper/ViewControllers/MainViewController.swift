@@ -30,6 +30,7 @@ class MainViewController: UIViewController {
     
 //MARK: - Life Cycles Methods
     override func viewDidLoad() {
+        nameLabel.text = user.profile.fullname
         selectedAccountIndex = nil
     }
     
