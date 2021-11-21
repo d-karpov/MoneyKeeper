@@ -40,21 +40,25 @@ class MainViewController: UIViewController {
             $0.layer.cornerRadius = view.frame.width / 30
         }        
     }
-    
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let changeVC = segue.destination as? ChangeBankAccountViewController {
             changeVC.user = user
+            changeVC.delegate = self
         } else if let addOperationVC = segue.destination as? AddOperationViewController {
             addOperationVC.user = user
             addOperationVC.delegate = self
+            guard let indexOfActiveAccount = user.profile.indexOfActiveAccount else { return }
+            addOperationVC.account = user.profile.accounts[indexOfActiveAccount]
         } else if let addAccountVC = segue.destination as? AddAccountViewController {
             addAccountVC.user = user
             addAccountVC.delegate = self
         } else if let historyVC = segue.destination as? HistoryViewController {
-            if let _ = sender as? UIButton {
+            if let _ = sender as? UIButton, let indexOfActiveAccount = user.profile.indexOfActiveAccount {
+                let activeAccount = user.profile.accounts[indexOfActiveAccount]
                 historyVC.itemType = "account"
-                historyVC.itemName = "name"
-                historyVC.operations = []
+                historyVC.itemName = activeAccount.name
+                historyVC.operations = activeAccount.getActiveOperations()
             } else {
                 historyVC.itemType = "user"
                 historyVC.itemName = user.profile.name
@@ -68,9 +72,14 @@ class MainViewController: UIViewController {
     }
     
 //MARK: - Publick Methods
-        func updateUI() {
+    func updateUI() {
         historyTableView.reloadData()
-        cardButton.setTitle("Balance: \(String(format: "%.2f",user.getTotalMoneyAmount()))", for: .normal)
+        if let indexOfActiveAccount = user.profile.indexOfActiveAccount{
+            let activeAccount = user.profile.accounts[indexOfActiveAccount] 
+            cardButton.setTitle("Bank: \(activeAccount.name)\nBalance: \(activeAccount.moneyAmount.currencyRU)", for: .normal)
+        } else {
+            cardButton.setTitle("Balance: \(user.getTotalMoneyAmount().currencyRU)", for: .normal)
+        }
     }
 }
 
