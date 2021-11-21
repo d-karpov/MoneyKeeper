@@ -47,8 +47,9 @@ class AddAccountViewController: UIViewController {
         super.touchesBegan(touches, with: event)
         view.endEditing(true)
     }
+  
+    //MARK: - Private methods
     
-//MARK: - Private methods
     private func callAlert(title: String, message: String) {
         let alert = UIAlertController(title: title, message: message,
                                       preferredStyle: .alert)

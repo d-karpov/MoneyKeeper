@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5C20F70227428DEF002A22A0 /* SecondStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C20F70127428DEF002A22A0 /* SecondStoryboard.storyboard */; };
-		5C20F70427428E04002A22A0 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C20F70327428E04002A22A0 /* SecondViewController.swift */; };
+		5C20F70227428DEF002A22A0 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C20F70127428DEF002A22A0 /* MainStoryboard.storyboard */; };
+		5C20F70427428E04002A22A0 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C20F70327428E04002A22A0 /* MainViewController.swift */; };
 		5C20F7082742A17A002A22A0 /* ChangeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C20F7072742A17A002A22A0 /* ChangeTableViewController.swift */; };
 		D32AEED22746B0ED004080A7 /* AddAccount.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D32AEED12746B0ED004080A7 /* AddAccount.storyboard */; };
 		D32AEED42746B348004080A7 /* AddAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32AEED32746B348004080A7 /* AddAccountViewController.swift */; };
@@ -34,6 +34,7 @@
 		D3533D0B27456AFF00CCBEC6 /* Profiles.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3533D0A27456AFE00CCBEC6 /* Profiles.swift */; };
 		D35A16512743EE0C00BDFDE1 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D35A16502743EE0C00BDFDE1 /* Profile.storyboard */; };
 		D35A16532743EF5500BDFDE1 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35A16522743EF5500BDFDE1 /* ProfileViewController.swift */; };
+		F860B14A2749380500B0AA0A /* UITableViewDataSourceExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F860B1492749380500B0AA0A /* UITableViewDataSourceExtension.swift */; };
 		F860E85127442E8E00D49FAB /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F860E85027442E8E00D49FAB /* HistoryViewController.swift */; };
 		F89568C12745817E00131746 /* Sequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89568C02745817E00131746 /* Sequence.swift */; };
 		F89D27B427410C74006A0447 /* Overview.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F89D27B327410C74006A0447 /* Overview.storyboard */; };
@@ -44,8 +45,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5C20F70127428DEF002A22A0 /* SecondStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SecondStoryboard.storyboard; sourceTree = "<group>"; };
-		5C20F70327428E04002A22A0 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		5C20F70127428DEF002A22A0 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
+		5C20F70327428E04002A22A0 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		5C20F7072742A17A002A22A0 /* ChangeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeTableViewController.swift; sourceTree = "<group>"; };
 		D32AEED12746B0ED004080A7 /* AddAccount.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddAccount.storyboard; sourceTree = "<group>"; };
 		D32AEED32746B348004080A7 /* AddAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccountViewController.swift; sourceTree = "<group>"; };
@@ -73,6 +74,7 @@
 		D3533D0A27456AFE00CCBEC6 /* Profiles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profiles.swift; sourceTree = "<group>"; };
 		D35A16502743EE0C00BDFDE1 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		D35A16522743EF5500BDFDE1 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		F860B1492749380500B0AA0A /* UITableViewDataSourceExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewDataSourceExtension.swift; sourceTree = "<group>"; };
 		F860E85027442E8E00D49FAB /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		F89568C02745817E00131746 /* Sequence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sequence.swift; sourceTree = "<group>"; };
 		F89D27B327410C74006A0447 /* Overview.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Overview.storyboard; sourceTree = "<group>"; };
@@ -162,7 +164,7 @@
 				F860E85027442E8E00D49FAB /* HistoryViewController.swift */,
 				D3533D042745370E00CCBEC6 /* AddCategoryViewController.swift */,
 				D32AEED32746B348004080A7 /* AddAccountViewController.swift */,
-				5C20F70327428E04002A22A0 /* SecondViewController.swift */,
+				5C20F70327428E04002A22A0 /* MainViewController.swift */,
 				5C20F7072742A17A002A22A0 /* ChangeTableViewController.swift */,
 				D32AEED72746E29C004080A7 /* AddOperationViewController.swift */,
 			);
@@ -178,7 +180,7 @@
 				D35A16502743EE0C00BDFDE1 /* Profile.storyboard */,
 				D3533D0027452A2500CCBEC6 /* History.storyboard */,
 				D3533D0227452E2A00CCBEC6 /* AddCategory.storyboard */,
-				5C20F70127428DEF002A22A0 /* SecondStoryboard.storyboard */,
+				5C20F70127428DEF002A22A0 /* MainStoryboard.storyboard */,
 				D32AEED12746B0ED004080A7 /* AddAccount.storyboard */,
 				D32AEED52746D4B3004080A7 /* AddOperation.storyboard */,
 			);
@@ -201,6 +203,7 @@
 				F89D27BC27413169006A0447 /* Locale.swift */,
 				F89D27BA27412EF8006A0447 /* Numeric.swift */,
 				D3533D0627455FEE00CCBEC6 /* OverviewExtension.swift */,
+				F860B1492749380500B0AA0A /* UITableViewDataSourceExtension.swift */,
 				D3533D0827456A1100CCBEC6 /* UserPublicAndPrivateExtension.swift */,
 				D32AEED92747C365004080A7 /* MainViewExtension.swift */,
 			);
@@ -273,7 +276,7 @@
 				F89D27B427410C74006A0447 /* Overview.storyboard in Resources */,
 				D3533D0327452E2A00CCBEC6 /* AddCategory.storyboard in Resources */,
 				D32FBF8C273FE5FA005DC56C /* Assets.xcassets in Resources */,
-				5C20F70227428DEF002A22A0 /* SecondStoryboard.storyboard in Resources */,
+				5C20F70227428DEF002A22A0 /* MainStoryboard.storyboard in Resources */,
 				D32FBF8A273FE5F9005DC56C /* TabBar.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -289,7 +292,7 @@
 				D32AEED42746B348004080A7 /* AddAccountViewController.swift in Sources */,
 				D32C9E7B27412BBE00B1BB61 /* DataManager.swift in Sources */,
 				D32FBF87273FE5F9005DC56C /* TabBarViewController.swift in Sources */,
-				5C20F70427428E04002A22A0 /* SecondViewController.swift in Sources */,
+				5C20F70427428E04002A22A0 /* MainViewController.swift in Sources */,
 				D32C9E76274112F700B1BB61 /* Categories.swift in Sources */,
 				D32AEED82746E29C004080A7 /* AddOperationViewController.swift in Sources */,
 				D32AEEDA2747C365004080A7 /* MainViewExtension.swift in Sources */,
@@ -300,6 +303,7 @@
 				D32C9E7927411A4600B1BB61 /* Operations.swift in Sources */,
 				D3533D0B27456AFF00CCBEC6 /* Profiles.swift in Sources */,
 				D32C9E74274112E200B1BB61 /* Accounts.swift in Sources */,
+				F860B14A2749380500B0AA0A /* UITableViewDataSourceExtension.swift in Sources */,
 				F89D27BD27413169006A0447 /* Locale.swift in Sources */,
 				F89D27BB27412EF8006A0447 /* Numeric.swift in Sources */,
 				F89D27B6274114BD006A0447 /* OverviewViewController.swift in Sources */,
