@@ -152,6 +152,7 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="olG-Xn-UXU" secondAttribute="trailing" constant="70" id="2gZ-Os-sx3"/>
                             <constraint firstItem="1nF-Pc-NFC" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="70" id="7Lc-Np-0Ni"/>
                             <constraint firstItem="olG-Xn-UXU" firstAttribute="top" secondItem="YZE-63-1PC" secondAttribute="bottom" constant="10" id="Bl4-Z9-9hb"/>
+                            <constraint firstItem="5v9-Q8-h2i" firstAttribute="height" secondItem="5EZ-qb-Rvc" secondAttribute="height" multiplier="0.126674" id="GsD-gl-gfP"/>
                             <constraint firstItem="gam-qe-Qwd" firstAttribute="top" secondItem="1nF-Pc-NFC" secondAttribute="bottom" constant="8" symbolic="YES" id="TD1-U3-2Ig"/>
                             <constraint firstItem="olG-Xn-UXU" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="173" id="Twt-Zt-7Ge"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="gam-qe-Qwd" secondAttribute="trailing" constant="70" id="UbD-H7-kQu"/>

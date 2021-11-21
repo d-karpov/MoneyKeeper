@@ -35,7 +35,7 @@ class ChangeBankAccountViewController: UITableViewController {
         guard let indexPath = tableView.indexPathForSelectedRow else { return }
 
         let account = user.profile.accounts[indexPath.row]
-        secondVC.cardButton.setTitle("Bank: \(account.name)\nBalance: \(account.moneyAmount) ", for: .normal)
+        secondVC.cardButton.setTitle("Bank: \(account.name)\nBalance: \(String(format: "%.2f",account.moneyAmount))", for: .normal)
         secondVC.nameLabel.text = "Welcome \(user.profile.fullname)"
         
     }

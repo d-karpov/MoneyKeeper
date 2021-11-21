@@ -12,26 +12,23 @@ class SecondViewController: UIViewController {
     @IBOutlet weak var cardButton: UIButton!
     
     @IBOutlet weak var cardLabel: UILabel!
-    
-    var user: User!
-    var delegate: OverviewUserUpdatingDelegate!
+    @IBOutlet weak var nameLabel: UILabel!
     
     @IBOutlet weak var upperView: UIView!
     @IBOutlet weak var grayViewOutlet: UIView!
     
     @IBOutlet var buttonOutlets: [UIButton]!
     
-    @IBOutlet weak var nameLabel: UILabel!
-        
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    var user: User!
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         cardButton.setTitle(
         """
         Bank: \(user.profile.accounts.map{$0.name}.joined(separator: ", "))
-        Balance: \(user.profile.accounts.map{"\($0.moneyAmount)"}.joined(separator: ", "))
+        Balance: \(user.profile.accounts.map{String(format: "%.2f", $0.moneyAmount)}.joined(separator: ", "))
         """, for: .normal)
     }
-    
     override func viewWillLayoutSubviews() {
         cardButton.layer.cornerRadius = view.frame.width / 15
         grayViewOutlet.layer.cornerRadius = view.frame.width / 15
