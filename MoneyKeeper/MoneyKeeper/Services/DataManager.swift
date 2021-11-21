@@ -8,7 +8,6 @@
 import UIKit
 
 //MARK: - DataManager class
-
 class DataManager {
     
     static let shared = DataManager()
@@ -21,7 +20,6 @@ class DataManager {
 }
 
 // MARK: - TetsData class
-
 class TestDataSet {
     static let shared = TestDataSet()
     
