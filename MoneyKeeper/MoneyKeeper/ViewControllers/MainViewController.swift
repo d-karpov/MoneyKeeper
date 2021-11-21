@@ -66,8 +66,8 @@ class MainViewController: UIViewController {
             }
         }
     }
-    //MARK: - Private Methods
-   private func updateUI() {
+    //MARK: -  Methods
+        func updateUI() {
         historyTableView.reloadData()
         cardButton.setTitle("Balance: \(String(format: "%.2f",user.getTotalMoneyAmount()))", for: .normal)
     }
