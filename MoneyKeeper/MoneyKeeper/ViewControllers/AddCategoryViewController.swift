@@ -17,7 +17,7 @@ class AddCategoryViewController: UIViewController {
     
 //MARK: - Public properties
     var user: User!
-    var delegate: OverviewUserUpdatingDelegate!
+    var delegate: UserUpdatingDelegate!
     
 //MARK: - Overrides
     override func viewDidLoad() {

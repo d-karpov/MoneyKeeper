@@ -7,11 +7,17 @@
 
 import Foundation
 
-protocol MainViewUserUpdatingDelegate {
+protocol UserUpdatingDelegate {
     func updateUser(_ newUser: User)
 }
 
-extension MainViewController: MainViewUserUpdatingDelegate {
+extension MainViewController: UserUpdatingDelegate {
+    func updateUser(_ newUser: User) {
+        user = newUser
+    }
+}
+
+extension OverviewViewController: UserUpdatingDelegate {
     func updateUser(_ newUser: User) {
         user = newUser
         updateUI()

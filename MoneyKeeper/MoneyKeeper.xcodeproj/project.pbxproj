@@ -14,7 +14,7 @@
 		D32AEED42746B348004080A7 /* AddAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32AEED32746B348004080A7 /* AddAccountViewController.swift */; };
 		D32AEED62746D4B3004080A7 /* AddOperation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D32AEED52746D4B3004080A7 /* AddOperation.storyboard */; };
 		D32AEED82746E29C004080A7 /* AddOperationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32AEED72746E29C004080A7 /* AddOperationViewController.swift */; };
-		D32AEEDA2747C365004080A7 /* MainViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32AEED92747C365004080A7 /* MainViewExtension.swift */; };
+		D32AEEDA2747C365004080A7 /* ViewsProtocolExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32AEED92747C365004080A7 /* ViewsProtocolExtension.swift */; };
 		D32C9E722741123800B1BB61 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32C9E712741123800B1BB61 /* Users.swift */; };
 		D32C9E74274112E200B1BB61 /* Accounts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32C9E73274112E200B1BB61 /* Accounts.swift */; };
 		D32C9E76274112F700B1BB61 /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32C9E75274112F700B1BB61 /* Categories.swift */; };
@@ -29,7 +29,6 @@
 		D3533D0127452A2500CCBEC6 /* History.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3533D0027452A2500CCBEC6 /* History.storyboard */; };
 		D3533D0327452E2A00CCBEC6 /* AddCategory.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3533D0227452E2A00CCBEC6 /* AddCategory.storyboard */; };
 		D3533D052745370E00CCBEC6 /* AddCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3533D042745370E00CCBEC6 /* AddCategoryViewController.swift */; };
-		D3533D0727455FEE00CCBEC6 /* OverviewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3533D0627455FEE00CCBEC6 /* OverviewExtension.swift */; };
 		D3533D0927456A1100CCBEC6 /* UserPublicAndPrivateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3533D0827456A1100CCBEC6 /* UserPublicAndPrivateExtension.swift */; };
 		D3533D0B27456AFF00CCBEC6 /* Profiles.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3533D0A27456AFE00CCBEC6 /* Profiles.swift */; };
 		D35A16512743EE0C00BDFDE1 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D35A16502743EE0C00BDFDE1 /* Profile.storyboard */; };
@@ -52,7 +51,7 @@
 		D32AEED32746B348004080A7 /* AddAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccountViewController.swift; sourceTree = "<group>"; };
 		D32AEED52746D4B3004080A7 /* AddOperation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddOperation.storyboard; sourceTree = "<group>"; };
 		D32AEED72746E29C004080A7 /* AddOperationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddOperationViewController.swift; sourceTree = "<group>"; };
-		D32AEED92747C365004080A7 /* MainViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewExtension.swift; sourceTree = "<group>"; };
+		D32AEED92747C365004080A7 /* ViewsProtocolExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewsProtocolExtension.swift; sourceTree = "<group>"; };
 		D32C9E712741123800B1BB61 /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
 		D32C9E73274112E200B1BB61 /* Accounts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Accounts.swift; sourceTree = "<group>"; };
 		D32C9E75274112F700B1BB61 /* Categories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
@@ -69,7 +68,6 @@
 		D3533D0027452A2500CCBEC6 /* History.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = History.storyboard; sourceTree = "<group>"; };
 		D3533D0227452E2A00CCBEC6 /* AddCategory.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddCategory.storyboard; sourceTree = "<group>"; };
 		D3533D042745370E00CCBEC6 /* AddCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCategoryViewController.swift; sourceTree = "<group>"; };
-		D3533D0627455FEE00CCBEC6 /* OverviewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewExtension.swift; sourceTree = "<group>"; };
 		D3533D0827456A1100CCBEC6 /* UserPublicAndPrivateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPublicAndPrivateExtension.swift; sourceTree = "<group>"; };
 		D3533D0A27456AFE00CCBEC6 /* Profiles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profiles.swift; sourceTree = "<group>"; };
 		D35A16502743EE0C00BDFDE1 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
@@ -202,10 +200,9 @@
 				F89568C02745817E00131746 /* Sequence.swift */,
 				F89D27BC27413169006A0447 /* Locale.swift */,
 				F89D27BA27412EF8006A0447 /* Numeric.swift */,
-				D3533D0627455FEE00CCBEC6 /* OverviewExtension.swift */,
 				F860B1492749380500B0AA0A /* UITableViewDataSourceExtension.swift */,
 				D3533D0827456A1100CCBEC6 /* UserPublicAndPrivateExtension.swift */,
-				D32AEED92747C365004080A7 /* MainViewExtension.swift */,
+				D32AEED92747C365004080A7 /* ViewsProtocolExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -295,11 +292,10 @@
 				5C20F70427428E04002A22A0 /* MainViewController.swift in Sources */,
 				D32C9E76274112F700B1BB61 /* Categories.swift in Sources */,
 				D32AEED82746E29C004080A7 /* AddOperationViewController.swift in Sources */,
-				D32AEEDA2747C365004080A7 /* MainViewExtension.swift in Sources */,
+				D32AEEDA2747C365004080A7 /* ViewsProtocolExtension.swift in Sources */,
 				D3533D0927456A1100CCBEC6 /* UserPublicAndPrivateExtension.swift in Sources */,
 				F860E85127442E8E00D49FAB /* HistoryViewController.swift in Sources */,
 				F89568C12745817E00131746 /* Sequence.swift in Sources */,
-				D3533D0727455FEE00CCBEC6 /* OverviewExtension.swift in Sources */,
 				D32C9E7927411A4600B1BB61 /* Operations.swift in Sources */,
 				D3533D0B27456AFF00CCBEC6 /* Profiles.swift in Sources */,
 				D32C9E74274112E200B1BB61 /* Accounts.swift in Sources */,
