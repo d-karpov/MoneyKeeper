@@ -8,14 +8,17 @@
 import UIKit
 
 class HistoryViewController: UIViewController {
+//MARK: - IBOutlets
     @IBOutlet var iconImageView: UIImageView!
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var amountLabel: UILabel!
     
+//MARK: - Publick Properties
     var itemType: String!
     var itemName: String!
     var operations: [Operation]!
-    
+
+//MARK: - Overrides
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -38,6 +41,7 @@ class HistoryViewController: UIViewController {
     }
 }
 
+//MARK: - UITableViewDataSource
 extension HistoryViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         getUniqueDates(ofOperationArray: operations).count
@@ -73,6 +77,7 @@ extension HistoryViewController: UITableViewDataSource {
     }
 }
 
+//MARK: - UITableViewDelegate
 extension HistoryViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)

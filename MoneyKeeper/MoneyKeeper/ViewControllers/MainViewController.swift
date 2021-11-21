@@ -22,12 +22,17 @@ class MainViewController: UIViewController {
     
 //MARK: - Properties
     var user: User!
+    var selectedAccountIndex: Int!
     
     private var lastOperations: [Operation] {
         user.getAllActiveOperations().sorted(by: {$0.date > $1.date})
     }
     
 //MARK: - Life Cycles Methods
+    override func viewDidLoad() {
+        selectedAccountIndex = nil
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         updateUI()
@@ -48,14 +53,14 @@ class MainViewController: UIViewController {
         } else if let addOperationVC = segue.destination as? AddOperationViewController {
             addOperationVC.user = user
             addOperationVC.delegate = self
-            guard let indexOfActiveAccount = user.profile.indexOfActiveAccount else { return }
-            addOperationVC.account = user.profile.accounts[indexOfActiveAccount]
+            guard let currentAccountIndex = selectedAccountIndex else { return }
+            addOperationVC.account = user.profile.accounts[currentAccountIndex]
         } else if let addAccountVC = segue.destination as? AddAccountViewController {
             addAccountVC.user = user
             addAccountVC.delegate = self
         } else if let historyVC = segue.destination as? HistoryViewController {
-            if let _ = sender as? UIButton, let indexOfActiveAccount = user.profile.indexOfActiveAccount {
-                let activeAccount = user.profile.accounts[indexOfActiveAccount]
+            if let _ = sender as? UIButton, let currentAccountIndex = selectedAccountIndex {
+                let activeAccount = user.profile.accounts[currentAccountIndex]
                 historyVC.itemType = "account"
                 historyVC.itemName = activeAccount.name
                 historyVC.operations = activeAccount.getActiveOperations()
@@ -74,8 +79,8 @@ class MainViewController: UIViewController {
 //MARK: - Publick Methods
     func updateUI() {
         historyTableView.reloadData()
-        if let indexOfActiveAccount = user.profile.indexOfActiveAccount{
-            let activeAccount = user.profile.accounts[indexOfActiveAccount] 
+        if let currentAccountIndex = selectedAccountIndex {
+            let activeAccount = user.profile.accounts[currentAccountIndex]
             cardButton.setTitle("Bank: \(activeAccount.name)\nBalance: \(activeAccount.moneyAmount.currencyRU)", for: .normal)
         } else {
             cardButton.setTitle("Balance: \(user.getTotalMoneyAmount().currencyRU)", for: .normal)

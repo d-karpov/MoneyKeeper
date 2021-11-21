@@ -13,7 +13,6 @@ struct Profile {
     let surname: String
     var categories: [Category]
     var accounts: [Account]
-    var indexOfActiveAccount: Int?
     
     var fullname: String {
         "\(name) \(surname)"

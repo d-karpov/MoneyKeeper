@@ -41,7 +41,7 @@ class TeamDataSet {
     
     static let shared = TeamDataSet()
     
-    let avatars = ["den", "nik", "den"]
+    let avatars = ["den", "nik", "ed"]
     let names = ["Denis", "Nikita", "Ed"]
     let description = ["Model chief", "Screen lord", "Git guru"]
     

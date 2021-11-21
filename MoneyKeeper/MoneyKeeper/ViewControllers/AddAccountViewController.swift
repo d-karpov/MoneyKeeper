@@ -38,7 +38,6 @@ class AddAccountViewController: UIViewController {
             case 0: user.addAccount(Account(status: .excluded, name: accountName, operations: [], rawMoneyAmount: balance))
             default: user.addAccount(Account(status: .included, name: accountName, operations: [], rawMoneyAmount: balance))
             }
-            user.profile.indexOfActiveAccount = user.profile.accounts.endIndex - 1
             user.saveUserToDataManager(DataManager.shared, user)
             delegate.updateUser(user)
         }
