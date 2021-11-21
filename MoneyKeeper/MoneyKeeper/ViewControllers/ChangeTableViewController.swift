@@ -12,12 +12,14 @@ import UIKit
 class ChangeBankAccountViewController: UITableViewController {
 
     var user: User!
+    var delegate: UserUpdatingDelegate!
  
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         user.profile.accounts.count
     }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "change", for: indexPath)
 
@@ -31,13 +33,11 @@ class ChangeBankAccountViewController: UITableViewController {
     }
   
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let secondVC = segue.destination as? MainViewController else { return }
+        guard let mainVC = segue.destination as? MainViewController else { return }
         guard let indexPath = tableView.indexPathForSelectedRow else { return }
 
-        let account = user.profile.accounts[indexPath.row]
-        secondVC.cardButton.setTitle("Bank: \(account.name)\nBalance: \(String(format: "%.2f",account.moneyAmount))", for: .normal)
-        secondVC.nameLabel.text = "Welcome \(user.profile.fullname)"
-        
+        user.profile.indexOfActiveAccount = indexPath.row
+        mainVC.updateUser(user)
     }
 }
 

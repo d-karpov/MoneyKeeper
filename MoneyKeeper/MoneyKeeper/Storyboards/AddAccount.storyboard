@@ -38,7 +38,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="deM-cV-OiL">
                                 <rect key="frame" x="15" y="193.5" width="384" height="278"/>
                                 <subviews>
-                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="rEe-dl-NHv">
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="rEe-dl-NHv">
                                         <rect key="frame" x="30" y="30" width="324" height="51"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="UMH-71-mRW"/>
@@ -47,7 +47,7 @@
                                             <segment title="Exclude from Total"/>
                                             <segment title="Take into Total"/>
                                         </segments>
-                                        <color key="selectedSegmentTintColor" systemColor="systemYellowColor"/>
+                                        <color key="selectedSegmentTintColor" systemColor="systemGreenColor"/>
                                         <connections>
                                             <action selector="changeAccountType:" destination="Y6W-OH-hqX" eventType="valueChanged" id="uAM-W8-P8d"/>
                                         </connections>
@@ -118,8 +118,8 @@
     </scenes>
     <resources>
         <image name="creditcard.circle" catalog="system" width="128" height="121"/>
-        <systemColor name="systemYellowColor">
-            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

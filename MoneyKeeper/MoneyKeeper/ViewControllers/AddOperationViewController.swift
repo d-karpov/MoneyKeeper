@@ -48,7 +48,7 @@ class AddOperationViewController: UIViewController {
         accountText.delegate = self
         accountText.inputView = accountPicker
         if account == nil {
-            accountText.text = "Tinkoff"
+            accountText.text = user.profile.accounts[0].name
         } else {
             accountText.text = account.name
         }
