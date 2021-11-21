@@ -4,11 +4,10 @@
 //
 //  Created by EDUARD Latynsky on 15.11.2021.
 //
-
 import UIKit
 
 class MainViewController: UIViewController {
-
+    // MARK: - IB Outlets
     @IBOutlet weak var cardButton: UIButton!
     
     @IBOutlet var buttonOutlets: [UIButton]!
@@ -20,25 +19,20 @@ class MainViewController: UIViewController {
     
     @IBOutlet weak var upperView: UIView!
     @IBOutlet weak var grayViewOutlet: UIView!
-
+    
+    // MARK: - Properties
     var user: User!
     
     private var lastOperations: [Operation] {
         user.getAllActiveOperations().sorted(by: {$0.date > $1.date})
     }
-        
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        buttonOutlets.forEach {
-            $0.layer.cornerRadius = 10
-        }
-    }
     
+    // MARK: - Life Cycles Methods
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         updateUI()
     }
-        
+    
     override func viewWillLayoutSubviews() {
         cardButton.layer.cornerRadius = view.frame.width / 15
         grayViewOutlet.layer.cornerRadius = view.frame.width / 15
@@ -46,8 +40,10 @@ class MainViewController: UIViewController {
             $0.layer.cornerRadius = view.frame.width / 30
         }        
     }
-       
+    
     // MARK: - Navigation
+    @IBAction func undwindSegue(_ sender: UIStoryboardSegue){
+    }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let changeVC = segue.destination as? ChangeBankAccountViewController {
@@ -70,20 +66,14 @@ class MainViewController: UIViewController {
             }
         }
     }
-    
-    func updateUI() {
+    //MARK: -  Methods
+        func updateUI() {
         historyTableView.reloadData()
-        cardButton.setTitle(
-        """
-        Bank: \(user.profile.accounts.map{$0.name}.joined(separator: ", "))
-        Balance: \(user.profile.accounts.map{String(format: "%.2f", $0.moneyAmount)}.joined(separator: ", "))
-        """, for: .normal)
+        cardButton.setTitle("Balance: \(String(format: "%.2f",user.getTotalMoneyAmount()))", for: .normal)
     }
-    
-//    @IBAction func undwindSegue(_ sender: UIStoryboardSegue){
-//    }
 }
 
+   //MARK: - Extensions
 extension MainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         lastOperations.filter {string(ofDate: $0.date) == getUniqueDates(ofOperationArray: lastOperations)[section]}.count

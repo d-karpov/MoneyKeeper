@@ -7,17 +7,15 @@
 
 import UIKit
 
-
-
 class ChangeBankAccountViewController: UITableViewController {
-
+    //MARK: - Properties
     var user: User!
  
     // MARK: - Table view data source
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         user.profile.accounts.count
     }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "change", for: indexPath)
 
@@ -37,7 +35,7 @@ class ChangeBankAccountViewController: UITableViewController {
         let account = user.profile.accounts[indexPath.row]
         secondVC.cardButton.setTitle("Bank: \(account.name)\nBalance: \(String(format: "%.2f",account.moneyAmount))", for: .normal)
         secondVC.nameLabel.text = "Welcome \(user.profile.fullname)"
-        
     }
+    
 }
 
