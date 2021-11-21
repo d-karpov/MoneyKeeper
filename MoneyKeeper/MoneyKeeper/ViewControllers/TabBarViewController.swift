@@ -34,6 +34,9 @@ class TabBarViewController: UITabBarController {
                 }
                 if let mainVC = viewController as? MainViewController {
                     mainVC.user = user
+                    if mainVC.isViewLoaded {
+                        mainVC.updateUI()
+                    }
                 }
             }
         }
