@@ -14,7 +14,7 @@
                 <viewControllerPlaceholder storyboardName="AddOperation" referencedIdentifier="AddOperation" id="R81-9r-ntd" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xAy-0E-gfQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="282" y="224"/>
+            <point key="canvasLocation" x="-638" y="161"/>
         </scene>
         <!--History-->
         <scene sceneID="SAw-77-mtg">
@@ -110,6 +110,9 @@
                                         <color key="tintColor" systemColor="systemGreenColor"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="plus.square.dashed" catalog="system"/>
+                                        <connections>
+                                            <segue destination="bva-vz-NPi" kind="presentation" id="fkA-zH-m9H"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -183,6 +186,9 @@
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemGray5Color"/>
                         <constraints>
+                            <constraint firstItem="gam-qe-Qwd" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="70" id="0rM-Vb-pz9"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="olG-Xn-UXU" secondAttribute="trailing" constant="70" id="2gZ-Os-sx3"/>
+                            <constraint firstItem="1nF-Pc-NFC" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="70" id="7Lc-Np-0Ni"/>
                             <constraint firstItem="olG-Xn-UXU" firstAttribute="top" secondItem="YZE-63-1PC" secondAttribute="bottom" constant="10" id="Bl4-Z9-9hb"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="fj8-jW-mAm" secondAttribute="trailing" constant="36" id="D3H-PB-Wth"/>
                             <constraint firstItem="olG-Xn-UXU" firstAttribute="centerX" secondItem="fj8-jW-mAm" secondAttribute="centerX" id="Dko-96-Vlb"/>
@@ -206,19 +212,17 @@
                     <tabBarItem key="tabBarItem" title="Main" image="creditcard" catalog="system" id="ADh-LM-9Uj"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="cartOutletBtn" destination="olG-Xn-UXU" id="T2c-RE-FKN"/>
+                        <outlet property="cardButton" destination="olG-Xn-UXU" id="T2c-RE-FKN"/>
                         <outlet property="grayViewOutlet" destination="5v9-Q8-h2i" id="Pf6-hk-CSG"/>
                         <outlet property="historyTableView" destination="8J9-xo-o6k" id="sw5-u0-JCt"/>
                         <outlet property="nameLabel" destination="dGT-sl-bif" id="vVa-kx-rUA"/>
                         <outletCollection property="buttonOutlets" destination="sUV-lh-71k" collectionClass="NSMutableArray" id="UQI-PQ-1aX"/>
                         <outletCollection property="buttonOutlets" destination="XzD-ZP-Oly" collectionClass="NSMutableArray" id="qoo-a9-9OC"/>
-                        <outletCollection property="buttonOutlets" destination="d5q-as-6wQ" collectionClass="NSMutableArray" id="to2-fa-ltS"/>
-                        <outletCollection property="buttonOutlets" destination="e3H-f6-20D" collectionClass="NSMutableArray" id="OA9-96-CXc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="50.724637681159422" y="-194.19642857142856"/>
+            <point key="canvasLocation" x="-723.1884057971015" y="-252.45535714285714"/>
         </scene>
         <!--Change Bank Account View Controller-->
         <scene sceneID="MQI-Q2-ru5">
@@ -229,15 +233,24 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="gray" indentationWidth="10" reuseIdentifier="change" id="CqU-hH-Jy9">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="gray" indentationWidth="10" reuseIdentifier="change" textLabel="2nh-Rr-2o0" style="IBUITableViewCellStyleDefault" id="CqU-hH-Jy9">
                                 <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="CqU-hH-Jy9" id="juS-lT-qeW">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2nh-Rr-2o0">
+                                            <rect key="frame" x="20" y="0.0" width="374" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="SV8-2F-j7l" kind="unwind" unwindAction="undwindSegue:" id="SUA-Nz-uZe"/>
+                                    <segue destination="SV8-2F-j7l" kind="unwind" unwindAction="undwindSegue:" id="a8A-4n-ARL"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -255,17 +268,19 @@
                 </imageView>
                 <exit id="SV8-2F-j7l" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="764" y="-194"/>
+            <point key="canvasLocation" x="332" y="-239"/>
         </scene>
     </scenes>
     <resources>
         <image name="creditcard" catalog="system" width="128" height="88"/>
+        <image name="info.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="plus.square" catalog="system" width="128" height="114"/>
         <image name="plus.square.dashed" catalog="system" width="128" height="114"/>
-        <systemColor name="secondarySystemBackgroundColor">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGray2Color">
             <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

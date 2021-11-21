@@ -9,7 +9,7 @@ import UIKit
 
 class SecondViewController: UIViewController {
 
-    @IBOutlet weak var cartOutletBtn: UIButton!
+    @IBOutlet weak var cardButton: UIButton!
     
     @IBOutlet var buttonOutlets: [UIButton]!
     
@@ -32,16 +32,34 @@ class SecondViewController: UIViewController {
         buttonOutlets.forEach {
             $0.layer.cornerRadius = 10
         }
-    }
+    @IBOutlet var buttonOutlets: [UIButton]!
     
+    var user: User!
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        cardButton.setTitle(
+        """
+        Bank: \(user.profile.accounts.map{$0.name}.joined(separator: ", "))
+        Balance: \(user.profile.accounts.map{String(format: "%.2f", $0.moneyAmount)}.joined(separator: ", "))
+        """, for: .normal)
+    }
     override func viewWillLayoutSubviews() {
-        cartOutletBtn.layer.cornerRadius = view.frame.width / 15
+        cardButton.layer.cornerRadius = view.frame.width / 15
         grayViewOutlet.layer.cornerRadius = view.frame.width / 15
+        buttonOutlets.forEach {
+            $0.layer.cornerRadius = view.frame.width / 30
+        }        
     }
        
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let addAcountVC = segue.destination as? AddOperationViewController {
+            addAcountVC.user = user
+            addAcountVC.delegate = self
+        } else if let changeVC = segue.destination as? ChangeBankAccountViewController {
+            changeVC.user = user
         if let addAccountVC = segue.destination as? AddOperationViewController {
             addAccountVC.user = user
             addAccountVC.delegate = self
@@ -56,6 +74,9 @@ class SecondViewController: UIViewController {
                 historyVC.operations = user.getMonthlyAllOperations()
             }
         }
+    }
+    
+    @IBAction func undwindSegue(_ sender: UIStoryboardSegue){
     }
 }
 
