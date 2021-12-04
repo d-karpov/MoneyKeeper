@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		5C20F70227428DEF002A22A0 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C20F70127428DEF002A22A0 /* MainStoryboard.storyboard */; };
 		5C20F70427428E04002A22A0 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C20F70327428E04002A22A0 /* MainViewController.swift */; };
-		5C20F7082742A17A002A22A0 /* ChangeBankAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C20F7072742A17A002A22A0 /* ChangeBankAccountViewController.swift */; };
+		5C20F7082742A17A002A22A0 /* ChangeAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C20F7072742A17A002A22A0 /* ChangeAccountViewController.swift */; };
 		D32AEED22746B0ED004080A7 /* AddAccount.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D32AEED12746B0ED004080A7 /* AddAccount.storyboard */; };
 		D32AEED42746B348004080A7 /* AddAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32AEED32746B348004080A7 /* AddAccountViewController.swift */; };
 		D32AEED62746D4B3004080A7 /* AddOperation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D32AEED52746D4B3004080A7 /* AddOperation.storyboard */; };
@@ -33,6 +33,7 @@
 		D3533D0B27456AFF00CCBEC6 /* Profiles.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3533D0A27456AFE00CCBEC6 /* Profiles.swift */; };
 		D35A16512743EE0C00BDFDE1 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D35A16502743EE0C00BDFDE1 /* Profile.storyboard */; };
 		D35A16532743EF5500BDFDE1 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35A16522743EF5500BDFDE1 /* ProfileViewController.swift */; };
+		F8466EFC275B9CA5001E3FA7 /* ChangeAccount.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8466EFB275B9CA5001E3FA7 /* ChangeAccount.storyboard */; };
 		F860B14A2749380500B0AA0A /* UITableViewDataSourceExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F860B1492749380500B0AA0A /* UITableViewDataSourceExtension.swift */; };
 		F860E85127442E8E00D49FAB /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F860E85027442E8E00D49FAB /* HistoryViewController.swift */; };
 		F89568C12745817E00131746 /* Sequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89568C02745817E00131746 /* Sequence.swift */; };
@@ -46,7 +47,7 @@
 /* Begin PBXFileReference section */
 		5C20F70127428DEF002A22A0 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
 		5C20F70327428E04002A22A0 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		5C20F7072742A17A002A22A0 /* ChangeBankAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeBankAccountViewController.swift; sourceTree = "<group>"; };
+		5C20F7072742A17A002A22A0 /* ChangeAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeAccountViewController.swift; sourceTree = "<group>"; };
 		D32AEED12746B0ED004080A7 /* AddAccount.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddAccount.storyboard; sourceTree = "<group>"; };
 		D32AEED32746B348004080A7 /* AddAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccountViewController.swift; sourceTree = "<group>"; };
 		D32AEED52746D4B3004080A7 /* AddOperation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddOperation.storyboard; sourceTree = "<group>"; };
@@ -72,6 +73,7 @@
 		D3533D0A27456AFE00CCBEC6 /* Profiles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profiles.swift; sourceTree = "<group>"; };
 		D35A16502743EE0C00BDFDE1 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		D35A16522743EF5500BDFDE1 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		F8466EFB275B9CA5001E3FA7 /* ChangeAccount.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ChangeAccount.storyboard; sourceTree = "<group>"; };
 		F860B1492749380500B0AA0A /* UITableViewDataSourceExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewDataSourceExtension.swift; sourceTree = "<group>"; };
 		F860E85027442E8E00D49FAB /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		F89568C02745817E00131746 /* Sequence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sequence.swift; sourceTree = "<group>"; };
@@ -163,7 +165,7 @@
 				D3533D042745370E00CCBEC6 /* AddCategoryViewController.swift */,
 				D32AEED32746B348004080A7 /* AddAccountViewController.swift */,
 				5C20F70327428E04002A22A0 /* MainViewController.swift */,
-				5C20F7072742A17A002A22A0 /* ChangeBankAccountViewController.swift */,
+				5C20F7072742A17A002A22A0 /* ChangeAccountViewController.swift */,
 				D32AEED72746E29C004080A7 /* AddOperationViewController.swift */,
 			);
 			path = ViewControllers;
@@ -177,6 +179,7 @@
 				F89D27B327410C74006A0447 /* Overview.storyboard */,
 				D35A16502743EE0C00BDFDE1 /* Profile.storyboard */,
 				D3533D0027452A2500CCBEC6 /* History.storyboard */,
+				F8466EFB275B9CA5001E3FA7 /* ChangeAccount.storyboard */,
 				D3533D0227452E2A00CCBEC6 /* AddCategory.storyboard */,
 				5C20F70127428DEF002A22A0 /* MainStoryboard.storyboard */,
 				D32AEED12746B0ED004080A7 /* AddAccount.storyboard */,
@@ -271,6 +274,7 @@
 				D3533D0127452A2500CCBEC6 /* History.storyboard in Resources */,
 				D32AEED62746D4B3004080A7 /* AddOperation.storyboard in Resources */,
 				F89D27B427410C74006A0447 /* Overview.storyboard in Resources */,
+				F8466EFC275B9CA5001E3FA7 /* ChangeAccount.storyboard in Resources */,
 				D3533D0327452E2A00CCBEC6 /* AddCategory.storyboard in Resources */,
 				D32FBF8C273FE5FA005DC56C /* Assets.xcassets in Resources */,
 				5C20F70227428DEF002A22A0 /* MainStoryboard.storyboard in Resources */,
@@ -307,7 +311,7 @@
 				D35A16532743EF5500BDFDE1 /* ProfileViewController.swift in Sources */,
 				D3533D052745370E00CCBEC6 /* AddCategoryViewController.swift in Sources */,
 				D32FBF83273FE5F9005DC56C /* AppDelegate.swift in Sources */,
-				5C20F7082742A17A002A22A0 /* ChangeBankAccountViewController.swift in Sources */,
+				5C20F7082742A17A002A22A0 /* ChangeAccountViewController.swift in Sources */,
 				D32FBF85273FE5F9005DC56C /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -47,7 +47,6 @@
                                     <constraint firstAttribute="trailing" secondItem="xkr-ME-YFj" secondAttribute="trailing" constant="8" id="Kz0-F6-4mm"/>
                                     <constraint firstItem="fzo-kv-kci" firstAttribute="centerY" secondItem="iyI-6u-VvE" secondAttribute="centerY" id="Sy4-7C-UfM"/>
                                     <constraint firstItem="juZ-PG-qds" firstAttribute="leading" secondItem="iyI-6u-VvE" secondAttribute="leading" constant="8" id="cFQ-xr-s4O"/>
-                                    <constraint firstAttribute="width" constant="414" id="ceZ-l4-DbH"/>
                                     <constraint firstItem="fzo-kv-kci" firstAttribute="leading" secondItem="juZ-PG-qds" secondAttribute="trailing" constant="15" id="obR-45-8GL"/>
                                     <constraint firstItem="juZ-PG-qds" firstAttribute="centerY" secondItem="fzo-kv-kci" secondAttribute="centerY" id="rua-uF-hux"/>
                                 </constraints>
@@ -108,7 +107,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="131.8840579710145" y="115.84821428571428"/>
+            <point key="canvasLocation" x="130.40000000000001" y="115.27093596059113"/>
         </scene>
     </scenes>
     <resources>

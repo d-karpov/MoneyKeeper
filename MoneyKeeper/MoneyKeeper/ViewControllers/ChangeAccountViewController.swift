@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ChangeBankAccountViewController: UITableViewController {
+class ChangeAccountViewController: UITableViewController {
 //MARK: - Publick Properties
     var user: User!
     var delegate: UserUpdatingDelegate!

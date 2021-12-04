@@ -52,7 +52,7 @@ class MainViewController: UIViewController {
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let changeVC = segue.destination as? ChangeBankAccountViewController {
+        if let changeVC = segue.destination as? ChangeAccountViewController {
             changeVC.user = user
             changeVC.delegate = self
         } else if let addOperationVC = segue.destination as? AddOperationViewController {
