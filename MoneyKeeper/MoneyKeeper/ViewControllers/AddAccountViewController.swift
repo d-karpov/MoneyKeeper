@@ -8,7 +8,6 @@
 import UIKit
 
 class AddAccountViewController: UIViewController {
-    
 //MARK: - IBOutlets
     @IBOutlet var accountText: UITextField!
     @IBOutlet var balanceText: UITextField!

@@ -16,9 +16,7 @@ struct Account {
     var moneyAmount: Double {
         get {
             updateMoneyAmount()
-        }
-        
-        set {
+        } set {
             rawMoneyAmount = newValue
         }
     }

@@ -8,7 +8,6 @@
 import UIKit
 
 class OverviewViewController: UIViewController {
-    
 //MARK: - IBOutlets
     @IBOutlet var topInfoViewOutlet: UIView!
 
@@ -62,8 +61,8 @@ class OverviewViewController: UIViewController {
                 historyVC.operations = user.getAllOperationsByCattegory(userWithdrawCategories[indexPath.row].name)
             }
         }
-        
     }
+    
 //MARK: - Public methods
     
     func updateUI() {
@@ -137,7 +136,6 @@ extension OverviewViewController: UITableViewDataSource {
     }
 }
 //MARK: - UITableViewDelegate
-
 extension OverviewViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let sectionCount: Int

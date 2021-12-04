@@ -20,16 +20,18 @@ class MainViewController: UIViewController {
     @IBOutlet weak var upperView: UIView!
     @IBOutlet weak var grayViewOutlet: UIView!
     
-//MARK: - Properties
+//MARK: - Publick Properties
     var user: User!
     var selectedAccountIndex: Int!
     
+//MARK: - Private Properties
     private var lastOperations: [Operation] {
         user.getAllActiveOperations().sorted(by: {$0.date > $1.date})
     }
     
 //MARK: - Life Cycles Methods
     override func viewDidLoad() {
+        super.viewDidLoad()
         nameLabel.text = user.profile.fullname
         selectedAccountIndex = nil
     }
@@ -40,6 +42,8 @@ class MainViewController: UIViewController {
     }
     
     override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        historyTableView.layer.cornerRadius = view.frame.width / 15
         cardButton.layer.cornerRadius = view.frame.width / 15
         grayViewOutlet.layer.cornerRadius = view.frame.width / 15
         buttonOutlets.forEach {
@@ -89,7 +93,7 @@ class MainViewController: UIViewController {
     }
 }
 
-//MARK: - Extensions
+//MARK: - UITableViewDataSource
 extension MainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         lastOperations.filter {string(ofDate: $0.date) == getUniqueDates(ofOperationArray: lastOperations)[section]}.count
@@ -124,6 +128,7 @@ extension MainViewController: UITableViewDataSource {
     }
 }
 
+//MARK: - UITableViewDelegate
 extension MainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "historySegue", sender: nil)
