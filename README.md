@@ -2,7 +2,7 @@
 
 ### About project
 
-Project was developed as study exercise to improve participant`s team development skill. 
+Project was developed as exercise to improve participant`s team development skill. 
 CoinKeeper app was taken as inspiration prototype. Main app's purpose to help users controls they budget.
 
 ### Main app's functions:
